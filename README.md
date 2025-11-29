@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NIA Construction Website
+
+A modern, single-page construction company website built with Next.js 15, featuring high-end animations and a royal blue color theme.
+
+## Features
+
+- **Modern Tech Stack**: Next.js 15 with TypeScript and Tailwind CSS
+- **High-End Animations**: Framer Motion for smooth, professional animations
+- **Responsive Design**: Mobile-first approach with beautiful UI on all devices
+- **Royal Blue Theme**: Professional color scheme with royal blue and accent red
+- **Single Page Layout**: Smooth scrolling sections including:
+  - Hero section with animated background
+  - About section with statistics
+  - Services showcase with hover effects
+  - Featured projects gallery
+  - Contact form with info cards
+  - Footer with social links
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Scroll Detection**: React Intersection Observer
 
 ## Getting Started
 
-First, run the development server:
+The development server is already running at:
+- Local: http://localhost:3000
+- Network: http://192.168.29.57:3000
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Structure
+
+```
+construction-site/
+├── app/
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Main page
+│   └── globals.css         # Global styles
+├── components/
+│   ├── Navbar.tsx          # Navigation with scroll effect
+│   ├── Hero.tsx            # Hero section with animations
+│   ├── About.tsx           # About section with stats
+│   ├── Services.tsx        # Services cards
+│   ├── Projects.tsx        # Projects gallery
+│   ├── Contact.tsx         # Contact form
+│   └── Footer.tsx          # Footer section
+└── public/
+    └── logo.svg            # Company logo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Colors
+The color theme is defined in `tailwind.config.ts`:
+- Royal Blue: #1e40af
+- Accent Red: #ef4444
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Content
+Update the content in each component file to match your company's information.
 
-## Learn More
+### Logo
+Replace `/public/logo.svg` with your actual logo file.
 
-To learn more about Next.js, take a look at the following resources:
+## Build for Production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Animation Features
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Scroll-triggered animations
+- Hover effects on cards and buttons
+- Smooth page transitions
+- Animated backgrounds
+- Interactive navigation
+- Card flip and scale effects
