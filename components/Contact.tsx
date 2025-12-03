@@ -1,162 +1,144 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Phone, Mail, MessageCircle, Clock } from 'lucide-react';
 
 const Contact = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
-  const contactInfo = [
-    { icon: Phone, title: 'Phone', info: '+1 (555) 123-4567', link: 'tel:+15551234567' },
-    { icon: Mail, title: 'Email', info: 'info@niaconstruction.com', link: 'mailto:info@niaconstruction.com' },
-    { icon: MapPin, title: 'Address', info: '123 Construction Ave, Building City', link: '#' },
-  ];
-
   return (
-    <section id="contact" className="py-32 bg-gradient-to-br from-royal-blue-900 via-royal-blue to-royal-blue-light relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-          className="absolute top-0 right-0 w-96 h-96 bg-accent-red opacity-10 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-          className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"
-        />
+    <section className="py-32 bg-gradient-to-br from-slate-900 to-gray-900 text-white relative">
+      {/* Diagonal separator */}
+      <div className="absolute top-0 left-0 right-0 h-20 bg-blue-50">
+        <svg className="w-full h-full" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0L1200 0L1200 80L0 40V0Z" fill="rgb(239 246 255)"/>
+        </svg>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Get In <span className="text-accent-red">Touch</span>
-          </motion.h2>
-          <motion.div 
-            className="w-24 h-1 bg-accent-red mx-auto mb-6 rounded-full"
-            initial={{ width: 0 }}
-            animate={inView ? { width: 96 } : {}}
-            transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          />
-          <p className="text-base text-blue-100 max-w-3xl mx-auto">
-            Ready to start your project? Contact us today for a free consultation
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-white/95 backdrop-blur-md rounded-xl p-8 shadow-xl"
-          >
-            <h3 className="text-2xl font-bold text-royal-blue mb-6">Send us a message</h3>
-            <form className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-semibold mb-2 text-sm">Name</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-royal-blue focus:outline-none transition-colors text-sm"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-semibold mb-2 text-sm">Email</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-royal-blue focus:outline-none transition-colors text-sm"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-semibold mb-2 text-sm">Phone</label>
-                <input
-                  type="tel"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-royal-blue focus:outline-none transition-colors text-sm"
-                  placeholder="+1 (555) 000-0000"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-semibold mb-2 text-sm">Message</label>
-                <textarea
-                  rows={4}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-royal-blue focus:outline-none transition-colors resize-none text-sm"
-                  placeholder="Tell us about your project..."
-                ></textarea>
-              </div>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                type="submit"
-                className="w-full bg-gradient-to-r from-royal-blue to-royal-blue-light text-white py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all"
-              >
-                Send Message <Send size={18} />
-              </motion.button>
-            </form>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-4"
-          >
-            {contactInfo.map((item, index) => (
-              <motion.a
-                key={index}
-                href={item.link}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ x: 5 }}
-                className="flex items-start gap-4 bg-white/10 backdrop-blur-md p-6 rounded-xl hover:bg-white/20 transition-all shadow-lg"
-              >
-                <div className="bg-accent-red p-3 rounded-lg shadow-lg">
-                  <item.icon className="w-5 h-5 text-white" />
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-orange-500 text-sm font-semibold uppercase tracking-wider mb-4">
+                CONTACT US
+              </h3>
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                Ready to start your next construction project?
+              </h2>
+            </div>
+            
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Get in touch with our expert team today. We're here to discuss your construction needs, provide detailed estimates, and answer any questions about bringing your vision to life with quality craftsmanship.
+            </p>
+            
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mt-1">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
                 </div>
-                <div>
-                  <h4 className="text-white font-bold text-base mb-1">{item.title}</h4>
-                  <p className="text-blue-100 text-sm">{item.info}</p>
-                </div>
-              </motion.a>
-            ))}
-
-            {/* Map Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white/10 backdrop-blur-md rounded-xl p-8 h-56 flex items-center justify-center shadow-lg"
-            >
-              <div className="text-center text-white">
-                <MapPin size={40} className="mx-auto mb-4 text-accent-red" />
-                <p className="font-bold text-lg mb-1">Visit Our Office</p>
-                <p className="text-blue-100 text-sm">Map integration available</p>
+                <span className="text-gray-300">Free consultation and project estimation</span>
               </div>
-            </motion.div>
-          </motion.div>
+              <div className="flex items-start space-x-3">
+                <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mt-1">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-300">24/7 customer support throughout project lifecycle</span>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mt-1">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-300">Licensed professionals with 15+ years experience</span>
+              </div>
+            </div>
+            
+            <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-colors">
+              Get Free Quote
+            </button>
+          </div>
+
+          {/* Right Content - 3D Illustration and Cards */}
+          <div className="relative">
+            {/* 3D Illustration */}
+            <div className="relative mb-8">
+              <div className="w-full max-w-lg mx-auto">
+                <div className="relative transform hover:scale-105 transition-transform duration-500">
+                  <img 
+                    src="/3D_Images/002b.png" 
+                    alt="3D Contact Us Visualization"
+                    className="w-full h-auto object-contain drop-shadow-2xl scale-125"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Cards */}
+            <div className="grid grid-cols-2 gap-6">
+              {/* Contact Info Card */}
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full mb-4">
+                  <Phone className="w-6 h-6 text-orange-500" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-3">REACH US</h4>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-8 h-8 border-2 border-dashed border-orange-300 rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                      </div>
+                      <span className="text-sm text-gray-600">Phone</span>
+                    </div>
+                    <span className="font-bold text-sm">24/7</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-8 h-8 border-2 border-dashed border-orange-300 rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      </div>
+                      <span className="text-sm text-gray-600">Email</span>
+                    </div>
+                    <span className="font-bold text-sm">1hr</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Response Time Card */}
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4">
+                  <Clock className="w-6 h-6 text-blue-500" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-3">RESPONSE</h4>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-8 h-8 flex items-center justify-center">
+                        <MessageCircle className="w-4 h-4 text-blue-500" />
+                      </div>
+                      <span className="text-sm text-gray-600">Chat Support</span>
+                    </div>
+                    <span className="font-bold text-lg">5min</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-8 h-8 flex items-center justify-center">
+                        <Mail className="w-4 h-4 text-blue-500" />
+                      </div>
+                      <span className="text-sm text-gray-600">Email Quote</span>
+                    </div>
+                    <span className="font-bold text-lg">2hrs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

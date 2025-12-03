@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./gsap-transitions.css";
+import "./curtain-transitions.css";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {

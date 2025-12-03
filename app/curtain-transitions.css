@@ -1,0 +1,187 @@
+/* Curtain Overlay Styles */
+.curtain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.curtain-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #1a1a1a;
+  z-index: 1;
+}
+
+.curtain-left {
+  left: 0;
+  transform-origin: left center;
+}
+
+.curtain-right {
+  right: 0;
+  transform-origin: right center;
+}
+
+.curtain-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 90%;
+}
+
+.curtain-logo h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 0;
+  opacity: 0.8;
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+}
+
+.curtain-section-name {
+  text-align: center;
+}
+
+.curtain-section-name .section-title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+.curtain-section-name .section-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.9;
+  letter-spacing: 0.025em;
+}
+
+.curtain-loader {
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-bar {
+  height: 100%;
+  background: white;
+  border-radius: 1px;
+  width: 0%;
+  position: relative;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .curtain-section-name .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .curtain-section-name .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .curtain-loader {
+    width: 250px;
+  }
+  
+  .curtain-content {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .curtain-section-name .section-title {
+    font-size: 2rem;
+  }
+  
+  .curtain-logo h2 {
+    font-size: 1.2rem;
+  }
+  
+  .curtain-loader {
+    width: 200px;
+  }
+}
+
+/* Enhanced Section Animations */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(37, 99, 235, 0.1) 50%, 
+    transparent 100%
+  );
+  transition: left 0.6s ease-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.section.transitioning::before {
+  left: 100%;
+}
+
+.animate-child {
+  transition: all 0.3s ease-out;
+}
+
+/* Floating elements enhancement */
+.floating-element {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Performance optimizations */
+.curtain-panel,
+.curtain-content,
+.loader-bar {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Accessibility - Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .curtain-panel,
+  .curtain-content,
+  .loader-bar,
+  .floating-element {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .curtain-overlay {
+    display: none !important;
+  }
+}

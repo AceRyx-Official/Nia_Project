@@ -31,4 +31,42 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+/* 3D Parallax Road Animations */
+@keyframes roadMove {
+  0% { transform: translateZ(0) rotateX(75deg); }
+  50% { transform: translateZ(20px) rotateX(75deg); }
+  100% { transform: translateZ(0) rotateX(75deg); }
+}
+
+@keyframes carMove {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(calc(100vw + 100px)); }
+}
+
+@keyframes billboardGlow {
+  0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); }
+}
+
+.road-perspective {
+  animation: roadMove 8s ease-in-out infinite;
+}
+
+.billboard-glow {
+  animation: billboardGlow 3s ease-in-out infinite;
 }

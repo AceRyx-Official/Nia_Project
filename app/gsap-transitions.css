@@ -1,0 +1,87 @@
+/* Simplified GSAP Transition Styles - Clean and Professional */
+
+/* Clean scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.5);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Clean navbar styling */
+.navbar {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+}
+
+/* Page container */
+.page-container {
+  position: relative;
+}
+
+/* Section styling */
+.section {
+  position: relative;
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* NIA Scroll Animation Styles */
+.nia-scroll-container {
+  will-change: transform;
+}
+
+.nia-letter {
+  will-change: transform, opacity;
+}
+
+.nia-road {
+  will-change: transform, opacity;
+}
+
+.nia-car {
+  will-change: transform, opacity;
+}
+
+.nia-board {
+  will-change: transform, opacity, scale;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem;
+  }
+}
