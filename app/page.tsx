@@ -15,9 +15,9 @@ export default function Home() {
         <div className="navbar">
           <Navbar />
         </div>
-        <div className="section hero-section" id="home">
+        {/* <div className="section hero-section" id="home">
           <Hero />
-        </div>
+        </div> */}
         <div className="section" id="about">
           <About />
         </div>
