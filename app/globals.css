@@ -68,3 +68,20 @@ body {
 .billboard-glow {
   animation: billboardGlow 3s ease-in-out infinite;
 }
+
+/* Hero Road Animation */
+@keyframes roadDash {
+  0% {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px) scaleY(2);
+    opacity: 0;
+  }
+}
+
+.animate-road-dash {
+  animation: roadDash 2s linear infinite;
+}
+
