@@ -1,5 +1,5 @@
 'use client';
-
+import Link from "next/link";
 import { Trophy, Target } from 'lucide-react';
 
 const Projects = () => {
@@ -219,7 +219,7 @@ const Projects = () => {
 
             {/* View All Projects Button - At the end on mobile */}
             <div className="lg:hidden col-span-1 w-full px-2 sm:px-4">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-colors w-full">
+             <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-colors w-full">
                 View All Projects
               </button>
             </div>
@@ -227,11 +227,11 @@ const Projects = () => {
 
           {/* View All Projects Button - Desktop version (outside grid) */}
           <div className="hidden lg:flex justify-center w-full px-4 mt-8">
-            <div className="w-full max-w-xs">
+            <Link href="\projects"> <div className="w-full max-w-xs">
               <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-colors w-full">
                 View All Projects
               </button>
-            </div>
+            </div></Link>
           </div>
         </div>
 
