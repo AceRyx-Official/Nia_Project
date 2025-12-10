@@ -22,7 +22,7 @@ const NiaScrollAnimation = () => {
         // initial transformations
         gsap.set(iRef.current, { transformOrigin: 'center top' });
         gsap.set(roadRef.current, { opacity: 0, scaleY: 0, transformOrigin: 'center top' });
-        gsap.set(carRef.current, { opacity: 0, xPercent: -50, rotate: -90 });
+        gsap.set(carRef.current, { opacity: 0, x: -200, rotate: 0 });
         gsap.set(boardRef.current, { opacity: 0, scale: 0.5 });
 
         const tl = gsap.timeline({
@@ -62,9 +62,9 @@ const NiaScrollAnimation = () => {
           // step 4 — bring car in
           .to(carRef.current, { opacity: 1, duration: 0.1 })
 
-          // step 5 — car drives upward
+          // step 5 — car moves from left to right
           .to(carRef.current, {
-            y: -400,
+            x: 200,
             duration: 0.8,
             ease: 'power1.inOut'
           })
@@ -97,7 +97,13 @@ const NiaScrollAnimation = () => {
   return (
     <div
       ref={containerRef}
-      className="relative h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden text-white"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden text-white"
+      style={{
+        backgroundImage: 'url(/Nia_BG.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
       {/* NIA text */}
       <div className="flex items-center text-[10rem] font-bold relative select-none">
@@ -136,9 +142,9 @@ const NiaScrollAnimation = () => {
           {/* car */}
           <div
             ref={carRef}
-            className="absolute bottom-0 left-1/2 z-10"
+            className="absolute bottom-0 left-1/2 z-10 -translate-x-1/2"
           >
-            <Image src="/RedCar.png" alt="car" width={60} height={40} />
+            <Image src="/BeloCar.png" alt="car" width={60} height={40} />
           </div>
         </div>
 

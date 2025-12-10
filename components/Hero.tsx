@@ -1,23 +1,72 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { ArrowRight, Building2, HardHat, Ruler, Play, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { initializeGSAP } from '@/lib/gsap-utils';
 import CurtainNavLink from './CurtainNavLink';
 
 const Hero = () => {
+  const carRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const initAnimation = async () => {
+      const { gsap, ScrollTrigger } = await initializeGSAP();
+      
+      if (ScrollTrigger && carRef.current) {
+        // Initial position for the car (off-screen left)
+        gsap.set(carRef.current, { x: -200, opacity: 0 });
+
+        // Create scroll-triggered animation
+        ScrollTrigger.create({
+          trigger: "body", // Use body as trigger for global scroll
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const screenWidth = window.innerWidth;
+            const startPos = -150; // Start from off-screen left
+            const endPos = screenWidth + 150; // End off-screen right
+            const xPosition = startPos + (progress * (endPos - startPos));
+            const opacity = progress > 0.05 ? 1 : 0; // Fade in after 5% scroll
+            
+            gsap.set(carRef.current, { 
+              x: xPosition,
+              opacity: opacity
+            });
+          }
+        });
+      }
+    };
+
+    initAnimation();
+  }, []);
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+      {/* Background Image */}
       <div className="hero-bg absolute inset-0 w-full h-full">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover scale-105"
-        >
-          <source src="\videos\Drone_Shot_Of_Empty_Road.mp4" type="video/mp4" />
-        </video>
+        <Image
+          src="/Nia_BG.png"
+          alt="Nia Construction Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Video Background (Optional overlay) */}
+        <div className="absolute inset-0 opacity-30">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover scale-105"
+          >
+            <source src="\videos\Drone_Shot_Of_Empty_Road.mp4" type="video/mp4" />
+          </video>
+        </div>
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/65 via-black/70 to-black/80"></div>
         
@@ -28,6 +77,20 @@ const Hero = () => {
             backgroundSize: '50px 50px'
           }}></div>
         </div>
+      </div>
+
+      {/* Animated Car */}
+      <div
+        ref={carRef}
+        className="absolute bottom-20 z-20 pointer-events-none"
+      >
+        <Image
+          src="/BeloCar.png"
+          alt="Car Animation"
+          width={100}
+          height={75}
+          className="drop-shadow-2xl filter brightness-110"
+        />
       </div>
 
       <div className="hero-content relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

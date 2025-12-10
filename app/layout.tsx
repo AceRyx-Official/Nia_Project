@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import "./gsap-transitions.css";
 import "./curtain-transitions.css";
 import { Providers } from "./providers";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "900"],
+  variable: "--font-roboto",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "NIA Construction - Building Your Dreams Into Reality",
@@ -16,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className={`${roboto.variable} antialiased`}>
         <Providers>
           {children}
         </Providers>
