@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import LoaderAnimation from '@/components/LoaderAnimation';
@@ -10,47 +13,57 @@ import Footer from '@/components/Footer';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 
 export default function Home() {
+  const [showLoader, setShowLoader] = useState(true);
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  useEffect(() => {
+    // Check if the loader has already been shown in this session
+    const loaderShown = sessionStorage.getItem('loaderShown');
+
+    if (loaderShown === 'true') {
+      // Skip loader if already shown
+      setShowLoader(false);
+      setHasLoaded(true);
+    }
+  }, []);
+
+  const handleLoaderComplete = () => {
+    // Mark loader as shown for this session
+    sessionStorage.setItem('loaderShown', 'true');
+    setShowLoader(false);
+    setHasLoaded(true);
+  };
+
   return (
-    <>
-      {/* Navbar MUST live outside page transitions */}
-      <Navbar />
+    <PageTransitionWrapper>
+      {/* Loader Animation - Fixed overlay, shows only once */}
+      {showLoader && (
+        <div className="fixed inset-0 z-50">
+          <LoaderAnimation onComplete={handleLoaderComplete} />
+        </div>
+      )}
 
-      <PageTransitionWrapper>
-        <main className="min-h-screen">
-
-          {/* HERO / HOME */}
-          <section id="home">
-            <Hero />
-          </section>
-          {/* <div className="section hero-section" id="home"> 
-          <LoaderAnimation /> 
-          </div> */}
-          {/* ABOUT */}
-          {/* <section id="about">
-            <About />
-          </section> */}
-
-          {/* SERVICES */}
-          <section id="services">
-            <Services />
-          </section>
-
-          {/* PROJECTS */}
-          <section id="projects">
-            <Projects />
-          </section>
-
-          {/* MACHINERY */}
-          <section id="machinery">
-            <Machinery />
-          </section>
-
-          {/* CONTACT */}
-          <section id="contact">
-            <Contact />
-          </section>
-
-          {/* FOOTER */}
+      {/* Main Website Content - Hidden during loader */}
+      <main className={`min-h-screen transition-opacity duration-500 ${hasLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="navbar">
+          <Navbar />
+        </div>
+        <div className="section" id="about">
+          <About />
+        </div>
+        <div className="section" id="services">
+          <Services />
+        </div>
+        <div className="section" id="projects">
+          <Projects />
+        </div>
+        <div className="section" id="machinery">
+          <Machinery />
+        </div>
+        <div className="section" id="contact">
+          <Contact />
+        </div>
+        <div className="section">
           <Footer />
 
         </main>
