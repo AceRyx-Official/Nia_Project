@@ -214,16 +214,17 @@ const Projects = () => {
 
     return (
       <motion.div
-        initial={{ opacity: 1, y: 50 }}
+        initial={{ opacity: 1, y: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px'}}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         onMouseEnter={() => setHovered(index)}
         onMouseLeave={() => setHovered(null)}
-        className="relative bg-white rounded-3xl overflow-hidden h-[500px] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+        className="relative bg-white rounded-3xl overflow-hidden h-[500px] cursor-pointer shadow-lg hover:shadow-2xl will-change-[filter,opacity]"
         style={{
           filter: isAnyHovered && !isHovered ? 'blur(4px)' : 'blur(0px)',
           opacity: isAnyHovered && !isHovered ? 0.6 : 1,
+          transition: 'filter 0.3s ease-out, opacity 0.3s ease-out, box-shadow 0.3s ease-out',
         }}
       >
         {/* Background Image */}
@@ -247,7 +248,7 @@ const Projects = () => {
           {/* Title */}
           <div className="flex-1 flex items-center justify-center">
             <h3 className="text-4xl font-bold text-gray-900 text-center leading-tight transition-transform duration-300"
-                style={{ transform: isHovered ? 'translateY(0px)' : 'translateY(0)' }}>
+                style={{ transform: isHovered ? 'translateY(-10px)' : 'translateY(0)' }}>
               {card.title}
             </h3>
           </div>
@@ -366,7 +367,7 @@ const Projects = () => {
                 initial={{ width: 0, opacity: 0 }}
                 whileInView={{ width: '100%', opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.8}}
               />
             </div>
           </motion.div>
@@ -424,4 +425,4 @@ const Projects = () => {
 
 )};
 
-export default Projects;
+export default Projects; 

@@ -7,7 +7,7 @@
 // import { initializeGSAP } from '@/lib/gsap-utils';
 // import CurtainNavLink from './CurtainNavLink';
 
-// const Hero = () => {
+// const LoaderAnimation = () => {
 //   const carRef = useRef<HTMLDivElement>(null);
 //   const logoRef = useRef<HTMLDivElement>(null);
 // const billboardRef = useRef<HTMLDivElement>(null);
@@ -238,4 +238,4 @@
 //   </section>
 // );
 // }
-// export default Hero;
+// export default LoaderAnimation;

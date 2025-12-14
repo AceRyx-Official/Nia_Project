@@ -1,5 +1,5 @@
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
+import LoaderAnimation from '@/components/LoaderAnimation';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import Projects from '@/components/Projects';
@@ -16,7 +16,7 @@ export default function Home() {
           <Navbar />
         </div>
         {/* <div className="section hero-section" id="home">
-          <Hero />
+          <LoaderAnimation />
         </div> */}
         <div className="section" id="about">
           <About />
