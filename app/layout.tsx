@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import "./gsap-transitions.css";
 import "./curtain-transitions.css";
+import Navbar from '@/components/Navbar';
 import { Providers } from "./providers";
 
 const roboto = Roboto({
@@ -45,6 +46,7 @@ export default function RootLayout({
         `}
       >
         <Providers>
+           <Navbar />
           {children}
         </Providers>
       </body>

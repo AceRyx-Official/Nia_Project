@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Navbar from '@/components/Navbar';
+
 import Hero from '@/components/Hero';
 import LoaderAnimation from '@/components/LoaderAnimation';
 import About from '@/components/About';
@@ -45,11 +45,9 @@ export default function Home() {
 
       {/* Main Website Content - Hidden during loader */}
       <main className={`min-h-screen transition-opacity duration-500 ${hasLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="navbar">
-          <Navbar />
-        </div>
+        
         <div className="section" id="about">
-          <About />
+          <Hero />
         </div>
         <div className="section" id="services">
           <Services />
@@ -65,9 +63,9 @@ export default function Home() {
         </div>
         <div className="section">
           <Footer />
-    
+        </div>
         </main>
       </PageTransitionWrapper>
-    </>
+
   );
 }
