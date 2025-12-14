@@ -19,6 +19,9 @@ const Navbar = () => {
     const initIntro = async () => {
       const { gsap } = await initializeGSAP();
 
+      const navAlreadyShown = sessionStorage.getItem('navShown') === 'true';
+      const delay = navAlreadyShown ? 0.25 : 5;
+
       if (navRef.current) {
         gsap.fromTo(
           navRef.current,
@@ -27,8 +30,15 @@ const Navbar = () => {
             opacity: 1,
             y: 0,
             duration: 0.6,
-            delay: 0.25,
-            ease: 'power2.out'
+            delay,
+            ease: 'power2.out',
+            onComplete: () => {
+              // Mark navbar as animated for this session
+              sessionStorage.setItem('navShown', 'true');
+
+              // Notify Hero that navbar animation is done
+              window.dispatchEvent(new Event('nav:ready'));
+            },
           }
         );
       }
@@ -66,7 +76,6 @@ const Navbar = () => {
       transition={{ duration: 0.35, ease: 'easeOut' }}
       className={cn(
         'fixed top-0 w-full z-50 transition-colors duration-300',
-
         isAtTop
           ? 'bg-white/30 backdrop-blur-md border-b border-white/10'
           : 'bg-white/70 backdrop-blur-2xl border-b border-white/10'

@@ -13,9 +13,9 @@ const ROAD_CONFIG = {
     width: '35vw',              // Road width
     maxWidth: '600px',          // Maximum road width
     height: '200vh',            // Road height (full viewport)
-    tiltAngle: 35,              // Tilt angle towards top (degrees) - higher = more tilted
+    tiltAngle: 65,              // Tilt angle towards top (degrees) - higher = more tilted
     perspective: '800px',       // 3D perspective depth
-    convergencePercent: 40,     // How much the road narrows at top (0-50, higher = more narrow)
+    convergencePercent: 17,     // How much the road narrows at top (0-50, higher = more narrow)
     color: {
         from: '#374151',        // gradient start (gray-700)
         via: '#4b5563',         // gradient middle (gray-600)
@@ -201,7 +201,13 @@ const LoaderAnimation = ({ onComplete }: LoaderAnimationProps) => {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden" style={{ backgroundImage: BACKGROUND_CONFIG.colors.sky, perspective: '1000px' }}>
+        <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden" style={{
+            backgroundImage: 'url(/LoaderAnimationbg.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            perspective: '1000px'
+        }}>
             {/* Animated 3D Construction Background - Layer 1 (slower) - Left side */}
             <div ref={bgLayer1Ref} className="absolute bottom-0 left-0 w-full h-full pointer-events-none opacity-40" style={{
                 transformStyle: 'preserve-3d',

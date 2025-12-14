@@ -1,9 +1,27 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
+  /* ================= ANIMATION GATE ================= */
+
+  const [canAnimate, setCanAnimate] = useState(false);
+
+  useEffect(() => {
+    // If navbar already animated in this session, start immediately
+    if (sessionStorage.getItem('navShown') === 'true') {
+      setCanAnimate(true);
+      return;
+    }
+
+    // Otherwise wait for navbar animation to finish
+    const handleNavReady = () => setCanAnimate(true);
+
+    window.addEventListener('nav:ready', handleNavReady);
+    return () => window.removeEventListener('nav:ready', handleNavReady);
+  }, []);
 
   /* ================= VARIANTS ================= */
 
@@ -12,7 +30,6 @@ const Hero = () => {
     visible: {
       transition: {
         staggerChildren: 0.6,
-        delayChildren: 0.3,
       },
     },
   };
@@ -33,7 +50,7 @@ const Hero = () => {
       y: 0,
       transition: {
         duration: 0.9,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -46,19 +63,17 @@ const Hero = () => {
       scale: 1,
       transition: {
         duration: 1.1,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-
-      {/* Wrapper */}
       <motion.div
         variants={mainContainer}
         initial="hidden"
-        animate="visible"
+        animate={canAnimate ? 'visible' : 'hidden'}
         className="relative z-10 w-full max-w-7xl mx-auto px-6"
       >
         <div className="flex flex-col-reverse lg:flex-row items-center gap-20">
@@ -70,7 +85,7 @@ const Hero = () => {
           >
             <motion.p
               variants={fadeUp}
-              className="text-sm tracking-widest  uppercase text-slate-500 mb-4"
+              className="text-sm tracking-widest uppercase text-slate-500 mb-4"
             >
               The Nia Philosophy
             </motion.p>
@@ -79,7 +94,8 @@ const Hero = () => {
               variants={fadeUp}
               className="text-6xl md:text-6xl text-slate-900 leading-tight mb-6 font-bold"
             >
-              Inspired by Nature,<br />
+              Inspired by Nature,
+              <br />
               <span className="text-orange-600">Perfected by Vision</span>
             </motion.h1>
 
@@ -121,7 +137,7 @@ const Hero = () => {
             <motion.div
               whileHover={{ scale: 1.08 }}
               transition={{ type: 'spring', stiffness: 180, damping: 18 }}
-              className="relative w-full max-w-xl lg:max-w-xl"
+              className="relative w-full max-w-xl"
             >
               <img
                 src="/3D_Images/001b.png"
