@@ -1,13 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export", // Enables static exports
-  reactStrictMode: true,
-  // If deploying to a subpath like 'yourusername.github.io/yourreponame'
-  basePath: "/Nia_Project", 
-  assetPrefix: "/Nia_Project/", // Required for assets like images
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   images: {
-    unoptimized: true, // Disable Next.js image optimization as it needs a server
+    unoptimized: true,
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
