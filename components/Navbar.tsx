@@ -90,7 +90,7 @@ const Navbar = () => {
   <img
     src="/Nia Logo.svg"
     alt="NIA Logo"
-    className="w-10 h-10"
+    className="w-16 h-16"
   />
 </div>
 

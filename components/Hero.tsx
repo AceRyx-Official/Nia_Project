@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
@@ -10,22 +11,19 @@ const Hero = () => {
   const [canAnimate, setCanAnimate] = useState(false);
 
   useEffect(() => {
-    // If navbar already animated in this session, start immediately
     if (sessionStorage.getItem('navShown') === 'true') {
       setCanAnimate(true);
       return;
     }
 
-    // Otherwise wait for navbar animation to finish
     const handleNavReady = () => setCanAnimate(true);
-
     window.addEventListener('nav:ready', handleNavReady);
     return () => window.removeEventListener('nav:ready', handleNavReady);
   }, []);
 
   /* ================= VARIANTS ================= */
 
-  const mainContainer = {
+  const mainContainer: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -34,7 +32,7 @@ const Hero = () => {
     },
   };
 
-  const textContainer = {
+  const textContainer: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -43,27 +41,34 @@ const Hero = () => {
     },
   };
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
+  const fadeUp: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.9,
-        ease: 'easeOut',
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
 
-  const imageVariant = {
-    hidden: { opacity: 0, y: 50, scale: 0.94 },
+  const imageVariant: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      scale: 0.94,
+    },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
         duration: 1.1,
-        ease: 'easeOut',
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -81,8 +86,7 @@ const Hero = () => {
         >
           <source src="/videos/HERO_BACKGROUND1.mp4" type="video/mp4" />
         </video>
-        {/* Black tint overlay */}
-        <div className="absolute inset-0 bg-black/25"></div>
+        <div className="absolute inset-0 bg-black/25" />
       </div>
 
       <motion.div
@@ -91,23 +95,16 @@ const Hero = () => {
         animate={canAnimate ? 'visible' : 'hidden'}
         className="relative z-10 w-full max-w-8xl mx-auto px-32"
       >
-        <div className=" lg:flex-row items-center gap-20">
+        <div className="lg:flex-row items-center gap-20">
 
-          {/* ================= LEFT — TEXT ================= */}
+          {/* LEFT */}
           <motion.div
             variants={textContainer}
             className="w-full lg:w-1/2"
           >
-            <motion.p
-              variants={fadeUp}
-              className="text-sm tracking-widest uppercase text-orange-400 mb-4"
-            >
-              
-            </motion.p>
-
             <motion.h1
               variants={fadeUp}
-              className="text-6xl md:text-7xl text-[#ffff] leading-tight mb-6 font-bold"
+              className="text-6xl md:text-7xl text-white leading-tight mb-6 font-bold"
             >
               Inspired by Nature,
               <br />
@@ -136,7 +133,7 @@ const Hero = () => {
 
               <a
                 href="/contact"
-                className="inline-flex bg-white items-center justify-center gap-3 px-8 py-4 rounded-full border border-slate-300 text-slate-800 font-medium hover:bg-white transition"
+                className="inline-flex bg-white items-center justify-center gap-3 px-8 py-4 rounded-full border border-slate-300 text-slate-800 font-medium"
               >
                 <Play className="w-4 h-4" />
                 Contact Us
@@ -144,7 +141,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* ================= RIGHT — IMAGE ================= */}
+          {/* RIGHT */}
           <motion.div
             variants={imageVariant}
             className="w-full lg:w-1/2 flex justify-center"
@@ -153,13 +150,7 @@ const Hero = () => {
               whileHover={{ scale: 1.08 }}
               transition={{ type: 'spring', stiffness: 180, damping: 18 }}
               className="relative w-full max-w-xl"
-            >
-              {/* <img
-                src="/3D_Images/001b.png"
-                alt="3D Construction Visualization"
-                className="w-full h-auto object-contain drop-shadow-2xl"
-              /> */}
-            </motion.div>
+            />
           </motion.div>
 
         </div>
