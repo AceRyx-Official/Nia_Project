@@ -8,7 +8,6 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import Projects from '@/components/Projects';
 import Machinery from '@/components/Machinery';
-import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 
@@ -59,7 +58,7 @@ export default function Home() {
           <Machinery />
         </div>
         <div className="section" id="contact">
-          <Contact />
+         
         </div>
         <div className="section">
           <Footer />
