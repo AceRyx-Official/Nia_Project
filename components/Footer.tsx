@@ -1,116 +1,135 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Instagram, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Facebook, link: '#', label: 'Facebook' },
-    { icon: Twitter, link: '#', label: 'Twitter' },
     { icon: Instagram, link: '#', label: 'Instagram' },
     { icon: Linkedin, link: '#', label: 'LinkedIn' },
+    { icon: Mail, link: '#', label: 'Email' },
   ];
 
+  const quickLinks = ['Home', 'About', 'Projects', 'Contact'];
+
+  
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <footer className="bg-royal-blue-900 text-white pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          {/* Company Info */}
-          <div className="md:col-span-2">
-            <motion.h3 
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-              className="font-bold text-2xl mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent"
-            >
-              NIA Construction
-            </motion.h3>
-            <p className="text-blue-200 mb-6 leading-relaxed text-sm">
-              Building excellence since 2009. Your trusted partner for all construction needs with commitment to quality and innovation.
-            </p>
-            <div className="flex gap-3">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.link}
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-white/10 p-3 rounded-lg hover:bg-accent-red transition-all shadow-lg"
-                  aria-label={social.label}
+    <footer className="relative bg-gradient-to-b from-royal-blue-900 via-royal-blue-900 to-black text-white overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-accent-red/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Content */}
+        <div className="pt-20 pb-12">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid md:grid-cols-3 gap-12 mb-12"
+          >
+            {/* Brand Section */}
+            <motion.div variants={itemVariants} className="md:col-span-2 space-y-4">
+              <div>
+                <motion.h2 
+                  whileHover={{ scale: 1.02 }}
+                  className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white via-blue-100 to-accent-red bg-clip-text text-transparent"
                 >
-                  <social.icon size={18} />
-                </motion.a>
-              ))}
-            </div>
-          </div>
+                  NIA Construction
+                </motion.h2>
+                <div className="h-1 w-16 bg-gradient-to-r from-accent-red to-blue-400" />
+              </div>
+              
+              <p className="text-blue-100 leading-relaxed max-w-sm">
+                Building excellence since 2009. We deliver innovative construction solutions with unwavering commitment to quality, safety, and customer satisfaction.
+              </p>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {['Home', 'About', 'Services', 'Projects', 'Contact'].map((item) => (
-                <li key={item}>
+              {/* Social Links */}
+              <div className="flex gap-4 pt-4">
+                {socialLinks.map((social, index) => (
                   <motion.a
-                    href={`#${item.toLowerCase()}`}
-                    whileHover={{ x: 3 }}
-                    transition={{ duration: 0.2 }}
-                    className="text-blue-200 hover:text-accent-red transition-colors flex items-center gap-2 text-sm font-medium"
+                    key={index}
+                    href={social.link}
+                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent-red flex items-center justify-center transition-all duration-300 border border-white/20 hover:border-accent-red group"
+                    aria-label={social.label}
                   >
-                    <span className="w-1.5 h-1.5 bg-accent-red rounded-full"></span>
-                    {item}
+                    <social.icon size={18} className="group-hover:text-white" />
                   </motion.a>
-                </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </div>
+            </motion.div>
 
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Newsletter</h3>
-            <p className="text-blue-200 mb-4 text-sm">
-              Subscribe to get updates on our latest projects
-            </p>
-            <div className="flex flex-col gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="px-4 py-2.5 rounded-lg bg-white/10 border-2 border-white/20 focus:outline-none focus:border-accent-red text-white placeholder-blue-200 transition-colors text-sm"
-              />
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="bg-accent-red text-white py-2.5 rounded-lg font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all text-sm"
-              >
-                Subscribe <Mail size={16} />
-              </motion.button>
-            </div>
-          </div>
+            {/* Quick Links */}
+            <motion.div variants={itemVariants} className="space-y-5">
+              <h3 className="text-lg font-bold mb-6">Quick Links</h3>
+              <ul className="space-y-3">
+                {quickLinks.map((link, index) => (
+                  <motion.li
+                    key={index}
+                    whileHover={{ x: 5 }}
+                  >
+                    <a href="#" className="text-blue-100 hover:text-accent-red text-sm font-medium transition-colors">
+                      {link}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+          
+           
+          </motion.div>
+
+         
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-blue-200 text-center md:text-left">
-              &copy; {new Date().getFullYear()} NIA Construction. All rights reserved.
-            </p>
-            <div className="flex gap-8 text-blue-200">
-              <motion.a 
-                href="#" 
-                whileHover={{ scale: 1.05 }}
-                className="hover:text-accent-red transition-colors font-semibold"
+        <div className="py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-blue-200 text-sm"
+          >
+            &copy; {new Date().getFullYear()} NIA Construction. All rights reserved.
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="flex gap-8"
+          >
+            {[
+              { label: 'Privacy Policy', href: '#' },
+              { label: 'Terms of Service', href: '#' },
+              { label: 'Cookie Policy', href: '#' },
+            ].map((item) => (
+              <motion.a
+                key={item.label}
+                href={item.href}
+                whileHover={{ color: '#FF6B6B' }}
+                className="text-blue-200 hover:text-accent-red text-sm font-medium transition-colors"
               >
-                Privacy Policy
+                {item.label}
               </motion.a>
-              <motion.a 
-                href="#" 
-                whileHover={{ scale: 1.05 }}
-                className="hover:text-accent-red transition-colors font-semibold"
-              >
-                Terms of Service
-              </motion.a>
-            </div>
-          </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </footer>
