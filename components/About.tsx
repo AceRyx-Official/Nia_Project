@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import { Lightbulb, Eye } from 'lucide-react';
 
 const About = () => {
@@ -24,10 +24,11 @@ const About = () => {
             <p className="text-gray-600 text-lg leading-relaxed">
               Spectra helps infrastructure developers use aerial maps and 3-D models to classify land use for time-sensitive land acquisition, enhance detailed project reports and estimate costs/timelines of construction with greater accuracy.
             </p>
-            
+            <Link href="/about">
             <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-colors">
               Learn More
             </button>
+            </Link>
           </div>
 
           {/* Right Content - 3D Illustration and Cards */}

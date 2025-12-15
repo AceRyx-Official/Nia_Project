@@ -70,13 +70,28 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/HERO_BACKGROUND1.mp4" type="video/mp4" />
+        </video>
+        {/* Black tint overlay */}
+        <div className="absolute inset-0 bg-black/25"></div>
+      </div>
+
       <motion.div
         variants={mainContainer}
         initial="hidden"
         animate={canAnimate ? 'visible' : 'hidden'}
-        className="relative z-10 w-full max-w-7xl mx-auto px-6"
+        className="relative z-10 w-full max-w-8xl mx-auto px-32"
       >
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-20">
+        <div className=" lg:flex-row items-center gap-20">
 
           {/* ================= LEFT — TEXT ================= */}
           <motion.div
@@ -85,23 +100,23 @@ const Hero = () => {
           >
             <motion.p
               variants={fadeUp}
-              className="text-sm tracking-widest uppercase text-slate-500 mb-4"
+              className="text-sm tracking-widest uppercase text-orange-400 mb-4"
             >
-              The Nia Philosophy
+              
             </motion.p>
 
             <motion.h1
               variants={fadeUp}
-              className="text-6xl md:text-6xl text-slate-900 leading-tight mb-6 font-bold"
+              className="text-6xl md:text-7xl text-[#ffff] leading-tight mb-6 font-bold"
             >
               Inspired by Nature,
               <br />
-              <span className="text-orange-600">Perfected by Vision</span>
+              <span className="text-orange-400">Perfected by Vision</span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="text-lg text-slate-600 max-w-xl mb-10"
+              className="text-lg text-white max-w-xl mb-10"
             >
               NIA Construction delivers thoughtful, reliable construction solutions
               with a focus on quality execution, safety, and long-term value.
@@ -113,7 +128,7 @@ const Hero = () => {
             >
               <a
                 href="/projects"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-slate-900 text-white font-medium hover:bg-slate-800 transition"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-orange-400 text-black font-medium hover:bg-slate-800 transition"
               >
                 View Our Projects
                 <ArrowRight className="w-4 h-4" />
@@ -121,7 +136,7 @@ const Hero = () => {
 
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-slate-300 text-slate-800 font-medium hover:bg-slate-100 transition"
+                className="inline-flex bg-white items-center justify-center gap-3 px-8 py-4 rounded-full border border-slate-300 text-slate-800 font-medium hover:bg-white transition"
               >
                 <Play className="w-4 h-4" />
                 Contact Us
@@ -139,11 +154,11 @@ const Hero = () => {
               transition={{ type: 'spring', stiffness: 180, damping: 18 }}
               className="relative w-full max-w-xl"
             >
-              <img
+              {/* <img
                 src="/3D_Images/001b.png"
                 alt="3D Construction Visualization"
                 className="w-full h-auto object-contain drop-shadow-2xl"
-              />
+              /> */}
             </motion.div>
           </motion.div>
 

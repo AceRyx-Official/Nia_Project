@@ -46,8 +46,11 @@ export default function Home() {
       {/* Main Website Content - Hidden during loader */}
       <main className={`min-h-screen transition-opacity duration-500 ${hasLoaded ? 'opacity-100' : 'opacity-0'}`}>
         
-        <div className="section" id="about">
+        <div className="section" id="hero">
           <Hero />
+        </div>
+        <div className="section" id="about">
+          <About />
         </div>
         <div className="section" id="services">
           <Services />

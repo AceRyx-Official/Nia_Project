@@ -33,10 +33,7 @@ const Navbar = () => {
             delay,
             ease: 'power2.out',
             onComplete: () => {
-              // Mark navbar as animated for this session
               sessionStorage.setItem('navShown', 'true');
-
-              // Notify Hero that navbar animation is done
               window.dispatchEvent(new Event('nav:ready'));
             },
           }
@@ -75,19 +72,28 @@ const Navbar = () => {
       animate={{ y: show ? 0 : -90 }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
       className={cn(
-        'fixed top-0 w-full z-50 transition-colors duration-300',
+        'fixed top-0 w-full z-50 transition-all duration-300',
         isAtTop
-          ? 'bg-white/30 backdrop-blur-md border-b border-white/10'
-          : 'bg-white/70 backdrop-blur-2xl border-b border-white/10'
+          ? 'bg-transparent border-b border-white/10'
+          : 'bg-white/70 backdrop-blur-2xl border-b border-black/5'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+{/* Logo */}
+<div
+  className={cn(
+    'flex items-center transition-colors duration-300',
+    isAtTop ? 'text-white' : 'text-black'
+  )}
+>
+  <img
+    src="/Nia Logo.svg"
+    alt="NIA Logo"
+    className="w-10 h-10"
+  />
+</div>
 
-          {/* Logo */}
-          <div className="text-2xl font-bold text-black">
-            NIA
-          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
@@ -95,7 +101,12 @@ const Navbar = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="font-semibold text-sm text-black hover:text-accent-red transition"
+                className={cn(
+                  'font-semibold text-sm transition-colors duration-300',
+                  isAtTop
+                    ? 'text-white hover:text-accent-red'
+                    : 'text-black hover:text-accent-red'
+                )}
               >
                 {item}
               </a>
@@ -115,9 +126,15 @@ const Navbar = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X size={28} className="text-royal-blue" />
+              <X
+                size={28}
+                className={cn(isAtTop ? 'text-white' : 'text-black')}
+              />
             ) : (
-              <Menu size={28} className="text-royal-blue" />
+              <Menu
+                size={28}
+                className={cn(isAtTop ? 'text-white' : 'text-black')}
+              />
             )}
           </button>
         </div>
@@ -131,7 +148,7 @@ const Navbar = () => {
               key={item}
               href={`#${item.toLowerCase()}`}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-6 py-4 text-lg font-semibold text-royal-blue hover:bg-gray-100 transition"
+              className="block px-6 py-4 text-lg font-semibold text-black hover:bg-gray-100 transition"
             >
               {item}
             </a>

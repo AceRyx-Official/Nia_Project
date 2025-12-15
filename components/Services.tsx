@@ -12,19 +12,19 @@ import {
 
 export default function Services() {
   return (
-    <section className=" relative">
+    <section className=" relative bg-[#F4F1ED]">
     
 
-      <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
 
           {/* LEFT SIDE — Title -> Paragraph -> 3D Image */}
           <div className="flex flex-col justify-start lg:order-1 max-w-4xl">
             <div className="mb-6">
-              <h3 className="text-orange-500 text-sm font-semibold uppercase tracking-wider mb-4">
+              <h3 className="text-[#8B4F3D] text-sm font-semibold uppercase tracking-wider mb-4">
                 SERVICES
               </h3>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B365D] leading-tight">
                 Expert construction services for every need
               </h2>
             </div>
