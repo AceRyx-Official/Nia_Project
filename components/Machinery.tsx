@@ -1,8 +1,11 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowDown } from 'lucide-react';
+import { useState } from 'react';
 
 const Machinery = () => {
+  const [showMachines, setShowMachines] = useState(false);
+
   const machines = [
     {
       id: 1,
@@ -89,7 +92,7 @@ const Machinery = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-1">
           {/* Left Content */}
           <div className="space-y-8">
             <div>
@@ -105,51 +108,20 @@ const Machinery = () => {
               Our state-of-the-art machinery fleet represents a significant investment in quality construction equipment. Each machine is meticulously maintained and operated by trained professionals to ensure optimal performance and safety standards on every project.
             </p>
 
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mt-1">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <span className="text-gray-700">Modern, well-maintained equipment</span>
+            <div className="grid grid-cols-1 gap-6">
+              <div className="space-y-2">
+                <p className="text-4xl md:text-4xl font-bold text-orange-500">30+</p>
+                <p className="text-gray-600 font-medium">Machines & Equipment</p>
               </div>
-
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mt-1">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <span className="text-gray-700">Expert operators and technicians</span>
+              <div className="space-y-2">
+                <p className="text-4xl md:text-4xl font-bold text-orange-500">₹50 Cr+</p>
+                <p className="text-gray-600 font-medium">Fleet Investment Value</p>
               </div>
-
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mt-1">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <span className="text-gray-700">Regular maintenance and safety checks</span>
+              <div className="space-y-2">
+                <p className="text-4xl md:text-4xl font-bold text-orange-500">99%</p>
+                <p className="text-gray-600 font-medium">Fleet Availability</p>
               </div>
             </div>
-
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-colors flex items-center gap-2">
-              Learn More
-              <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
 
           {/* Right Content - Isometric Block */}
@@ -213,46 +185,43 @@ const Machinery = () => {
         </div> */}
 
         {/* Bottom Stats */}
-        <div className="mt-20 pt-16 border-t border-gray-200">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="space-y-2">
-              <p className="text-4xl md:text-5xl font-bold text-orange-500">30+</p>
-              <p className="text-gray-600 font-medium">Machines & Equipment</p>
-            </div>
-            <div className="space-y-2">
-              <p className="text-4xl md:text-5xl font-bold text-orange-500">₹50Cr+</p>
-              <p className="text-gray-600 font-medium">Fleet Investment Value</p>
-            </div>
-            <div className="space-y-2">
-              <p className="text-4xl md:text-5xl font-bold text-orange-500">99%</p>
-              <p className="text-gray-600 font-medium">Fleet Availability</p>
-            </div>
+        <div className="mt-2 pt-8 border-gray-200">
+          <div className="flex justify-center mb-8">
+            <button 
+              onClick={() => setShowMachines(!showMachines)}
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-colors flex items-center gap-2"
+            >
+              {showMachines ? 'Hide Fleet' : 'See our Fleet'}
+              <ArrowDown className="w-4 h-4" />
+            </button>
           </div>
+            {/* Each machine ka description */}
+          {showMachines && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+              {machines.map((machine) => (
+                <div
+                  key={machine.id}
+                  className="relative rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-64 group"
+                  style={{
+                    backgroundImage: `url('${machine.image}')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black/70 group-hover:bg-black/10 transition-colors duration-300" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {machines.map((machine) => (
-              <div
-                key={machine.id}
-                className="relative rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-64 group"
-                style={{
-                  backgroundImage: `url('${machine.image}')`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-              >
-                <div className="absolute inset-0 bg-black/70 group-hover:bg-black/10 transition-colors duration-300" />
-
-                <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 opacity-100 group-hover:opacity-0 transition-opacity duration-300 text-center">
-                  <p className="text-6xl font-bold text-white">
-                    {(machine.specs.match(/\d+/) || ['1'])[0]}
-                  </p>
-                  <h4 className="font-semibold text-white text-lg mt-4">
-                    {machine.name}
-                  </h4>
+                  <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 opacity-100 group-hover:opacity-0 transition-opacity duration-300 text-center">
+                    <p className="text-6xl font-bold text-white">
+                      {(machine.specs.match(/\d+/) || ['1'])[0]}
+                    </p>
+                    <h4 className="font-semibold text-white text-lg mt-4">
+                      {machine.name}
+                    </h4>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
       </div>
