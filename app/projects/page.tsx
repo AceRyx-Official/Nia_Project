@@ -55,22 +55,22 @@ const Projects = () => {
   const completedProjects: ProjectCardData[] = [
     {
       title: 'Achalpur Road Phase 1',
-      src: 'https://images.unsplash.com/photo-1621544402532-1f1e1c6e4e5e?w=800&q=80',
+      src: '/Projects/Achalpur1.jpeg',
       metadata: { cost: '127.59 Cr', roadsCompleted: 26, length: '16 km', duration: '20 months' },
     },
     {
       title: 'Ambernath Highway',
-      src: 'https://images.unsplash.com/photo-1599751449128-eb7249c3d6b1?w=800&q=80',
+      src: '/Projects/Ambernath.jpeg',
       metadata: { cost: '51.82 Cr', roadsCompleted: 1, length: '5 km', duration: '16 months' },
     },
     {
       title: 'Hingoli Road Phase 1',
-      src: '/Projects/Hingoli.jpeg',
+      src: '/Projects/Hingoli2.jpeg',
       metadata: { cost: '106.44 Cr', roadsCompleted: 51, length: '14 km', duration: '18 months' },
     },
     {
       title: 'Hingoli Road Phase 2',
-      src: '',
+      src: '/Projects/Hingoli.jpeg',
       metadata: { cost: '110.45 Cr', roadsCompleted: 39, length: '16 km', duration: '19 months' },
     },
     {
@@ -83,27 +83,27 @@ const Projects = () => {
   const ongoingProjects: ProjectCardData[] = [
     {
       title: 'Basmat Road',
-      src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+      src: '/Projects/Basmat.jpeg',
       metadata: { cost: '90.72 Cr', roadsCompleted: 23, length: '12.5 km', duration: '18 months', target: '12 months' },
     },
     {
       title: 'Achalpur Road Phase 2',
-      src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+      src: '/Projects/Achalpur2.jpeg',
       metadata: { cost: '90.72 Cr', roadsCompleted: 24, length: '12.5 km', duration: '18 months', target: '12 months' },
     },
     {
       title: 'Dhamangaon Road',
-      src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+      src: '/Projects/Dhamangaon.jpeg',
       metadata: { cost: '60 Cr', roadsCompleted: 5, length: '5 km', duration: '18 months', target: '11 months' },
     },
     {
       title: 'Amravati Road Phase 1',
-      src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+      src: '/Projects/Amravati1.jpg',
       metadata: { cost: '60 Cr', roadsCompleted: 4, length: '3.5 km', duration: '18 months', target: '10 months' },
     },
     {
       title: 'Amravati Road Phase 2',
-      src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+      src: '/Projects/Amravati2.jpg',
       metadata: { cost: '102.5 Cr', roadsCompleted: 6, length: '8 km', duration: '18 months', target: '15 months' },
     },
   ];

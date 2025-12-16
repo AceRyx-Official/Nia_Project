@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Services() {
   return (
-    <section className="relative bg-[#ecddc9]">
+    <section className="relative bg-[#E0D4C3]">
       {/* Arrow-shaped SERVICES text - top left */}
       <div className="absolute top-0 left-0 z-10">
         <div className="relative">

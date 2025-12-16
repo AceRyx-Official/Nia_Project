@@ -16,96 +16,34 @@ const Projects = () => {
           </div>
         </div>
       </div>
+<div className="absolute inset-0 z-0 pointer-events-none">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1440 900"
+    preserveAspectRatio="none"
+    className="w-full h-full"
+  >
+    {/* TOP COLOR */}
+    <rect x="0" y="0" width="1440" height="900" fill="#E0D4C3" />
 
-<div className="absolute top-0 left-0 w-[1600px] h-[600px] z-0 pointer-events-none">
-  <svg viewBox="0 0 1600 600" className="w-full h-full">
-    <defs>
-      <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#E0D4C3" />
-        <stop offset="40%" stopColor="#F4F1ED" />
-        <stop offset="70%" stopColor="#E0D4C3" />
-        <stop offset="100%" stopColor="#F4F1ED" />
-      </linearGradient>
-
-      <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
-        <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-      </linearGradient>
-    </defs>
-
-    {/* Main ribbon */}
+    {/* WAVE CUT */}
     <path
       d="
-M 0 0 L 1063 1 C 400 1 0 100 -2 397 L -2 393 ZM 0 0
-L 1063 1
-C 630 260 325 330 -2 360
-L -2 350
-Z
-
+       M 0 420 C 127 208 113 354 259 560 C 329 661 368 359 472 446 C 629 726 602 348 741 376 C 736 378 803 361 857 516 C 926 737 1013 394 1004 441 C 1036 359 1090 536 1135 469 C 1177 423 1147 187 1224 310 C 1246 359.6667 1240 443 1287 460 C 1341 445 1335 337 1440 380 L 1440 900 L 0 900 Z
       "
-      fill="url(#ribbonGrad)"
-    />
-   
-  </svg>
-</div>
-
-<div className="absolute bottom-0 right-0 w-[1600px] h-[600px] z-0 pointer-events-none">
-  <svg viewBox="0 0 1600 600" className="w-full h-full">
-    <defs>
-      <linearGradient id="ribbonGradBottom" x1="100%" y1="0%" x2="0%" y2="0%">
-        <stop offset="0%" stopColor="#E0D4C3" />
-        <stop offset="30%" stopColor="#F4F1ED" />
-        <stop offset="50%" stopColor="#E0D4C3" />
-        <stop offset="70%" stopColor="#F4F1ED" />
-        <stop offset="100%" stopColor="#E0D4C3" />
-      </linearGradient>
-
-      <linearGradient id="highlightGradBottom" x1="100%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
-        <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-      </linearGradient>
-    </defs>
-
-    {/* Main ribbon */}
-    <path
-      d="
-       M 1600 600 L 209 611 C 950 611 1450 450 1602 -4 Z
-
-      "
-      fill="url(#ribbonGradBottom)"
-    />
-
-  
-
-    {/* White road dashes */}
-    <path
-      d="M 200 570 L 255 535
-M 340 490 L 395 455
-M 480 410 L 535 375
-M 620 330 L 675 295
-M 760 250 L 815 215
-M 900 170 L 955 135
-M 1040 90 L 1095 55
-M 1180 10 L 1235 -25
-
-"
-      stroke="white"
-      strokeWidth="8"
-      strokeLinecap="round"
-      strokeDasharray="0"
-      opacity="0.9"
+      fill="#F4F1ED"
     />
   </svg>
 </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-24">
         <div className="space-y-8">
           {/* Three Column Layout: Card - Image - Card */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-24 items-center">
 
             {/* Left Card - Completed Projects (Desktop) */}
             <div className="hidden lg:block  col-span-1 relative z-20">
-              <div className="rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
+              <div className="rounded-[28px] bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)]  overflow-hidden">
                 <div className="p-10 space-y-8">
                   <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-green-600 shadow-inner shadow-green-100">
@@ -121,8 +59,8 @@ M 1180 10 L 1235 -25
                   </p>
                 </div>
 
-                <div className="border-t border-gray-100">
-                  <div className="grid grid-cols-2 divide-x divide-gray-100 px-10 py-8 text-gray-900">
+                <div className="">
+                  <div className="grid grid-cols-2  px-10 py-8 text-gray-900">
                     <div className="space-y-2 px-2">
                       <div className="flex items-center gap-2 text-green-600">
                         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -135,7 +73,7 @@ M 1180 10 L 1235 -25
 
                     <div className="space-y-2 px-2">
                       <div className="flex items-center gap-2 text-green-600">
-                        <span className="rounded-md bg-green-50 px-2 py-1 text-xs font-semibold">KM</span>
+                        <span className="rounded-md bg-transparent px-2 py-1 text-xs font-semibold">KM</span>
                         <span className="text-sm font-semibold">Distance</span>
                       </div>
                       <p className="text-2xl font-semibold">96 KM</p>
@@ -144,7 +82,7 @@ M 1180 10 L 1235 -25
 
                   <div className="px-10 pb-10">
                     <div className="h-4 w-full rounded-full bg-green-100">
-                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-green-500 to-emerald-300" />
+                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-green-500 to-emerald-300"  />
                     </div>
                   </div>
                 </div>
@@ -165,7 +103,7 @@ M 1180 10 L 1235 -25
             </div>
 
             {/* Completed Projects (Mobile) */}
-            <div className="lg:hidden px-2 sm:px-4 col-span-1 relative z-20">
+            <div className="lg:hidden px-2 sm:px-4 col-span-1 relative z-20 ">
               <div className="rounded-[20px] sm:rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
                 <div className="p-5 sm:p-10 space-y-4 sm:space-y-8">
                   <div className="flex items-center gap-3">
@@ -195,7 +133,7 @@ M 1180 10 L 1235 -25
                   </div>
                   <div className="px-5 sm:px-10 pb-5 sm:pb-10">
                     <div className="h-2.5 sm:h-4 w-full rounded-full bg-green-100">
-                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-green-500 to-emerald-300" />
+                      <div className="h-full w-full rounded-full bg-gradient-to-r from-green-500 to-emerald-300"/>
                     </div>
                   </div>
                 </div>
@@ -242,7 +180,7 @@ M 1180 10 L 1235 -25
 
             {/* On Going Projects (Desktop) */}
             <div className="hidden lg:block col-span-1 relative z-20">
-              <div className="rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
+              <div className="rounded-[28px] bg-transpraent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)]  overflow-hidden">
                 <div className="p-10 space-y-8">
                   <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 shadow-inner shadow-blue-100">
@@ -258,7 +196,7 @@ M 1180 10 L 1235 -25
                   </p>
                 </div>
 
-                <div className="border-t border-gray-100">
+                <div className="">
                   <div className="grid grid-cols-2 px-10 py-8 text-gray-900">
                     <div className="space-y-2 px-2">
                       <div className="flex items-center gap-2 text-blue-600">
@@ -272,10 +210,10 @@ M 1180 10 L 1235 -25
 
                     <div className="space-y-2 px-2">
                       <div className="flex items-center gap-2 blue-600">
-                        <span className="rounded-md bg-[#ecf5fe] px-2 py-1 text-xs font-semibold">KM</span>
-                        <span className="text-sm font-semibold">Distance</span>
+                        <span className="rounded-md bg-transparent px-2 text-blue-600 py-1 text-xs font-semibold">KM</span>
+                        <span className="text-sm text-blue-600 font-semibold">Distance</span>
                       </div>
-                      <p className="text-2xl font-semibold">41.5 KM</p>
+                      <p className="text-2xl  font-semibold">41.5 KM</p>
                     </div>
                   </div>
                   <div className="px-10 pb-10">
@@ -299,7 +237,7 @@ M 1180 10 L 1235 -25
           <div className="hidden lg:flex justify-center w-full px-4 mt-8">
             <Link href="/projects">
               <div className="w-full max-w-xs">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-colors w-full">
+                <button className="bg-[#8B4F3D] hover:bg-[#84574a] text-white px-8 py-3 rounded-full font-semibold transition-colors w-full">
                   View All Projects
                 </button>
               </div>

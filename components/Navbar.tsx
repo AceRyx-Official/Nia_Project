@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -87,11 +87,13 @@ const Navbar = () => {
     isAtTop ? 'text-white' : 'text-black'
   )}
 >
+<Link href="/">
   <img
     src="/Nia Logo.svg"
     alt="NIA Logo"
     className="w-16 h-16"
   />
+</Link>
 </div>
 
 
