@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Services() {
   return (
-    <section className="relative bg-[#F4F1ED]">
+    <section className="relative bg-[#1B365D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
 
@@ -14,7 +14,7 @@ export default function Services() {
               <h3 className="text-[#8B4F3D] text-sm font-semibold uppercase tracking-wider mb-4">
                 SERVICES
               </h3>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1B365D] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#F4F1ED] leading-tight">
                 Expert construction services for every need
               </h2>
             </div>
@@ -38,7 +38,7 @@ export default function Services() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
 
               {/* 1. Road Construction & Development */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-xl bg-[#e8ceb4] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div
                   className="absolute inset-0 scale-[1.4]"
                   style={{
@@ -48,7 +48,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#44271e]">
+                <div className="relative z-10 flex flex-col h-full text-[#040024]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Road Construction & Development
                   </h4>
@@ -62,7 +62,7 @@ export default function Services() {
               </div>
 
               {/* 2. RMC */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-xl bg-[#e8d4c0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div
                   className="absolute inset-0 scale-[1.4]"
                   style={{
@@ -72,7 +72,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#44271e]">
+                <div className="relative z-10 flex flex-col h-full text-[#040024]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     RMC (Ready Mix Concrete)
                   </h4>
@@ -86,7 +86,7 @@ export default function Services() {
               </div>
 
               {/* 3. Excavation Services */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-xl bg-[#e8d4c0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div
                   className="absolute inset-0 scale-[1.4]"
                   style={{
@@ -96,7 +96,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#44271e]">
+                <div className="relative z-10 flex flex-col h-full text-[#040024]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Excavation Services
                   </h4>
@@ -110,7 +110,7 @@ export default function Services() {
               </div>
 
               {/* 4. Infrastructure & Civil Works */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-xl bg-[#e8d4c0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div
                   className="absolute inset-0 scale-[1.4]"
                   style={{
@@ -120,7 +120,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#44271e]">
+                <div className="relative z-10 flex flex-col h-full text-[#040024]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Infrastructure & Civil Works
                   </h4>
@@ -134,9 +134,9 @@ export default function Services() {
               </div>
 
               {/* 5. Machinery & Equipment Support */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-xl bg-[#e8d4c0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div
-                  className="absolute inset-0 scale-[1.2]"
+                  className="absolute inset-0 scale-[1.4]"
                   style={{
                     backgroundImage: "url('/Services/hammer.png')",
                     backgroundRepeat: 'repeat',
@@ -144,7 +144,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#44271e]">
+                <div className="relative z-10 flex flex-col h-full text-[#040024]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Machinery & Equipment Support
                   </h4>
@@ -158,9 +158,9 @@ export default function Services() {
               </div>
 
               {/* 6. Project Management & Turnkey */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-xl bg-[#e8d4c0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div
-                  className="absolute inset-0 scale-[1.2]"
+                  className="absolute inset-0 scale-[1.4]"
                   style={{
                     backgroundImage: "url('/Services/helmet.png')",
                     backgroundRepeat: 'repeat',
@@ -168,7 +168,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#44271e]">
+                <div className="relative z-10 flex flex-col h-full text-[#040024]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Project Management & Turnkey
                   </h4>
