@@ -17,7 +17,7 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div className="max-w-screen-6xl mx-auto px-16 sm:px-6 lg:px-36 py-24">
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
 
           {/* LEFT SIDE — Title -> Image */}
@@ -47,146 +47,128 @@ export default function Services() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
 
               {/* 1. Road Construction & Development */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div
-                  className="absolute inset-0 scale-[1.4]"
-                  style={{
-                    backgroundImage: "url('/Services/wrench.png')",
-                    backgroundRepeat: 'repeat',
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                  }}
-                />
-                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
-                  <h4 className="font-bold text-xl leading-tight mb-3">
+              <div className="relative min-h-[320px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+                  <Image
+                    src="/Services/wrench.png"
+                    alt="Road Construction"
+                    width={384}
+                    height={384}
+                    className="w-96 h-96 object-contain opacity-60"
+                  />
+                </div>
+                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
+                  <h4 className="font-bold text-4xl leading-tight mb-8">
                     Road Construction & Development
                   </h4>
-                  <p className="text-sm flex-grow" />
-                  <div className="mt-3">
-                    <span className="text-xs font-bold">
-                      Durable road networks and high-strength concrete road works.
-                    </span>
-                  </div>
+                  <span className="text-xl font-bold max-w-[60%] mb-8">
+                    Durable road networks and high-strength concrete road works.
+                  </span>
                 </div>
               </div>
 
               {/* 2. RMC */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div
-                  className="absolute inset-0 scale-[1.4]"
-                  style={{
-                    backgroundImage: "url('/Services/rings.png')",
-                    backgroundRepeat: 'repeat',
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                  }}
-                />
-                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
-                  <h4 className="font-bold text-xl leading-tight mb-3">
+              <div className="relative min-h-[320px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+                  <Image
+                    src="/Services/rings.png"
+                    alt="RMC"
+                    width={384}
+                    height={384}
+                    className="w-96 h-96 object-contain opacity-60"
+                  />
+                </div>
+                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
+                  <h4 className="font-bold text-4xl leading-tight mb-8">
                     RMC (Ready Mix Concrete)
                   </h4>
-                  <p className="text-sm flex-grow" />
-                  <div className="mt-3">
-                    <span className="text-xs font-bold">
-                      High-performance concrete with in-house batching and on-site delivery.
-                    </span>
-                  </div>
+                  <span className="text-xl font-bold max-w-[60%] mb-8">
+                    High-performance concrete with in-house batching and on-site delivery.
+                  </span>
                 </div>
               </div>
 
               {/* 3. Excavation Services */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div
-                  className="absolute inset-0 scale-[1.4]"
-                  style={{
-                    backgroundImage: "url('/Services/swirl.png')",
-                    backgroundRepeat: 'repeat',
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                  }}
-                />
-                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
-                  <h4 className="font-bold text-xl leading-tight mb-3">
+              <div className="relative min-h-[320px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+                  <Image
+                    src="/Services/swirl.png"
+                    alt="Excavation"
+                    width={384}
+                    height={384}
+                    className="w-96 h-96 object-contain opacity-60"
+                  />
+                </div>
+                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
+                  <h4 className="font-bold text-4xl leading-tight mb-8">
                     Excavation Services
                   </h4>
-                  <p className="text-sm flex-grow" />
-                  <div className="mt-3">
-                    <span className="text-xs font-bold">
-                      Foundation, site and utility excavation with expert handling.
-                    </span>
-                  </div>
+                  <span className="text-xl font-bold max-w-[60%] mb-8">
+                    Foundation, site and utility excavation with expert handling.
+                  </span>
                 </div>
               </div>
 
               {/* 4. Infrastructure & Civil Works */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div
-                  className="absolute inset-0 scale-[1.4]"
-                  style={{
-                    backgroundImage: "url('/Services/Gear.png')",
-                    backgroundRepeat: 'repeat',
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                  }}
-                />
-                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
-                  <h4 className="font-bold text-xl leading-tight mb-3">
+              <div className="relative min-h-[320px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+                  <Image
+                    src="/Services/Gear.png"
+                    alt="Infrastructure"
+                    width={384}
+                    height={384}
+                    className="w-96 h-96 object-contain opacity-60"
+                  />
+                </div>
+                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
+                  <h4 className="font-bold text-4xl leading-tight mb-8">
                     Infrastructure & Civil Works
                   </h4>
-                  <p className="text-sm flex-grow" />
-                  <div className="mt-3">
-                    <span className="text-xs font-bold">
-                      Drainage, culverts, retaining walls, footpaths, medians and ducting work.
-                    </span>
-                  </div>
+                  <span className="text-xl font-bold max-w-[60%] mb-8">
+                    Drainage, culverts, retaining walls, footpaths, medians and ducting work.
+                  </span>
                 </div>
               </div>
 
               {/* 5. Machinery & Equipment Support */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div
-                  className="absolute inset-0 scale-[1.4]"
-                  style={{
-                    backgroundImage: "url('/Services/hammer.png')",
-                    backgroundRepeat: 'repeat',
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                  }}
-                />
-                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
-                  <h4 className="font-bold text-xl leading-tight mb-3">
+              <div className="relative min-h-[320px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+                  <Image
+                    src="/Services/hammer.png"
+                    alt="Machinery"
+                    width={384}
+                    height={384}
+                    className="w-96 h-96 object-contain opacity-60"
+                  />
+                </div>
+                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
+                  <h4 className="font-bold text-4xl leading-tight mb-8">
                     Machinery & Equipment Support
                   </h4>
-                  <p className="text-sm flex-grow" />
-                  <div className="mt-3">
-                    <span className="text-xs font-bold">
-                      Fleet of excavators, rollers, pavers, graders and on-site mechanical support.
-                    </span>
-                  </div>
+                  <span className="text-xl font-bold max-w-[60%] mb-8">
+                    Fleet of excavators, rollers, pavers, graders and on-site mechanical support.
+                  </span>
                 </div>
               </div>
 
               {/* 6. Project Management & Turnkey */}
-              <div className="relative min-h-[200px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div
-                  className="absolute inset-0 scale-[1.4]"
-                  style={{
-                    backgroundImage: "url('/Services/helmet.png')",
-                    backgroundRepeat: 'repeat',
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                  }}
-                />
-                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
-                  <h4 className="font-bold text-xl leading-tight mb-3">
+              <div className="relative min-h-[320px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-0">
+                  <Image
+                    src="/Services/helmet.png"
+                    alt="Project Management"
+                    width={384}
+                    height={384}
+                    className="w-96 h-96 object-contain opacity-60"
+                  />
+                </div>
+                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
+                  <h4 className="font-bold text-4xl leading-tight mb-8">
                     Project Management & Turnkey
                   </h4>
-                  <p className="text-sm flex-grow" />
-                  <div className="mt-3">
-                    <span className="text-xs font-bold">
-                      End-to-end turnkey execution with safety, quality and planned delivery.
-                    </span>
-                  </div>
+                  <span className="text-xl font-bold max-w-[60%] mb-8">
+                    End-to-end turnkey execution with safety, quality and planned delivery.
+                  </span>
                 </div>
               </div>
 
