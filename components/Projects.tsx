@@ -4,15 +4,15 @@ import { Trophy, Target } from 'lucide-react';
 
 const Projects = () => {
   return (
-    <section className="py-16 relative overflow-hidden">
-<div className="absolute top-0 left-0 w-[1100px] h-[420px] z-0 pointer-events-none">
-  <svg viewBox="0 0 1100 420" className="w-full h-full">
+    <section className="py-16 relative overflow-hidden bg-[#48484b]">
+<div className="absolute top-0 left-0 w-[1600px] h-[600px] z-0 pointer-events-none">
+  <svg viewBox="0 0 1600 600" className="w-full h-full">
     <defs>
       <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#d98b2b" />
-        <stop offset="40%" stopColor="#e7a23c" />
-        <stop offset="70%" stopColor="#f0b04b" />
-        <stop offset="100%" stopColor="#c7771f" />
+        <stop offset="0%" stopColor="#E0D4C3" />
+        <stop offset="40%" stopColor="#F4F1ED" />
+        <stop offset="70%" stopColor="#E0D4C3" />
+        <stop offset="100%" stopColor="#F4F1ED" />
       </linearGradient>
 
       <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -24,33 +24,69 @@ const Projects = () => {
     {/* Main ribbon */}
     <path
       d="
-        M 0 0
-        L 1100 0
-        C 950 70, 820 150, 680 200
-        C 520 260, 360 300, 180 330
-        L 0 350
-        Z
+M 0 0 L 1063 1 C 400 1 0 100 -2 397 L -2 393 ZM 0 0
+L 1063 1
+C 630 260 325 330 -2 360
+L -2 350
+Z
+
       "
       fill="url(#ribbonGrad)"
     />
+   
+  </svg>
+</div>
 
-    {/* Highlight fold */}
+<div className="absolute bottom-0 right-0 w-[1600px] h-[600px] z-0 pointer-events-none">
+  <svg viewBox="0 0 1600 600" className="w-full h-full">
+    <defs>
+      <linearGradient id="ribbonGradBottom" x1="100%" y1="0%" x2="0%" y2="0%">
+        <stop offset="0%" stopColor="#E0D4C3" />
+        <stop offset="30%" stopColor="#F4F1ED" />
+        <stop offset="50%" stopColor="#E0D4C3" />
+        <stop offset="70%" stopColor="#F4F1ED" />
+        <stop offset="100%" stopColor="#E0D4C3" />
+      </linearGradient>
+
+      <linearGradient id="highlightGradBottom" x1="100%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
+        <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+      </linearGradient>
+    </defs>
+
+    {/* Main ribbon */}
     <path
       d="
-        M 0 0
-        L 1100 0
-        C 900 55, 760 120, 620 165
-        C 480 210, 320 250, 140 275
-        L 0 290
-        Z
+       M 1600 600 L 209 611 C 950 611 1450 450 1602 -4 Z
+
       "
-      fill="url(#highlightGrad)"
+      fill="url(#ribbonGradBottom)"
+    />
+
+  
+
+    {/* White road dashes */}
+    <path
+      d="M 200 570 L 255 535
+M 340 490 L 395 455
+M 480 410 L 535 375
+M 620 330 L 675 295
+M 760 250 L 815 215
+M 900 170 L 955 135
+M 1040 90 L 1095 55
+M 1180 10 L 1235 -25
+
+"
+      stroke="white"
+      strokeWidth="8"
+      strokeLinecap="round"
+      strokeDasharray="0"
+      opacity="0.9"
     />
   </svg>
 </div>
 
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="space-y-8">
           <div>
             <h3 className="text-blue text-3xl font-semibold uppercase tracking-wider mb-4">
@@ -62,7 +98,7 @@ const Projects = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-24 items-center">
 
             {/* Left Card - Completed Projects (Desktop) */}
-            <div className="hidden lg:block  col-span-1">
+            <div className="hidden lg:block  col-span-1 relative z-20">
               <div className="rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
                 <div className="p-10 space-y-8">
                   <div className="flex items-center gap-3">
@@ -123,7 +159,7 @@ const Projects = () => {
             </div>
 
             {/* Completed Projects (Mobile) */}
-            <div className="lg:hidden px-2 sm:px-4 col-span-1">
+            <div className="lg:hidden px-2 sm:px-4 col-span-1 relative z-20">
               <div className="rounded-[20px] sm:rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
                 <div className="p-5 sm:p-10 space-y-4 sm:space-y-8">
                   <div className="flex items-center gap-3">
@@ -161,7 +197,7 @@ const Projects = () => {
             </div>
 
             {/* On Going Projects (Mobile) */}
-            <div className="lg:hidden px-2 sm:px-4 col-span-1">
+            <div className="lg:hidden px-2 sm:px-4 col-span-1 relative z-20">
               <div className="rounded-[20px] sm:rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
                 <div className="p-5 sm:p-10 space-y-4 sm:space-y-8">
                   <div className="flex items-center gap-3">
@@ -199,7 +235,7 @@ const Projects = () => {
             </div>
 
             {/* On Going Projects (Desktop) */}
-            <div className="hidden lg:block col-span-1">
+            <div className="hidden lg:block col-span-1 relative z-20">
               <div className="rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
                 <div className="p-10 space-y-8">
                   <div className="flex items-center gap-3">

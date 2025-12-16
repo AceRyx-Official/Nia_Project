@@ -31,7 +31,7 @@ const About = () => {
                     <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/60 via-transparent to-transparent"></div>
                     <div className="absolute top-2 left-4 w-16 h-16 bg-white/40 rounded-full blur-xl"></div>
                     <div className="absolute top-3 left-6 w-20 h-20 bg-gradient-to-br from-gray-200/60 via-gray-300/40 to-transparent rounded-full blur-md"></div>
-                    <Settings className="w-24 h-24 text-[#1e3a5f] relative z-10" />
+                    <Settings className="w-16 h-16 text-[#1e3a5f] relative z-10" />
                   </div>
                   <p className="text-[#1e3a5f] font-bold text-sm uppercase">
                     Structured<br />Planning
@@ -44,7 +44,7 @@ const About = () => {
                     <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/60 via-transparent to-transparent"></div>
                     <div className="absolute top-2 left-4 w-16 h-16 bg-white/40 rounded-full blur-xl"></div>
                     <div className="absolute top-3 left-6 w-20 h-20 bg-gradient-to-br from-gray-200/60 via-gray-300/40 to-transparent rounded-full blur-md"></div>
-                    <Truck className="w-24 h-24 text-[#1e3a5f] relative z-10" />
+                    <Truck className="w-16 h-16 text-[#1e3a5f] relative z-10" />
                   </div>
                   <p className="text-[#1e3a5f] font-bold text-sm uppercase">
                     Phased<br />Execution
@@ -57,7 +57,7 @@ const About = () => {
                     <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/60 via-transparent to-transparent"></div>
                     <div className="absolute top-2 left-4 w-16 h-16 bg-white/40 rounded-full blur-xl"></div>
                     <div className="absolute top-3 left-6 w-20 h-20 bg-gradient-to-br from-gray-200/60 via-gray-300/40 to-transparent rounded-full blur-md"></div>
-                    <HardHat className="w-24 h-24 text-[#1e3a5f] relative z-10" />
+                    <HardHat className="w-16 h-16 text-[#1e3a5f] relative z-10" />
                   </div>
                   <p className="text-[#1e3a5f] font-bold text-sm uppercase">
                     On-Site<br />Safety
