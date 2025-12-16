@@ -5,6 +5,18 @@ import { Trophy, Target } from 'lucide-react';
 const Projects = () => {
   return (
     <section className="py-16 relative overflow-hidden bg-[#48484b]">
+      {/* Arrow-shaped PROJECTS text - top left */}
+      <div className="absolute top-0 left-0 z-10">
+        <div className="relative">
+          <div className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
+               style={{
+                 clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)'
+               }}>
+            PROJECTS
+          </div>
+        </div>
+      </div>
+
 <div className="absolute top-0 left-0 w-[1600px] h-[600px] z-0 pointer-events-none">
   <svg viewBox="0 0 1600 600" className="w-full h-full">
     <defs>
@@ -88,12 +100,6 @@ M 1180 10 L 1235 -25
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="space-y-8">
-          <div>
-            <h3 className="text-blue text-3xl font-semibold uppercase tracking-wider mb-4">
-              PROJECTS
-            </h3>
-          </div>
-
           {/* Three Column Layout: Card - Image - Card */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-24 items-center">
 

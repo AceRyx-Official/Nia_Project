@@ -74,6 +74,17 @@ const Machinery = () => {
 
   return (
     <section className="py-32 relative overflow-hidden">
+      {/* Arrow-shaped MACHINERY text - top left */}
+      <div className="absolute top-0 left-0 z-10">
+        <div className="relative">
+          <div className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
+               style={{
+                 clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)'
+               }}>
+            MACHINERY
+          </div>
+        </div>
+      </div>
 
       {/* Top Geometric Separator — kept, background neutralized */}
       <div className="absolute top-0 left-0 right-0 h-16 pointer-events-none">
@@ -96,9 +107,6 @@ const Machinery = () => {
           {/* Left Content */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-orange-500 text-sm font-semibold uppercase tracking-wider mb-4">
-                OUR FLEET
-              </h3>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                 Advanced Machinery for Superior Construction
               </h2>

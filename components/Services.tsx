@@ -4,17 +4,26 @@ import Image from 'next/image';
 
 export default function Services() {
   return (
-    <section className="relative bg-[#1B365D]">
+    <section className="relative bg-[#ecddc9]">
+      {/* Arrow-shaped SERVICES text - top left */}
+      <div className="absolute top-0 left-0 z-10">
+        <div className="relative">
+          <div className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
+               style={{
+                 clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)'
+               }}>
+            SERVICES
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
 
           {/* LEFT SIDE — Title -> Image */}
           <div className="flex flex-col justify-start lg:order-1 max-w-4xl">
             <div className="mb-6">
-              <h3 className="text-[#8B4F3D] text-sm font-semibold uppercase tracking-wider mb-4">
-                SERVICES
-              </h3>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#F4F1ED] leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1B365D] leading-tight">
                 Expert construction services for every need
               </h2>
             </div>
@@ -48,7 +57,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#040024]">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Road Construction & Development
                   </h4>
@@ -72,7 +81,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#040024]">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     RMC (Ready Mix Concrete)
                   </h4>
@@ -96,7 +105,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#040024]">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Excavation Services
                   </h4>
@@ -120,7 +129,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#040024]">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Infrastructure & Civil Works
                   </h4>
@@ -144,7 +153,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#040024]">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Machinery & Equipment Support
                   </h4>
@@ -168,7 +177,7 @@ export default function Services() {
                     backgroundSize: 'cover',
                   }}
                 />
-                <div className="relative z-10 flex flex-col h-full text-[#040024]">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01]">
                   <h4 className="font-bold text-xl leading-tight mb-3">
                     Project Management & Turnkey
                   </h4>

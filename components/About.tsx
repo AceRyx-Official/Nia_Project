@@ -5,16 +5,24 @@ import { Settings, Truck, HardHat } from 'lucide-react';
 const About = () => {
   return (
     <section className="relative overflow-hidden">
+      {/* Arrow-shaped ABOUT US text - top left */}
+      <div className="absolute top-0 left-0 z-10">
+        <div className="relative">
+          <div className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
+               style={{
+                 clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)'
+               }}>
+            ABOUT US
+          </div>
+        </div>
+      </div>
+
       <div className="grid lg:grid-cols-2 min-h-screen">
         
         {/* Left Content - Beige Section */}
         <div className="bg-[#D4C4B0] relative px-8 sm:px-12 lg:px-16 py-20 lg:py-32 flex items-center">
           <div className="max-w-xl mx-auto">
             <div className="space-y-6">
-              <p className="text-[#8B6F47] text-sm font-semibold uppercase tracking-wider">
-                BUILDING THE FUTURE, CONNECTING COMMUNITIES
-              </p>
-              
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1e3a5f] leading-tight">
                 ABOUT NIA<br />INFRA PROJECTS
               </h2>
