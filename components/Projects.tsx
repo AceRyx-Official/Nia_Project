@@ -4,13 +4,56 @@ import { Trophy, Target } from 'lucide-react';
 
 const Projects = () => {
   return (
-    <section className="py-16 relative">
+    <section className="py-16 relative overflow-hidden">
+<div className="absolute top-0 left-0 w-[1100px] h-[420px] z-0 pointer-events-none">
+  <svg viewBox="0 0 1100 420" className="w-full h-full">
+    <defs>
+      <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#d98b2b" />
+        <stop offset="40%" stopColor="#e7a23c" />
+        <stop offset="70%" stopColor="#f0b04b" />
+        <stop offset="100%" stopColor="#c7771f" />
+      </linearGradient>
+
+      <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
+        <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+      </linearGradient>
+    </defs>
+
+    {/* Main ribbon */}
+    <path
+      d="
+        M 0 0
+        L 1100 0
+        C 950 70, 820 150, 680 200
+        C 520 260, 360 300, 180 330
+        L 0 350
+        Z
+      "
+      fill="url(#ribbonGrad)"
+    />
+
+    {/* Highlight fold */}
+    <path
+      d="
+        M 0 0
+        L 1100 0
+        C 900 55, 760 120, 620 165
+        C 480 210, 320 250, 140 275
+        L 0 290
+        Z
+      "
+      fill="url(#highlightGrad)"
+    />
+  </svg>
+</div>
 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="space-y-8">
           <div>
-            <h3 className="text-orange-500 text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="text-blue text-3xl font-semibold uppercase tracking-wider mb-4">
               PROJECTS
             </h3>
           </div>
