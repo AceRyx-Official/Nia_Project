@@ -88,9 +88,9 @@ const About = () => {
         <div className="bg-[#2d4a6b] relative flex items-center justify-center px-8 py-20 lg:py-32 overflow-hidden">
           {/* Layered Blue Background Elements */}
           <div className="absolute inset-0 flex">
-    <div className="w-1/4 bg-[#e7dfd2]" />
     <div className="w-1/4 bg-[#354e67]" />
     <div className="w-1/4 bg-[#16385a]" />
+    <div className="w-1/4 bg-[#dfe2be]" />
     <div className="w-1/4 bg-[#102132]" />
   </div>
           
