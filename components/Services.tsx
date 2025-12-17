@@ -48,13 +48,13 @@ export default function Services() {
 
               {/* 1. Road Construction & Development */}
               <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+                <div className="absolute -right-36 top-1/2 -translate-y-1/2 z-0">
                   <Image
                     src="/Services/wrench.png"
                     alt="Road Construction"
                     width={384}
                     height={384}
-                    className="w-96 h-96 object-contain opacity-60"
+                    className="w-[28rem] h-[28rem] object-contain opacity-60"
                   />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
@@ -71,13 +71,13 @@ export default function Services() {
 
               {/* 2. RMC */}
               <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+                <div className="absolute -right-36 top-2/3 -translate-y-1/2 z-0">
                   <Image
                     src="/Services/rings.png"
                     alt="RMC"
                     width={384}
                     height={384}
-                    className="w-96 h-96 object-contain opacity-60"
+                    className="w-[28rem] h-[28rem] object-contain opacity-60"
                   />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
@@ -117,7 +117,7 @@ export default function Services() {
 
               {/* 4. Infrastructure & Civil Works */}
               <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+                <div className="absolute -right-20 top-2/4 -translate-y-1/2 z-0">
                   <Image
                     src="/Services/Gear.png"
                     alt="Infrastructure"
