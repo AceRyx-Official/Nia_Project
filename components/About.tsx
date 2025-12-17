@@ -17,6 +17,8 @@ const About = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
+ 
+
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -61,22 +63,22 @@ const About = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 70%',
-          toggleActions: 'play none none none',
           once: true,
+
+        
         },
       });
 
-        /* ================= HOLD BIG ARROW ================= */
-        tl.to({}, { duration: 0.5 }); // ⬅ stays visible for 0.5s
+      /* ================= HOLD BIG ARROW ================= */
+      tl.to({}, { duration: 0.5 });
 
-        /* ================= BIG ARROW EXIT ================= */
-        tl.to(bigArrowRef.current, {
-          x: '120vw',
-          opacity: 0,
-          duration: 1.4,
-          ease: 'power4.inOut',
-        });
-
+      /* ================= BIG ARROW EXIT ================= */
+      tl.to(bigArrowRef.current, {
+        x: '120vw',
+        opacity: 0,
+        duration: 1.4,
+        ease: 'power4.inOut',
+      });
 
       /* ================= SMALL ARROW ENTRY ================= */
       tl.to(
@@ -87,9 +89,8 @@ const About = () => {
           duration: 1,
           ease: 'power3.out',
         },
-        '-=0.7' // ⬅ starts 0.4s BEFORE big arrow finishes
+        '-=0.7'
       );
-
 
       /* ================= SVG BACKGROUNDS ================= */
       tl.to(
@@ -170,7 +171,7 @@ const About = () => {
           style={{
             clipPath:
               'polygon(0 0, calc(100% - 80px) 0, 100% 50%, calc(100% - 80px) 100%, 0 100%)',
-            transform: 'scale(1.5)',
+            transform: 'scale(2.4)',
             transformOrigin: 'center',
           }}
         >

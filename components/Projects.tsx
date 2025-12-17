@@ -1,40 +1,214 @@
 'use client';
+
+import { useEffect, useRef } from 'react';
 import Link from "next/link";
 import { Trophy, Target } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const bigArrowRef = useRef<HTMLDivElement>(null);
+  const smallArrowRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      /* ================= INITIAL STATE ================= */
+
+      gsap.set(bigArrowRef.current, { x: 0, opacity: 1 });
+      gsap.set(smallArrowRef.current, { x: -200, opacity: 0 });
+      gsap.set(svgRef.current, { y: -550 });
+
+  // ⬅ LEFT SIDE: Completed Projects cards
+const completedCards = gsap.utils.toArray(
+  '.completed-card'
+);
+
+// ➡ RIGHT SIDE: Ongoing Projects cards
+const ongoingCards = gsap.utils.toArray(
+  '.ongoing-card'
+);
+
+      
+      const centerImage = sectionRef.current.querySelector(
+        'img[alt="3D Construction Projects Visualization"]'
+      );
+      const ctaButtons = gsap.utils.toArray(
+        'button'
+      );
+
+      // ⬅ Completed cards start outside screen (left)
+gsap.set(completedCards, {
+  x: -300, // 👈 increase for more slide distance
+  opacity: 0,
+});
+
+// ➡ Ongoing cards start outside screen (right)
+gsap.set(ongoingCards, {
+  x: 300, // 👉 increase for more slide distance
+  opacity: 0,
+});
+
+      // ⬆ Image starts slightly below and invisible
+gsap.set(centerImage, {
+  opacity: 0,
+  y: 80, // 👈 adjust this for more / less upward movement
+});
+
+      gsap.set(ctaButtons, { opacity: 0 });
+
+      /* ================= TIMELINE ================= */
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 70%',
+          toggleActions: 'play none none none',
+          once: true,
+        },
+      });
+
+      /* HOLD BIG ARROW */
+      tl.to({}, { duration: 0.5 });
+
+      /* BIG ARROW EXIT */
+      tl.to(bigArrowRef.current, {
+        x: '120vw',
+        opacity: 0,
+        duration: 1.4,
+        ease: 'power4.inOut',
+      });
+
+      /* SMALL ARROW ENTRY */
+      tl.to(
+        smallArrowRef.current,
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+        },
+        '-=0.7'
+      );
+
+      /* SVG SLIDE DOWN */
+      tl.to(
+        svgRef.current,
+        {
+          y: 0,
+        
+          duration: 1.3,
+          ease: 'power3.out',
+        },
+        '-=0.4'
+      );
+
+      /* CARDS FADE IN */
+     // ⬅ Completed cards slide in from left
+tl.to(
+  completedCards,
+  {
+    x: 0,
+    opacity: 1,
+    duration: 1,
+    ease: 'power3.out',
+    stagger: 0.12,
+  },
+  '-=0.2'
+);
+
+// ➡ Ongoing cards slide in from right (same time)
+tl.to(
+  ongoingCards,
+  {
+    x: 0,
+    opacity: 1,
+    duration: 1,
+    ease: 'power3.out',
+    stagger: 0.12,
+  },
+  '<' // 👈 plays simultaneously with completed cards
+);
+
+      /* IMAGE FADE UP */
+tl.to(centerImage, {
+  opacity: 1,
+  y: 0, // ⬆ moves image back to its natural position
+  duration: 1,
+  ease: 'power3.out',
+});
+
+      /* CTA FADE IN */
+      tl.to(ctaButtons, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out',
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-16 relative overflow-hidden bg-[#48484b]">
-      {/* Arrow-shaped PROJECTS text - top left */}
-      <div className="absolute top-0 left-0 z-10">
-        <div className="relative">
-          <div className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
-            style={{
-              clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)'
-            }}>
-            PROJECTS
-          </div>
+    <section
+      ref={sectionRef}
+      className="py-16 relative overflow-hidden bg-[#F4F1ED]"
+    >
+      
+      {/* ================= BIG CENTER ARROW ================= */}
+      <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+        <div
+          ref={bigArrowRef}
+          className="bg-[#5b3428] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
+          style={{
+            clipPath:
+              'polygon(0 0, calc(100% - 80px) 0, 100% 50%, calc(100% - 80px) 100%, 0 100%)',
+            transform: 'scale(2.4)',
+            transformOrigin: 'center',
+          }}
+        >
+          PROJECTS
         </div>
       </div>
+
+      {/* ================= SMALL ARROW ================= */}
+      <div ref={smallArrowRef} className="absolute top-0 left-0 z-10">
+        <div
+          className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
+          style={{
+            clipPath:
+              'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
+          }}
+        >
+          PROJECTS
+        </div>
+      </div>
+
+      {/* ================= SVG BACKGROUND ================= */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <svg
+          ref={svgRef}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 900"
           preserveAspectRatio="none"
           className="w-full h-full"
         >
-          {/* TOP COLOR */}
           <rect x="0" y="0" width="1440" height="900" fill="#E0D4C3" />
-
-          {/* WAVE CUT */}
           <path
             d="
-       M 0 420 C 127 208 113 354 259 560 C 329 661 368 359 472 446 C 629 726 602 348 741 376 C 736 378 803 361 857 516 C 926 737 1013 394 1004 441 C 1036 359 1090 536 1135 469 C 1177 423 1147 187 1224 310 C 1246 359.6667 1240 443 1287 460 C 1341 445 1335 337 1440 380 L 1440 900 L 0 900 Z
-      "
+           M 0 420 C 127 208 113 354 259 560 C 329 661 419 342 472 446 C 621 695 602 348 742 367 C 788 371 866 591 892 613 C 992 731 1017 357 1117 308 C 1247 251 1215 714 1440 424 L 1440 900 L 0 900 Z
+            "
             fill="#F4F1ED"
           />
         </svg>
       </div>
+
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-24">
         <div className="space-y-8">
@@ -42,8 +216,8 @@ const Projects = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-24 items-center">
 
             {/* Left Card - Completed Projects (Desktop) */}
-            <div className="hidden lg:block  col-span-1 relative z-20">
-              <div className="rounded-[28px] bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)]  overflow-hidden">
+           <div className="completed-card hidden lg:block col-span-1 relative z-20">
+              <div className="rounded-[28px] bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)] overflow-hidden">
                 <div className="p-10 space-y-8">
                   <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-green-600 shadow-inner shadow-green-100">
@@ -73,7 +247,7 @@ const Projects = () => {
 
                     <div className="space-y-2 px-2">
                       <div className="flex items-center gap-2 text-green-600">
-                        <span className="rounded-md bg-transparent px-2 py-1 text-xs font-semibold">KM</span>
+                        <span className="rounded-md bg-transparent py-1 text-xs font-semibold">KM</span>
                         <span className="text-sm font-semibold">Distance</span>
                       </div>
                       <p className="text-2xl font-semibold">96 KM</p>
@@ -103,7 +277,7 @@ const Projects = () => {
             </div>
 
             {/* Completed Projects (Mobile) */}
-            <div className="lg:hidden px-2 sm:px-4 col-span-1 relative z-20 ">
+            <div className="completed-card lg:hidden px-2 sm:px-4 col-span-1 relative z-20">
               <div className="rounded-[20px] sm:rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
                 <div className="p-5 sm:p-10 space-y-4 sm:space-y-8">
                   <div className="flex items-center gap-3">
@@ -141,7 +315,7 @@ const Projects = () => {
             </div>
 
             {/* On Going Projects (Mobile) */}
-            <div className="lg:hidden px-2 sm:px-4 col-span-1 relative z-20">
+            <div className="ongoing-card lg:hidden px-2 sm:px-4 col-span-1 relative z-20">
               <div className="rounded-[20px] sm:rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
                 <div className="p-5 sm:p-10 space-y-4 sm:space-y-8">
                   <div className="flex items-center gap-3">
@@ -179,7 +353,7 @@ const Projects = () => {
             </div>
 
             {/* On Going Projects (Desktop) */}
-            <div className="hidden lg:block col-span-1 relative z-20">
+            <div className="ongoing-card hidden lg:block col-span-1 relative z-20">
               <div className="rounded-[28px] bg-transpraent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)]  overflow-hidden">
                 <div className="p-10 space-y-8">
                   <div className="flex items-center gap-3">
@@ -210,7 +384,7 @@ const Projects = () => {
 
                     <div className="space-y-2 px-2">
                       <div className="flex items-center gap-2 blue-600">
-                        <span className="rounded-md bg-transparent px-2 text-blue-600 py-1 text-xs font-semibold">KM</span>
+                        <span className="rounded-md bg-transparent text-blue-600 py-1 text-xs font-semibold">KM</span>
                         <span className="text-sm text-blue-600 font-semibold">Distance</span>
                       </div>
                       <p className="text-2xl  font-semibold">41.5 KM</p>
@@ -237,7 +411,7 @@ const Projects = () => {
           <div className="hidden lg:flex justify-center w-full px-4 mt-8">
             <Link href="/projects">
               <div className="w-full max-w-xs">
-                <button className="bg-[#8B4F3D] hover:bg-[#84574a] text-white px-8 py-3 rounded-full font-semibold transition-colors w-full">
+                <button className="bg-[#8B4F3D] hover:bg-[#a46565] text-[#ffffff] hover:text-[#ffffff] px-8 py-3 rounded-full font-semibold transition-colors w-full">
                   View All Projects
                 </button>
               </div>

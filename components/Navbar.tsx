@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
@@ -7,9 +8,10 @@ import { cn } from '@/lib/utils';
 import { initializeGSAP } from '@/lib/gsap-utils';
 
 const Navbar = () => {
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
   const [isAtTop, setIsAtTop] = useState(true);
+  const [isHoveringTop, setIsHoveringTop] = useState(false);
+  const [isHoveringNav, setIsHoveringNav] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navRef = useRef<HTMLDivElement>(null);
@@ -25,13 +27,13 @@ const Navbar = () => {
       if (navRef.current) {
         gsap.fromTo(
           navRef.current,
-          { opacity: 0, y: -20 },
+          { opacity: 0, y: -30 },
           {
             opacity: 1,
             y: 0,
             duration: 0.6,
             delay,
-            ease: 'power2.out',
+            ease: 'power3.out',
             onComplete: () => {
               sessionStorage.setItem('navShown', 'true');
               window.dispatchEvent(new Event('nav:ready'));
@@ -47,117 +49,125 @@ const Navbar = () => {
   /* ================= SCROLL LOGIC ================= */
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY;
-
-      setIsAtTop(currentY < 60);
-
-      if (currentY < lastScrollY || currentY < 80) {
-        setShow(true);
-      } else {
-        setShow(false);
-      }
-
-      setLastScrollY(currentY);
+      const atTop = window.scrollY < 40;
+      setIsAtTop(atTop);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
+
+  /* ================= VISIBILITY RULE ================= */
+  useEffect(() => {
+    if (isAtTop || isHoveringTop || isHoveringNav) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [isAtTop, isHoveringTop, isHoveringNav]);
+
+  /* ================= SMOOTH SCROLL ================= */
+  const handleScrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    el.scrollIntoView({ behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
+  };
 
   const navItems = ['Home', 'About', 'Services', 'Projects', 'Contact'];
 
   return (
-    <motion.nav
-      ref={navRef}
-      animate={{ y: show ? 0 : -90 }}
-      transition={{ duration: 0.35, ease: 'easeOut' }}
-      className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300',
-        isAtTop
-          ? 'bg-transparent border-b border-white/10'
-          : 'bg-white/70 backdrop-blur-2xl border-b border-black/5'
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-{/* Logo */}
-<div
-  className={cn(
-    'flex items-center transition-colors duration-300',
-    isAtTop ? 'text-white' : 'text-black'
-  )}
->
-<Link href="/">
-  <img
-    src="/Nia Logo.svg"
-    alt="NIA Logo"
-    className="w-16 h-16"
-  />
-</Link>
-</div>
+    <>
+      {/* ================= TOP HOVER TRIGGER ================= */}
+      <div
+        className="fixed top-0 left-0 w-full h-24 z-40"
+        onMouseEnter={() => setIsHoveringTop(true)}
+        onMouseLeave={() => setIsHoveringTop(false)}
+      />
 
+      <motion.nav
+        ref={navRef}
+        animate={{ y: isVisible ? 0 : -120 }}
+        transition={{
+          duration: 0.2, // quick slide
+          ease: 'easeOut',
+        }}
+        onMouseEnter={() => setIsHoveringNav(true)}
+        onMouseLeave={() => setIsHoveringNav(false)}
+        className={cn(
+          'fixed top-0 w-full z-50',
+          isAtTop
+            ? 'bg-transparent'
+            : 'bg-white/75 backdrop-blur-2xl border-b border-black/5'
+        )}
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
+              <img
+                src="/Nia Logo.svg"
+                alt="NIA Logo"
+                className="w-16 h-16"
+              />
+            </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => handleScrollTo(item.toLowerCase())}
+                  className={cn(
+                    'text-sm font-semibold transition-colors',
+                    isAtTop
+                      ? 'text-white hover:text-accent-red'
+                      : 'text-black hover:text-accent-red'
+                  )}
+                >
+                  {item}
+                </button>
+              ))}
+
+              <button
+                onClick={() => handleScrollTo('contact')}
+                className="bg-accent-red text-white px-6 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition"
+              >
+                Get Quote
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X size={28} className={isAtTop ? 'text-white' : 'text-black'} />
+              ) : (
+                <Menu size={28} className={isAtTop ? 'text-white' : 'text-black'} />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-black/5">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item}
-                href={`#${item.toLowerCase()}`}
-                className={cn(
-                  'font-semibold text-sm transition-colors duration-300',
-                  isAtTop
-                    ? 'text-white hover:text-accent-red'
-                    : 'text-black hover:text-accent-red'
-                )}
+                onClick={() => handleScrollTo(item.toLowerCase())}
+                className="block w-full text-left px-6 py-4 text-lg font-semibold text-black hover:bg-gray-100 transition"
               >
                 {item}
-              </a>
+              </button>
             ))}
-
-            <a
-              href="#contact"
-              className="bg-accent-red text-white px-5 py-2 rounded-full font-semibold text-sm shadow-md hover:shadow-lg transition"
-            >
-              Get Quote
-            </a>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X
-                size={28}
-                className={cn(isAtTop ? 'text-white' : 'text-black')}
-              />
-            ) : (
-              <Menu
-                size={28}
-                className={cn(isAtTop ? 'text-white' : 'text-black')}
-              />
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white/90 backdrop-blur-xl border-t border-black/5">
-          {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-6 py-4 text-lg font-semibold text-black hover:bg-gray-100 transition"
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-      )}
-    </motion.nav>
+        )}
+      </motion.nav>
+    </>
   );
 };
 
