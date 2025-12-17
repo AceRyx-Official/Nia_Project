@@ -47,7 +47,7 @@ export default function Services() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
 
               {/* 1. Road Construction & Development */}
-              <div className="relative min-h-[300px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
                   <Image
                     src="/Services/wrench.png"
@@ -58,17 +58,19 @@ export default function Services() {
                   />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-4xl leading-tight mb-4">
+                  <h4 className="font-bold text-2xl leading-tight mb-4">
                     Road Construction & Development
                   </h4>
-                  <span className="text-xl font-bold max-w-[60%] mb-4">
+                  <span className="text-base font-bold max-w-[60%] mb-4">
                     Durable road networks and high-strength concrete road works.
                   </span>
                 </div>
+                {/* Striped strip at base */}
+                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
               </div>
 
               {/* 2. RMC */}
-              <div className="relative min-h-[300px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
                   <Image
                     src="/Services/rings.png"
@@ -79,17 +81,19 @@ export default function Services() {
                   />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-4xl leading-tight mb-4">
+                  <h4 className="font-bold text-2xl leading-tight mb-4">
                     RMC (Ready Mix Concrete)
                   </h4>
-                  <span className="text-xl font-bold max-w-[60%] mb-4">
+                  <span className="text-base font-bold max-w-[60%] mb-4">
                     High-performance concrete with in-house batching and on-site delivery.
                   </span>
                 </div>
+                {/* Striped strip at base */}
+                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
               </div>
 
               {/* 3. Excavation Services */}
-              <div className="relative min-h-[300px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
                   <Image
                     src="/Services/swirl.png"
@@ -100,17 +104,19 @@ export default function Services() {
                   />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-4xl leading-tight mb-4">
+                  <h4 className="font-bold text-2xl leading-tight mb-4">
                     Excavation Services
                   </h4>
-                  <span className="text-xl font-bold max-w-[60%] mb-8">
+                  <span className="text-base font-bold max-w-[60%] mb-8">
                     Foundation, site and utility excavation with expert handling.
                   </span>
                 </div>
+                {/* Striped strip at base */}
+                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
               </div>
 
               {/* 4. Infrastructure & Civil Works */}
-              <div className="relative min-h-[300px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
                   <Image
                     src="/Services/Gear.png"
@@ -121,17 +127,19 @@ export default function Services() {
                   />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-4xl leading-tight mb-4">
+                  <h4 className="font-bold text-2xl leading-tight mb-4">
                     Infrastructure & Civil Works
                   </h4>
-                  <span className="text-xl font-bold max-w-[60%] mb-4">
+                  <span className="text-base font-bold max-w-[60%] mb-4">
                     Drainage, culverts, retaining walls, footpaths, medians and ducting work.
                   </span>
                 </div>
+                {/* Striped strip at base */}
+                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
               </div>
 
               {/* 5. Machinery & Equipment Support */}
-              <div className="relative min-h-[300px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
                   <Image
                     src="/Services/hammer.png"
@@ -142,17 +150,19 @@ export default function Services() {
                   />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-4xl leading-tight mb-4">
+                  <h4 className="font-bold text-2xl leading-tight mb-4">
                     Machinery & Equipment Support
                   </h4>
-                  <span className="text-xl font-bold max-w-[60%] mb-4">
+                  <span className="text-base font-bold max-w-[60%] mb-4">
                     Fleet of excavators, rollers, pavers, graders and on-site mechanical support.
                   </span>
                 </div>
+                {/* Striped strip at base */}
+                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
               </div>
 
               {/* 6. Project Management & Turnkey */}
-              <div className="relative min-h-[300px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
                 <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-0">
                   <Image
                     src="/Services/helmet.png"
@@ -163,13 +173,15 @@ export default function Services() {
                   />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-4xl leading-tight mb-4">
+                  <h4 className="font-bold text-2xl leading-tight mb-4">
                     Project Management & Turnkey
                   </h4>
-                  <span className="text-xl font-bold max-w-[60%] mb-4">
+                  <span className="text-base font-bold max-w-[60%] mb-4">
                     End-to-end turnkey execution with safety, quality and planned delivery.
                   </span>
                 </div>
+                {/* Striped strip at base */}
+                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
               </div>
 
             </div>

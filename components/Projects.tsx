@@ -9,32 +9,32 @@ const Projects = () => {
       <div className="absolute top-0 left-0 z-10">
         <div className="relative">
           <div className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
-               style={{
-                 clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)'
-               }}>
+            style={{
+              clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)'
+            }}>
             PROJECTS
           </div>
         </div>
       </div>
-<div className="absolute inset-0 z-0 pointer-events-none">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1440 900"
-    preserveAspectRatio="none"
-    className="w-full h-full"
-  >
-    {/* TOP COLOR */}
-    <rect x="0" y="0" width="1440" height="900" fill="#E0D4C3" />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="none"
+          className="w-full h-full"
+        >
+          {/* TOP COLOR */}
+          <rect x="0" y="0" width="1440" height="900" fill="#E0D4C3" />
 
-    {/* WAVE CUT */}
-    <path
-      d="
+          {/* WAVE CUT */}
+          <path
+            d="
        M 0 420 C 127 208 113 354 259 560 C 329 661 368 359 472 446 C 629 726 602 348 741 376 C 736 378 803 361 857 516 C 926 737 1013 394 1004 441 C 1036 359 1090 536 1135 469 C 1177 423 1147 187 1224 310 C 1246 359.6667 1240 443 1287 460 C 1341 445 1335 337 1440 380 L 1440 900 L 0 900 Z
       "
-      fill="#F4F1ED"
-    />
-  </svg>
-</div>
+            fill="#F4F1ED"
+          />
+        </svg>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-24">
         <div className="space-y-8">
@@ -82,7 +82,7 @@ const Projects = () => {
 
                   <div className="px-10 pb-10">
                     <div className="h-4 w-full rounded-full bg-green-100">
-                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-green-500 to-emerald-300"  />
+                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-green-500 to-emerald-300" />
                     </div>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ const Projects = () => {
                   </div>
                   <div className="px-5 sm:px-10 pb-5 sm:pb-10">
                     <div className="h-2.5 sm:h-4 w-full rounded-full bg-green-100">
-                      <div className="h-full w-full rounded-full bg-gradient-to-r from-green-500 to-emerald-300"/>
+                      <div className="h-full w-full rounded-full bg-gradient-to-r from-green-500 to-emerald-300" />
                     </div>
                   </div>
                 </div>
