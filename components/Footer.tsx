@@ -1,16 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Instagram, Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Instagram, link: '#', label: 'Instagram' },
     { icon: Linkedin, link: '#', label: 'LinkedIn' },
     { icon: Mail, link: '#', label: 'Email' },
   ];
 
-  const quickLinks = ['Home', 'About', 'Projects', 'Contact'];
+  const quickLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/#about' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Contact', href: '/contact' },
+  ];
 
   
 
@@ -28,10 +32,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-royal-blue-900 via-royal-blue-900 to-black text-white overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-[#1B365D] to-[#0f1f3d] text-white overflow-hidden">
       {/* Decorative background elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-accent-red/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-[#8B4F3D]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#E0D4C3]/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content */}
@@ -48,14 +52,14 @@ const Footer = () => {
               <div>
                 <motion.h2 
                   whileHover={{ scale: 1.02 }}
-                  className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white via-blue-100 to-accent-red bg-clip-text text-transparent"
+                  className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white via-[#E0D4C3] to-[#8B4F3D] bg-clip-text text-transparent"
                 >
                   NIA Construction
                 </motion.h2>
-                <div className="h-1 w-16 bg-gradient-to-r from-accent-red to-blue-400" />
+                <div className="h-1 w-16 bg-gradient-to-r from-[#8B4F3D] to-[#E0D4C3]" />
               </div>
               
-              <p className="text-blue-100 leading-relaxed max-w-sm">
+              <p className="text-[#E0D4C3] leading-relaxed max-w-sm">
                 Building excellence since 2009. We deliver innovative construction solutions with unwavering commitment to quality, safety, and customer satisfaction.
               </p>
 
@@ -67,7 +71,7 @@ const Footer = () => {
                     href={social.link}
                     whileHover={{ scale: 1.2, y: -5 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent-red flex items-center justify-center transition-all duration-300 border border-white/20 hover:border-accent-red group"
+                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#8B4F3D] flex items-center justify-center transition-all duration-300 border border-white/20 hover:border-[#8B4F3D] group"
                     aria-label={social.label}
                   >
                     <social.icon size={18} className="group-hover:text-white" />
@@ -78,15 +82,15 @@ const Footer = () => {
 
             {/* Quick Links */}
             <motion.div variants={itemVariants} className="space-y-5">
-              <h3 className="text-lg font-bold mb-6">Quick Links</h3>
+              <h3 className="text-lg font-bold mb-6 text-[#F4F1ED]">Quick Links</h3>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <motion.li
                     key={index}
                     whileHover={{ x: 5 }}
                   >
-                    <a href="#" className="text-blue-100 hover:text-accent-red text-sm font-medium transition-colors">
-                      {link}
+                    <a href={link.href} className="text-[#E0D4C3] hover:text-[#8B4F3D] text-sm font-medium transition-colors">
+                      {link.label}
                     </a>
                   </motion.li>
                 ))}
@@ -101,11 +105,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-blue-200 text-sm"
+            className="text-[#E0D4C3] text-sm"
           >
             &copy; {new Date().getFullYear()} NIA Construction. All rights reserved.
           </motion.p>
@@ -123,8 +127,8 @@ const Footer = () => {
               <motion.a
                 key={item.label}
                 href={item.href}
-                whileHover={{ color: '#FF6B6B' }}
-                className="text-blue-200 hover:text-accent-red text-sm font-medium transition-colors"
+                whileHover={{ color: '#8B4F3D' }}
+                className="text-[#E0D4C3] hover:text-[#8B4F3D] text-sm font-medium transition-colors"
               >
                 {item.label}
               </motion.a>

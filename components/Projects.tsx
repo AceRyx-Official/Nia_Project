@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from "next/link";
-import { Trophy, Target } from 'lucide-react';
+import { Trophy, Target, Milestone } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -169,7 +169,7 @@ const Projects = () => {
               <div className="rounded-[28px] bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)] overflow-hidden">
                 <div className="p-10 space-y-8">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-green-600 shadow-inner shadow-green-100">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E0D4C3] text-[#8B4F3D] shadow-inner shadow-[#E0D4C3]">
                       <Trophy className="h-11 w-11" />
                     </div>
                     <p className="text-xl font-semibold text-gray-900">
@@ -177,7 +177,7 @@ const Projects = () => {
                     </p>
                   </div>
 
-                  <p className="text-5xl md:text-5xl font-extrabold text-green-600">
+                  <p className="text-5xl md:text-5xl font-extrabold text-[#8B4F3D]">
                     162 Roads
                   </p>
                 </div>
@@ -185,7 +185,7 @@ const Projects = () => {
                 <div className="">
                   <div className="grid grid-cols-2  px-10 py-8 text-gray-900">
                     <div className="space-y-2 px-2">
-                      <div className="flex items-center gap-2 text-green-600">
+                      <div className="flex items-center gap-2 text-[#8B4F3D]">
                         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M6 9h12M6 9l1-5h10l1 5M6 9v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9M8 20h8M9 14h6" />
                         </svg>
@@ -195,8 +195,8 @@ const Projects = () => {
                     </div>
 
                     <div className="space-y-2 px-2">
-                      <div className="flex items-center gap-2 text-green-600">
-                        <span className="rounded-md bg-transparent py-1 text-xs font-semibold">KM</span>
+                      <div className="flex items-center gap-2 text-[#8B4F3D]">
+                        <Milestone className="h-5 w-5" />
                         <span className="text-sm font-semibold">Distance</span>
                       </div>
                       <p className="text-2xl font-semibold">96 KM</p>
@@ -204,8 +204,8 @@ const Projects = () => {
                   </div>
 
                   <div className="px-10 pb-10">
-                    <div className="h-4 w-full rounded-full bg-green-100">
-                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-green-500 to-emerald-300" />
+                    <div className="h-4 w-full rounded-full bg-[#E0D4C3]">
+                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-[#8B4F3D] to-[#a86b56]" />
                     </div>
                   </div>
                 </div>
@@ -230,7 +230,7 @@ const Projects = () => {
               <div className="rounded-[20px] sm:rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
                 <div className="p-5 sm:p-10 space-y-4 sm:space-y-8">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 sm:h-12 w-10 sm:w-12 items-center justify-center rounded-2xl bg-green-50 text-green-600 shadow-inner shadow-green-100">
+                    <div className="flex h-10 sm:h-12 w-10 sm:w-12 items-center justify-center rounded-2xl bg-[#E0D4C3] text-[#8B4F3D] shadow-inner shadow-[#E0D4C3]">
                       <Trophy className="h-9 sm:h-11 w-9 sm:w-11" />
                     </div>
                     <p className="text-lg sm:text-3xl font-semibold text-gray-900">
@@ -238,7 +238,7 @@ const Projects = () => {
                     </p>
                   </div>
 
-                  <p className="text-2xl sm:text-5xl md:text-6xl font-extrabold text-green-600">
+                  <p className="text-2xl sm:text-5xl md:text-6xl font-extrabold text-[#8B4F3D]">
                     162 Roads
                   </p>
                 </div>
@@ -246,17 +246,17 @@ const Projects = () => {
                 <div className="border-t border-gray-100">
                   <div className="grid grid-cols-2 divide-x divide-gray-100 px-5 sm:px-10 py-4 sm:py-8 text-gray-900">
                     <div className="space-y-2">
-                      <span className="text-xs sm:text-sm font-semibold text-green-600">Amount</span>
+                      <span className="text-xs sm:text-sm font-semibold text-[#8B4F3D]">Amount</span>
                       <p className="text-lg sm:text-3xl font-semibold">INR 500+ Crores</p>
                     </div>
                     <div className="space-y-2">
-                      <span className="text-xs sm:text-sm font-semibold text-green-600">Distance</span>
+                      <span className="text-xs sm:text-sm font-semibold text-[#8B4F3D]">Distance</span>
                       <p className="text-lg sm:text-3xl font-semibold">96 KM</p>
                     </div>
                   </div>
                   <div className="px-5 sm:px-10 pb-5 sm:pb-10">
-                    <div className="h-2.5 sm:h-4 w-full rounded-full bg-green-100">
-                      <div className="h-full w-full rounded-full bg-gradient-to-r from-green-500 to-emerald-300" />
+                    <div className="h-2.5 sm:h-4 w-full rounded-full bg-[#E0D4C3]">
+                      <div className="h-full w-full rounded-full bg-gradient-to-r from-[#8B4F3D] to-[#a86b56]" />
                     </div>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ const Projects = () => {
               <div className="rounded-[20px] sm:rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
                 <div className="p-5 sm:p-10 space-y-4 sm:space-y-8">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 sm:h-12 w-10 sm:w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 shadow-inner shadow-blue-100">
+                    <div className="flex h-10 sm:h-12 w-10 sm:w-12 items-center justify-center rounded-2xl bg-[#E0D4C3] text-[#1B365D] shadow-inner shadow-[#E0D4C3]">
                       <Target className="h-9 sm:h-11 w-9 sm:w-11" />
                     </div>
                     <p className="text-lg sm:text-3xl font-semibold text-gray-900">
@@ -276,7 +276,7 @@ const Projects = () => {
                     </p>
                   </div>
 
-                  <p className="text-2xl sm:text-5xl md:text-6xl font-extrabold text-blue-600">
+                  <p className="text-2xl sm:text-5xl md:text-6xl font-extrabold text-[#1B365D]">
                     62 Roads
                   </p>
                 </div>
@@ -284,17 +284,17 @@ const Projects = () => {
                 <div className="border-t border-gray-100">
                   <div className="grid grid-cols-2 divide-x divide-gray-100 px-5 sm:px-10 py-4 sm:py-8 text-gray-900">
                     <div className="space-y-2">
-                      <span className="text-xs sm:text-sm font-semibold text-blue-600">Amount</span>
+                      <span className="text-xs sm:text-sm font-semibold text-[#1B365D]">Amount</span>
                       <p className="text-lg sm:text-3xl font-semibold">INR 403+ Crores</p>
                     </div>
                     <div className="space-y-2">
-                      <span className="text-xs sm:text-sm font-semibold text-blue-600">Distance</span>
+                      <span className="text-xs sm:text-sm font-semibold text-[#1B365D]">Distance</span>
                       <p className="text-lg sm:text-3xl font-semibold">41.5 KM</p>
                     </div>
                   </div>
                   <div className="px-5 sm:px-10 pb-5 sm:pb-10">
-                    <div className="h-2.5 sm:h-4 w-full rounded-full bg-blue-100">
-                      <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-300" />
+                    <div className="h-2.5 sm:h-4 w-full rounded-full bg-[#E0D4C3]">
+                      <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-[#1B365D] to-[#2d5080]" />
                     </div>
                   </div>
                 </div>
@@ -306,7 +306,7 @@ const Projects = () => {
               <div className="rounded-[28px] bg-transpraent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)]  overflow-hidden">
                 <div className="p-10 space-y-8">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 shadow-inner shadow-blue-100">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E0D4C3] text-[#1B365D] shadow-inner shadow-[#E0D4C3]">
                       <Target className="h-11 w-11" />
                     </div>
                     <p className="text-xl font-semibold text-gray-900">
@@ -314,7 +314,7 @@ const Projects = () => {
                     </p>
                   </div>
 
-                  <p className="text-5xl md:text-5xl font-extrabold text-blue-600">
+                  <p className="text-5xl md:text-5xl font-extrabold text-[#1B365D]">
                     62 Roads
                   </p>
                 </div>
@@ -322,7 +322,7 @@ const Projects = () => {
                 <div className="">
                   <div className="grid grid-cols-2 px-10 py-8 text-gray-900">
                     <div className="space-y-2 px-2">
-                      <div className="flex items-center gap-2 text-blue-600">
+                      <div className="flex items-center gap-2 text-[#1B365D]">
                         <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M6 9h12M6 9l1-5h10l1 5M6 9v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9M8 20h8M9 14h6" />
                         </svg>
@@ -332,16 +332,16 @@ const Projects = () => {
                     </div>
 
                     <div className="space-y-2 px-2">
-                      <div className="flex items-center gap-2 blue-600">
-                        <span className="rounded-md bg-transparent text-blue-600 py-1 text-xs font-semibold">KM</span>
-                        <span className="text-sm text-blue-600 font-semibold">Distance</span>
+                      <div className="flex items-center gap-2 text-[#1B365D]">
+                        <Milestone className="h-5 w-5" />
+                        <span className="text-sm font-semibold">Distance</span>
                       </div>
                       <p className="text-2xl  font-semibold">41.5 KM</p>
                     </div>
                   </div>
                   <div className="px-10 pb-10">
-                    <div className="h-4 w-full rounded-full bg-blue-100">
-                      <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-300" />
+                    <div className="h-4 w-full rounded-full bg-[#E0D4C3]">
+                      <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-[#1B365D] to-[#2d5080]" />
                     </div>
                   </div>
                 </div>
@@ -350,9 +350,11 @@ const Projects = () => {
 
             {/* Mobile CTA */}
             <div className="lg:hidden col-span-1 w-full px-2 sm:px-4">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-colors w-full">
-                View All Projects
-              </button>
+              <Link href="/projects">
+                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-colors w-full">
+                  View All Projects
+                </button>
+              </Link>
             </div>
           </div>
 

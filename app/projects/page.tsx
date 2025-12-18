@@ -5,25 +5,65 @@ import { useInView } from 'react-intersection-observer';
 import { Route, Ruler, Clock, IndianRupee } from 'lucide-react';
 import { useState } from 'react';
 
-// Custom TailWind CSS for a better overlay on images
-// NOTE: Ensure your Tailwind config includes custom classes if you want to use colors not in the default palette, but for this, we'll stick to utility classes for simplicity.
-
 /* ================= BACKGROUND ================= */
 const ModernBackground = () => (
   <div className="absolute inset-0 overflow-hidden">
-    {/* Swapping orange-500/10 with an orange/pink hue for more depth */}
-    <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" />
-    <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-fuchsia-400/10 rounded-full blur-3xl animate-pulse delay-1000" />
+    {/* Animated gradient orbs */}
+    <motion.div
+      className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#1B365D]/8 rounded-full blur-3xl"
+      animate={{
+        scale: [1, 1.2, 1],
+        opacity: [0.3, 0.5, 0.3],
+        x: [0, 50, 0],
+        y: [0, -50, 0],
+      }}
+      transition={{
+        duration: 15,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    />
+    <motion.div
+      className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#8B4F3D]/8 rounded-full blur-3xl"
+      animate={{
+        scale: [1, 1.3, 1],
+        opacity: [0.3, 0.5, 0.3],
+        x: [0, -50, 0],
+        y: [0, 50, 0],
+      }}
+      transition={{
+        duration: 18,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    />
+    <motion.div
+      className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-[#E0D4C3]/6 rounded-full blur-3xl"
+      animate={{
+        scale: [1, 1.1, 1],
+        opacity: [0.2, 0.4, 0.2],
+        rotate: [0, 180, 360],
+      }}
+      transition={{
+        duration: 20,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+    />
+    
+    {/* Subtle grid pattern */}
     <div
-      className="absolute inset-0 opacity-[0.03]"
+      className="absolute inset-0 opacity-[0.02]"
       style={{
         backgroundImage: `
-          linear-gradient(to right, #f97316 1px, transparent 1px),
-          linear-gradient(to bottom, #f97316 1px, transparent 1px)
+          linear-gradient(to right, #1B365D 1px, transparent 1px),
+          linear-gradient(to bottom, #1B365D 1px, transparent 1px)
         `,
         backgroundSize: '60px 60px',
       }}
     />
+    
+
   </div>
 );
 
@@ -108,20 +148,90 @@ const Projects = () => {
     },
   ];
 
+  /* ================= SECTION HEADER ================= */
+  const SectionHeader = ({ title, subtitle, color }: any) => {
+    const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    
+    return (
+      <motion.div
+        ref={headerRef}
+        initial={{ opacity: 1, y: 0 }}
+        animate={headerInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+        className="mb-16 relative"
+      >
+        {/* Decorative line */}
+        <motion.div
+          initial={{ scaleX: 1 }}
+          animate={ { scaleX: 1 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
+          className={`absolute -left-12 top-1/2 w-8 h-1 ${color === 'blue' ? 'bg-[#1B365D]' : 'bg-[#8B4F3D]'}`}
+          style={{ transformOrigin: 'left' }}
+        />
+      
+        <div className="flex items-center gap-6">
+          {/* Animated icon */}
+          <motion.div
+            initial={{ scale: 1, rotate: 0 }}
+            animate={headerInView ? { scale: 1, rotate: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className={`w-16 h-16 rounded-2xl ${
+              color === 'blue' ? 'bg-gradient-to-br from-[#1B365D] to-[#1B365D]/70' : 'bg-gradient-to-br from-[#8B4F3D] to-[#8B4F3D]/70'
+            } flex items-center justify-center shadow-lg`}
+          >
+            <Route className="w-8 h-8 text-[#F4F1ED]" />
+          </motion.div>
+
+          <div>
+            <motion.h3
+              initial={{ opacity: 1, x: 0 }}
+              animate={headerInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className={`text-4xl font-bold ${color === 'blue' ? 'text-[#1B365D]' : 'text-[#8B4F3D]'}`}
+            >
+              {title}
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 1, x: 0 }}
+              animate={headerInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-[#8B4F3D]/60 mt-1 text-sm"
+            >
+              {subtitle}
+            </motion.p>
+          </div>
+        </div>
+
+        {/* Animated underline */}
+        <motion.div
+          initial={{ scaleX: 1 }}
+          animate={headerInView ? { scaleX: 1 } : {}}
+          transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+          className={`h-0.5 mt-6 ${
+            color === 'blue'
+              ? 'bg-gradient-to-r from-[#1B365D] via-[#1B365D]/50 to-transparent'
+              : 'bg-gradient-to-r from-[#8B4F3D] via-[#8B4F3D]/50 to-transparent'
+          }`}
+          style={{ transformOrigin: 'left' }}
+        />
+      </motion.div>
+    );
+  };
+
   /* ================= METADATA ITEM ================= */
-  const MetadataItem = ({ icon: Icon, label, value, delay }: any) => (
+  const MetadataItem = ({ icon: Icon, label, value, delay, isOngoing }: any) => (
     <motion.div
       initial={{ opacity: 0, x: -12 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay, ease: [0.23, 1, 0.32, 1] }}
       className="flex items-center gap-3"
     >
-      <div className="bg-orange-500/10 p-2 rounded-lg">
-        <Icon className="w-4 h-4 text-orange-600" />
+      <div className={`${isOngoing ? 'bg-[#8B4F3D]/10' : 'bg-[#1B365D]/10'} p-2 rounded-lg`}>
+        <Icon className={`w-4 h-4 ${isOngoing ? 'text-[#8B4F3D]' : 'text-[#1B365D]'}`} />
       </div>
       <div>
-        <p className="text-xs text-gray-500">{label}</p>
-        <p className="text-sm font-semibold text-gray-900">{value}</p>
+        <p className="text-xs text-[#8B4F3D]/60">{label}</p>
+        <p className="text-sm font-semibold text-[#8B4F3D]">{value}</p>
       </div>
     </motion.div>
   );
@@ -136,7 +246,7 @@ const Projects = () => {
         layout
         onMouseEnter={() => setHovered(index)}
         onMouseLeave={() => setHovered(null)}
-        className="relative bg-white rounded-3xl overflow-hidden h-[500px] cursor-pointer shadow-lg group" // Added group for potential future styling
+        className="relative bg-white rounded-3xl overflow-hidden h-[500px] cursor-pointer shadow-lg group"
         animate={{
           filter: dim ? 'blur(4px)' : 'blur(0px)',
           opacity: dim ? 0.6 : 1,
@@ -146,7 +256,6 @@ const Projects = () => {
         {/* Image */}
         <div className="absolute inset-0">
           <img src={card.src} alt={card.title} className="w-full h-full object-cover" />
-          {/* UPDATED: Darker, subtle overlay for better text contrast against light road images */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
             animate={{ opacity: isHovered ? 0 : 1 }}
@@ -156,7 +265,7 @@ const Projects = () => {
 
         {/* Accent */}
         <motion.div
-          className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-orange-600"
+          className={`absolute top-0 left-0 right-0 h-1 ${isOngoing ? 'bg-gradient-to-r from-[#8B4F3D] to-[#E0D4C3]' : 'bg-gradient-to-r from-[#1B365D] to-[#E0D4C3]'}`}
           animate={{ scaleX: isHovered ? 1 : 0 }}
           transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
           style={{ transformOrigin: 'left' }}
@@ -164,15 +273,14 @@ const Projects = () => {
 
         {/* Content */}
         <div className="relative h-full flex flex-col justify-between p-8">
-          <div className="flex-1 flex items-end justify-center"> {/* Aligned content to bottom for non-hovered state */}
+          <div className="flex-1 flex items-end justify-center">
             <motion.h3
               animate={{
                 y: isHovered ? -12 : 0,
-                // On hover, title moves up and color switches to black to sit against the white metadata box/faded image.
-                color: isHovered ? '#ffffff' : '#ffffffff', // text-gray-900 or white
+                color: isHovered ? '#ffffff' : '#ffffffff',
               }}
               transition={{ type: 'spring', stiffness: 140, damping: 18 }}
-              className="text-4xl text-white text-center drop-shadow-lg font-extrabold" // ADDED: text-white and drop-shadow-lg for visibility
+              className="text-4xl text-white text-center drop-shadow-lg font-extrabold"
             >
               {card.title}
             </motion.h3>
@@ -186,15 +294,14 @@ const Projects = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 24 }}
                 transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-                // Kept metadata box styling as it provides excellent contrast
-                className="grid grid-cols-2 gap-4 bg-white/95 backdrop-blur-xl p-6 rounded-2xl border border-orange-100 shadow-xl"
+                className="grid grid-cols-2 gap-4 bg-[#F4F1ED]/95 backdrop-blur-xl p-6 rounded-2xl border border-[#8B4F3D]/10 shadow-xl"
               >
-                <MetadataItem icon={IndianRupee} label="Project Cost" value={card.metadata.cost} delay={0.05} />
-                <MetadataItem icon={Route} label="Roads Completed" value={card.metadata.roadsCompleted} delay={0.1} />
-                <MetadataItem icon={Ruler} label="Total Length" value={card.metadata.length} delay={0.15} />
-                <MetadataItem icon={Clock} label="Duration" value={card.metadata.duration} delay={0.2} />
+                <MetadataItem icon={IndianRupee} label="Project Cost" value={card.metadata.cost} delay={0.05} isOngoing={isOngoing} />
+                <MetadataItem icon={Route} label="Roads Completed" value={card.metadata.roadsCompleted} delay={0.1} isOngoing={isOngoing} />
+                <MetadataItem icon={Ruler} label="Total Length" value={card.metadata.length} delay={0.15} isOngoing={isOngoing} />
+                <MetadataItem icon={Clock} label="Duration" value={card.metadata.duration} delay={0.2} isOngoing={isOngoing} />
                 {isOngoing && 'target' in card.metadata && (
-                  <MetadataItem icon={Clock} label="Our Target" value={card.metadata.target} delay={0.25} />
+                  <MetadataItem icon={Clock} label="Our Target" value={card.metadata.target} delay={0.25} isOngoing={isOngoing} />
                 )}
               </motion.div>
             )}
@@ -206,7 +313,7 @@ const Projects = () => {
 
   /* ================= RENDER ================= */
   return (
-    <section id="projects" className="relative py-32 bg-white overflow-hidden">
+    <section id="projects" className="relative py-32 bg-[#F4F1ED] overflow-hidden">
       <ModernBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -216,25 +323,32 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-24"
+          className="text-center mb-32"
         >
-          <h2 className="text-6xl font-bold text-gray-900">
-            Our <span className="text-orange-600">Projects</span>
+
+          <h2 className="text-6xl font-bold mb-6">
+            <span className="text-[#1B365D]">Our </span>
+            <span className="text-[#8B4F3D]">Projects</span>
           </h2>
-          <p className="text-gray-600 mt-6 max-w-2xl mx-auto">
+          
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-24 h-1 bg-gradient-to-r from-[#1B365D] via-[#8B4F3D] to-[#1B365D] mx-auto mb-6"
+          />
+          
+          <p className="text-[#8B4F3D]/70 mt-6 max-w-2xl mx-auto text-lg">
             Building infrastructure that connects communities and drives progress
           </p>
         </motion.div>
 
         {/* Completed Projects Section */}
-        <motion.h3
-          initial={{ opacity: 0, x: -50 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-3xl font-bold text-gray-800 mb-8 border-b-2 border-orange-500 inline-block pb-1"
-        >
-          Completed Projects
-        </motion.h3>
+        <SectionHeader 
+          title="Completed Projects" 
+          subtitle="Successfully delivered infrastructure projects"
+          color="blue"
+        />
         <div className="mb-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {completedProjects.map((card, i) => (
             <ProjectCard
@@ -243,19 +357,17 @@ const Projects = () => {
               index={i}
               hovered={hoveredCompleted}
               setHovered={setHoveredCompleted}
+              isOngoing={false}
             />
           ))}
         </div>
 
         {/* Ongoing Projects Section */}
-        <motion.h3
-          initial={{ opacity: 0, x: -50 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-3xl font-bold text-gray-800 mb-8 border-b-2 border-orange-500 inline-block pb-1"
-        >
-          Ongoing Projects
-        </motion.h3>
+        <SectionHeader 
+          title="Ongoing Projects" 
+          subtitle="Current projects in development"
+          color="brown"
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ongoingProjects.map((card, i) => (
             <ProjectCard
@@ -264,7 +376,7 @@ const Projects = () => {
               index={i}
               hovered={hoveredOngoing}
               setHovered={setHoveredOngoing}
-              isOngoing
+              isOngoing={true}
             />
           ))}
         </div>
