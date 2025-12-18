@@ -95,13 +95,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Services', id: 'services' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Contact', id: 'contact' },
-  ];
+  const navItems = ['Home', 'About', 'Services', 'Projects', 'Machinery','Contact'];
 
   return (
     <>

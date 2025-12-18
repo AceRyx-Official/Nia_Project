@@ -15,149 +15,93 @@ const Projects = () => {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+  const sectionEl = sectionRef.current;
+  if (!sectionEl) return;
 
-    const ctx = gsap.context(() => {
-      /* ================= INITIAL STATE ================= */
+  const ctx = gsap.context(() => {
+    gsap.set(bigArrowRef.current, { x: 0, opacity: 1 });
+    gsap.set(smallArrowRef.current, { x: -200, opacity: 0 });
+    gsap.set(svgRef.current, { y: -600 });
 
-      gsap.set(bigArrowRef.current, { x: 0, opacity: 1 });
-      gsap.set(smallArrowRef.current, { x: -200, opacity: 0 });
-      gsap.set(svgRef.current, { y: -550 });
+    const completedCards = gsap.utils.toArray('.completed-card');
+    const ongoingCards = gsap.utils.toArray('.ongoing-card');
 
-  // ⬅ LEFT SIDE: Completed Projects cards
-const completedCards = gsap.utils.toArray(
-  '.completed-card'
-);
+    const centerImage = sectionEl.querySelector(
+      'img[alt="3D Construction Projects Visualization"]'
+    );
 
-// ➡ RIGHT SIDE: Ongoing Projects cards
-const ongoingCards = gsap.utils.toArray(
-  '.ongoing-card'
-);
+    const ctaButtons = gsap.utils.toArray('button');
 
-      
-      const centerImage = sectionRef.current.querySelector(
-        'img[alt="3D Construction Projects Visualization"]'
-      );
-      const ctaButtons = gsap.utils.toArray(
-        'button'
-      );
+    gsap.set(completedCards, { x: -300, opacity: 0 });
+    gsap.set(ongoingCards, { x: 300, opacity: 0 });
 
-      // ⬅ Completed cards start outside screen (left)
-gsap.set(completedCards, {
-  x: -300, // 👈 increase for more slide distance
-  opacity: 0,
-});
+    if (centerImage) {
+      gsap.set(centerImage, { opacity: 0, y: 80 });
+    }
 
-// ➡ Ongoing cards start outside screen (right)
-gsap.set(ongoingCards, {
-  x: 300, // 👉 increase for more slide distance
-  opacity: 0,
-});
+    gsap.set(ctaButtons, { opacity: 0 });
 
-      // ⬆ Image starts slightly below and invisible
-gsap.set(centerImage, {
-  opacity: 0,
-  y: 80, // 👈 adjust this for more / less upward movement
-});
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionEl,
+        start: 'top 70%',
+        toggleActions: 'play none none none',
+        once: true,
+      },
+    });
 
-      gsap.set(ctaButtons, { opacity: 0 });
+    tl.to({}, { duration: 0.5 });
 
-      /* ================= TIMELINE ================= */
+    tl.to(bigArrowRef.current, {
+      x: '120vw',
+      opacity: 0,
+      duration: 1.4,
+      ease: 'power4.inOut',
+    });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 70%',
-          toggleActions: 'play none none none',
-          once: true,
-        },
-      });
+    tl.to(
+      smallArrowRef.current,
+      { x: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+      '-=0.7'
+    );
 
-      /* HOLD BIG ARROW */
-      tl.to({}, { duration: 0.5 });
+    tl.to(
+      svgRef.current,
+      { y: 0, duration: 1.3, ease: 'power3.out' },
+      '-=0.4'
+    );
 
-      /* BIG ARROW EXIT */
-      tl.to(bigArrowRef.current, {
-        x: '120vw',
-        opacity: 0,
-        duration: 1.4,
-        ease: 'power4.inOut',
-      });
+    tl.to(
+      completedCards,
+      { x: 0, opacity: 1, duration: 1, stagger: 0.12, ease: 'power3.out' },
+      '-=0.2'
+    );
 
-      /* SMALL ARROW ENTRY */
-      tl.to(
-        smallArrowRef.current,
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
-        },
-        '-=0.7'
-      );
+    tl.to(
+      ongoingCards,
+      { x: 0, opacity: 1, duration: 1, stagger: 0.10, ease: 'power3.out' },
+      '<'
+    );
 
-      /* SVG SLIDE DOWN */
-      tl.to(
-        svgRef.current,
-        {
-          y: 0,
-        
-          duration: 1.3,
-          ease: 'power3.out',
-        },
-        '-=0.4'
-      );
+    if (centerImage) {
+      tl.to(centerImage, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },'-=0.3');
+    }
 
-      /* CARDS FADE IN */
-     // ⬅ Completed cards slide in from left
-tl.to(
-  completedCards,
-  {
-    x: 0,
-    opacity: 1,
-    duration: 1,
-    ease: 'power3.out',
-    stagger: 0.12,
-  },
-  '-=0.2'
-);
+    tl.to(ctaButtons, {
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power2.out',
+    },'-=0.5');
+  }, sectionRef);
 
-// ➡ Ongoing cards slide in from right (same time)
-tl.to(
-  ongoingCards,
-  {
-    x: 0,
-    opacity: 1,
-    duration: 1,
-    ease: 'power3.out',
-    stagger: 0.12,
-  },
-  '<' // 👈 plays simultaneously with completed cards
-);
+  return () => ctx.revert();
+}, []);
 
-      /* IMAGE FADE UP */
-tl.to(centerImage, {
-  opacity: 1,
-  y: 0, // ⬆ moves image back to its natural position
-  duration: 1,
-  ease: 'power3.out',
-});
-
-      /* CTA FADE IN */
-      tl.to(ctaButtons, {
-        opacity: 1,
-        duration: 0.6,
-        ease: 'power2.out',
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="py-16 relative overflow-hidden bg-[#F4F1ED]"
+      className="py-16 h-screen relative overflow-hidden bg-[#F4F1ED]"
     >
       
       {/* ================= BIG CENTER ARROW ================= */}
@@ -413,7 +357,7 @@ tl.to(centerImage, {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex justify-center w-full px-4 mt-8">
+          <div className="hidden lg:flex justify-center w-full px-4 mt-2">
             <Link href="/projects">
               <div className="w-full max-w-xs">
                 <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-[#ffffff] px-8 py-3 rounded-full font-semibold transition-colors w-full">
