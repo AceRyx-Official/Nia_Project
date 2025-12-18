@@ -59,15 +59,30 @@ const Hero = () => {
   const imageVariant: Variants = {
     hidden: {
       opacity: 0,
-      y: 50,
+      x: 150,
       scale: 0.94,
     },
     visible: {
       opacity: 1,
-      y: 0,
+      x: -100,
       scale: 1,
       transition: {
-        duration: 1.1,
+        duration: 3,
+        ease: [0.3, 1, 0.3, 1],
+      },
+    },
+  };
+
+  const svgVariant: Variants = {
+    hidden: {
+      opacity: 0,
+      x: '-100%',
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1.2,
         ease: [0.16, 1, 0.3, 1],
       },
     },
@@ -85,7 +100,40 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
+      {/* Decorative SVG Shape - Left (Behind) - Slides in from left */}
+      <motion.div
+        variants={svgVariant}
+        initial="hidden"
+        animate={canAnimate ? 'visible' : 'hidden'}
+        className="absolute inset-0"
+      >
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          style={{ zIndex: 3 }}
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M 0 0 L 1117 0 C 1129 90 1105 205 1032 269 C 977 327 888 380 900 552 C 918 753 763 857 689 903 L 0 900 Z"
+            fill="#471c1cff"
+          />
+        </svg>
+      </motion.div>
 
+      {/* Decorative SVG Shape - Right (Front)
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        style={{ zIndex: 30 }}
+        viewBox="0 0 1440 900"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M 1466 901 L 1060 907 C 1103 822 1184 859 1200 784 C 1208 718 1283 731 1266 654 C 1273 591 1338 640 1357 537 C 1370 454 1305 486 1440 317 L 1455 899"
+          fill="#471c1cff"
+        />
+      </svg> */}
 
       <motion.div
         variants={mainContainer}
@@ -102,16 +150,18 @@ const Hero = () => {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-6xl md:text-7xl text-white leading-tight mb-6 font-bold"
+              className="text-6xl md:text-7xl text-white leading-tight mb-3 font-bold line"
             >
               Inspired by Nature,
-              <br />
-              <span className="text-orange-400">Perfected by Vision</span>
             </motion.h1>
-
+            <motion.h1
+              variants={fadeUp}
+            >
+              <span className="text-orange-400 text-6xl md:text-7xl leading-tight font-bold line">Perfected by Vision</span>
+            </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="text-lg text-white max-w-xl mb-10"
+              className="text-lg text-white max-w-xl mb-10 mt-10"
             >
               NIA Construction delivers thoughtful, reliable construction solutions
               with a focus on quality execution, safety, and long-term value.
@@ -145,7 +195,7 @@ const Hero = () => {
             className="w-full lg:w-[50%] flex justify-center lg:justify-end"
           >
             <motion.div
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.01 }}
               transition={{ type: 'spring', stiffness: 180, damping: 18 }}
               className="relative w-full"
             >

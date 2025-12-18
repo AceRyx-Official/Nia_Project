@@ -17,7 +17,7 @@ const About = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
- 
+
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -65,7 +65,7 @@ const About = () => {
           start: 'top 70%',
           once: true,
 
-        
+
         },
       });
 
