@@ -47,21 +47,21 @@ export default function Services() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
 
               {/* 1. Road Construction & Development */}
-              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div className="absolute -right-36 top-1/2 -translate-y-1/2 z-0">
+              <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-36 top-1/2 -translate-y-1/2 z-0 transition-all duration-300 group-hover:-right-36">
                   <Image
                     src="/Services/wrench.png"
                     alt="Road Construction"
                     width={384}
                     height={384}
-                    className="w-[28rem] h-[28rem] object-contain opacity-60"
+                    className="w-90 h-90 object-contain opacity-60"
                   />
                 </div>
-                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-2xl leading-tight mb-4">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01] justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
+                  <h4 className="font-bold text-xl leading-tight text-[#1B365D] text-center group-hover:text-left group-hover:mb-4 transition-all duration-300">
                     Road Construction & Development
                   </h4>
-                  <span className="text-base font-bold max-w-[60%] mb-4">
+                  <span className="text-sm font-bold max-w-[70%] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Durable road networks and high-strength concrete road works.
                   </span>
                 </div>
@@ -70,8 +70,8 @@ export default function Services() {
               </div>
 
               {/* 2. RMC */}
-              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div className="absolute -right-36 top-2/3 -translate-y-1/2 z-0">
+              <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-44 top-2/3 -translate-y-1/2 z-0 transition-all duration-300 group-hover:-right-44">
                   <Image
                     src="/Services/rings.png"
                     alt="RMC"
@@ -80,11 +80,11 @@ export default function Services() {
                     className="w-[28rem] h-[28rem] object-contain opacity-60"
                   />
                 </div>
-                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-2xl leading-tight mb-4">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01] justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
+                  <h4 className="font-bold text-xl leading-tight text-[#1B365D] text-center group-hover:text-left group-hover:mb-4 transition-all duration-300">
                     RMC (Ready Mix Concrete)
                   </h4>
-                  <span className="text-base font-bold max-w-[60%] mb-4">
+                  <span className="text-sm font-bold max-w-[70%] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     High-performance concrete with in-house batching and on-site delivery.
                   </span>
                 </div>
@@ -93,95 +93,95 @@ export default function Services() {
               </div>
 
               {/* 3. Excavation Services */}
-              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+              <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-16 top-1/2 -translate-y-1/2 z-0 transition-all duration-300 group-hover:-right-16">
                   <Image
                     src="/Services/swirl.png"
                     alt="Excavation"
                     width={384}
                     height={384}
-                    className="w-96 h-96 object-contain opacity-60"
+                    className="w-60 h-60 object-contain opacity-60"
                   />
                 </div>
-                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-2xl leading-tight mb-4">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01] justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
+                  <h4 className="font-bold text-xl leading-tight text-[#1B365D] text-center group-hover:text-left group-hover:mb-4 transition-all duration-300">
                     Excavation Services
                   </h4>
-                  <span className="text-base font-bold max-w-[60%] mb-8">
+                  <span className="text-sm font-bold max-w-[70%] mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Foundation, site and utility excavation with expert handling.
                   </span>
                 </div>
                 {/* Striped strip at base */}
-                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
+                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage: 'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, black 10px, black 20px)'}}></div>
               </div>
 
               {/* 4. Infrastructure & Civil Works */}
-              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div className="absolute -right-20 top-2/4 -translate-y-1/2 z-0">
+              <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-20 top-2/4 -translate-y-1/2 z-0 transition-all duration-300 group-hover:-right-20">
                   <Image
                     src="/Services/Gear.png"
                     alt="Infrastructure"
                     width={384}
                     height={384}
-                    className="w-96 h-96 object-contain opacity-60"
+                    className="w-80 h-80 object-contain opacity-60"
                   />
                 </div>
-                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-2xl leading-tight mb-4">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01] justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
+                  <h4 className="font-bold text-xl leading-tight text-[#1B365D] text-center group-hover:text-left group-hover:mb-4 transition-all duration-300">
                     Infrastructure & Civil Works
                   </h4>
-                  <span className="text-base font-bold max-w-[60%] mb-4">
+                  <span className="text-sm font-bold max-w-[70%] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Drainage, culverts, retaining walls, footpaths, medians and ducting work.
                   </span>
                 </div>
                 {/* Striped strip at base */}
-                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
+                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage: 'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, black 10px, black 20px)'}}></div>
               </div>
 
               {/* 5. Machinery & Equipment Support */}
-              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div className="absolute -right-24 top-1/2 -translate-y-1/2 z-0">
+              <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-20 top-1/2 -translate-y-1/2 z-0 transition-all duration-300 group-hover:-right-20">
                   <Image
                     src="/Services/hammer.png"
                     alt="Machinery"
                     width={384}
                     height={384}
-                    className="w-96 h-96 object-contain opacity-60"
+                    className="w-72 h-72 object-contain opacity-60"
                   />
                 </div>
-                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-2xl leading-tight mb-4">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01] justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
+                  <h4 className="font-bold text-xl leading-tight text-[#1B365D] text-center group-hover:text-left group-hover:mb-4 transition-all duration-300">
                     Machinery & Equipment Support
                   </h4>
-                  <span className="text-base font-bold max-w-[60%] mb-4">
+                  <span className="text-sm font-bold max-w-[70%] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Fleet of excavators, rollers, pavers, graders and on-site mechanical support.
                   </span>
                 </div>
                 {/* Striped strip at base */}
-                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
+                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage: 'repeating-linear-gradient(90deg, #1B365D 0px, #1B365D 10px, white 10px, white 20px)'}}></div>
               </div>
 
               {/* 6. Project Management & Turnkey */}
-              <div className="relative min-h-[180px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-                <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-0">
+              <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#F4F1ED] overflow-hidden transform hover:scale-[1.07] transition duration-300">
+                <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-0 transition-all duration-300 group-hover:-right-12">
                   <Image
                     src="/Services/helmet.png"
                     alt="Project Management"
                     width={384}
                     height={384}
-                    className="w-96 h-96 object-contain opacity-60"
+                    className="w-80 h-80 object-contain opacity-60"
                   />
                 </div>
-                <div className="relative z-10 flex flex-col justify-between h-full text-[#482b01]">
-                  <h4 className="font-bold text-2xl leading-tight mb-4">
+                <div className="relative z-10 flex flex-col h-full text-[#482b01] justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
+                  <h4 className="font-bold text-xl leading-tight text-[#1B365D] text-center group-hover:text-left group-hover:mb-4 transition-all duration-300">
                     Project Management & Turnkey
                   </h4>
-                  <span className="text-base font-bold max-w-[60%] mb-4">
+                  <span className="text-sm font-bold max-w-[70%] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     End-to-end turnkey execution with safety, quality and planned delivery.
                   </span>
                 </div>
                 {/* Striped strip at base */}
-                <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-black via-white to-black" style={{backgroundImage: 'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}}></div>
+                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage: 'repeating-linear-gradient(90deg, #1B365D 0px, #1B365D 10px, white 10px, white 20px)'}}></div>
               </div>
 
             </div>
