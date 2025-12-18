@@ -38,7 +38,7 @@ const LeaderCard = ({
         {/* Toggle Button */}
         <button
           onClick={onToggle}
-          className="mt-6 flex items-center gap-2 text-sm font-semibold text-black hover:text-orange-500 transition-colors"
+          className="mt-6 flex items-center gap-2 text-sm font-semibold text-black hover:text-orange-500 transition-colors px-4 py-2 rounded-full"
         >
           {isOpen ? (
             <>

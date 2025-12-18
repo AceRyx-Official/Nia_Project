@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Settings, Truck, HardHat } from 'lucide-react';
+import { Settings, Truck, HardHat, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -17,7 +17,7 @@ const About = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
- 
+
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -65,7 +65,7 @@ const About = () => {
           start: 'top 70%',
           once: true,
 
-        
+
         },
       });
 
@@ -250,8 +250,9 @@ const About = () => {
 
             <div className="pt-8">
               <Link href="/about">
-                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-colors">
+                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-white px-8 py-4 rounded-full font-semibold shadow-lg transition-colors inline-flex items-center gap-2">
                   LEARN MORE ABOUT NIA INFRA PROJECTS
+                  <ArrowRight className="w-5 h-5" />
                 </button>
               </Link>
             </div>

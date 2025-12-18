@@ -113,3 +113,48 @@ body {
 .animate-road-dash {
   animation: roadDash 2s linear infinite;
 }
+
+/* ================================================= */
+/* =============== CUSTOM CURSORS ================== */
+/* ================================================= */
+
+/* DEFAULT CURSOR — Arrow */
+html,
+body {
+  cursor: url('/cursors/cursor-default.png') 4 4, auto;
+}
+
+/* POINTER CURSOR — Cone (for clickable elements) */
+a,
+button,
+[role="button"],
+input,
+select,
+textarea,
+label {
+  cursor: url('/cursors/cursor-pointer.png') 8 8, pointer;
+}
+
+/* OPTIONAL: Manual control via class */
+.cursor-pointer {
+  cursor: url('/cursors/cursor-pointer.png') 8 8, pointer;
+}
+
+/* ================================================= */
+/* =============== MOBILE SAFETY =================== */
+/* ================================================= */
+
+/* Disable custom cursor on touch devices */
+@media (hover: none) {
+  html,
+  body,
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea,
+  label {
+    cursor: auto;
+  }
+}

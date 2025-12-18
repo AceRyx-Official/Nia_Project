@@ -48,7 +48,7 @@ const Machinery = () => {
       });
 
       gsap.set(svgRef.current, {
-        y: 1400,
+        y: -700,
       });
 
       gsap.set(leftContentRef.current?.children || [], {
@@ -163,7 +163,7 @@ const Machinery = () => {
             preserveAspectRatio="none"
             className="w-full h-full"
           >
-            <rect x="0" y="0" width="1440" height="900" fill="#E0D4C3" />
+            <rect x="0" y="0" width="1440" height="900" fill="#F4F1ED" />
             <path
               d="
                 M 0 900 C 104 612 236 889 337 747
@@ -174,7 +174,7 @@ const Machinery = () => {
                 C 1247 251 1215 714 1440 424
                 L 1440 0 L 0 0 Z
               "
-              fill="#F4F1ED"
+              fill="#E0D4C3"
             />
           </svg>
         </div>

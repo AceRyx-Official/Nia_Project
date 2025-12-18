@@ -12,19 +12,36 @@ import Footer from '@/components/Footer';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 
 export default function Home() {
+  // Initialize state to TRUE (server default) to match server rendering and avoid hydration errors
+  // We handle the "already shown" ease via the inline script in layout.tsx + useEffect
   const [showLoader, setShowLoader] = useState(true);
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  // Control body overflow - prevent scrolling during loader
   useEffect(() => {
-    // Check if the loader has already been shown in this session
-    const loaderShown = sessionStorage.getItem('loaderShown');
-
-    if (loaderShown === 'true') {
-      // Skip loader if already shown
+    // Check session storage on mount to sync state
+    if (sessionStorage.getItem('loaderShown') === 'true') {
       setShowLoader(false);
       setHasLoaded(true);
+
+      // Cleanup the override style tag added by layout.tsx
+      const overrideStyle = document.getElementById('loader-override-style');
+      if (overrideStyle) {
+        overrideStyle.remove();
+      }
     }
-  }, []);
+
+    if (showLoader) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showLoader]);
 
   const handleLoaderComplete = () => {
     // Mark loader as shown for this session
@@ -37,14 +54,14 @@ export default function Home() {
     <PageTransitionWrapper>
       {/* Loader Animation - Fixed overlay, shows only once */}
       {showLoader && (
-        <div className="fixed inset-0 z-50">
+        <div id="loader-overlay" className="fixed inset-0 z-50">
           <LoaderAnimation onComplete={handleLoaderComplete} />
         </div>
       )}
 
       {/* Main Website Content - Hidden during loader */}
-      <main className={`min-h-screen transition-opacity duration-500 ${hasLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        
+      <main id="main-content" className={`min-h-screen transition-opacity duration-500 ${hasLoaded ? 'opacity-100' : 'opacity-0'}`}>
+
         <div className="section" id="hero">
           <Hero />
         </div>
@@ -61,13 +78,13 @@ export default function Home() {
           <Machinery />
         </div>
         <div className="section" id="contact">
-         
+
         </div>
         <div className="section">
           <Footer />
         </div>
-        </main>
-      </PageTransitionWrapper>
+      </main>
+    </PageTransitionWrapper>
 
   );
 }

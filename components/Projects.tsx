@@ -362,8 +362,9 @@ const Projects = () => {
           <div className="hidden lg:flex justify-center w-full px-4 mt-2">
             <Link href="/projects">
               <div className="w-full max-w-xs">
-                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-[#ffffff] px-8 py-3 rounded-full font-semibold transition-colors w-full">
+                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-[#ffffff] px-8 py-3 rounded-full font-semibold transition-colors w-full inline-flex items-center justify-center gap-2">
                   View All Projects
+                  <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
             </Link>

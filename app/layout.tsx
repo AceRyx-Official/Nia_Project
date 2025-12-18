@@ -33,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning={true}
         className={`
           ${roboto.variable}
           ${ultra.variable}
@@ -45,6 +46,20 @@ export default function RootLayout({
           text-slate-900
         `}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (sessionStorage.getItem('loaderShown') === 'true') {
+                  var style = document.createElement('style');
+                  style.id = 'loader-override-style';
+                  style.innerHTML = '#loader-overlay { display: none !important; } #main-content { opacity: 1 !important; }';
+                  document.head.appendChild(style);
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
         <Providers>
           <Navbar />
           {children}
