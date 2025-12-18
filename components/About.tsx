@@ -222,7 +222,7 @@ const About = () => {
               Expertise
             </h2>
 
-            <p className="text-gray-700 font-bold leading-relaxed max-w-md">
+            <p className="text-gray-700 font-bold leading-relaxed max-w-sm">
               Nia Infra Projects is a public infrastructure specialist dedicated
               to the execution of urban roads, highways, and large-scale
               development.

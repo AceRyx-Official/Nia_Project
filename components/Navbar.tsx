@@ -130,12 +130,7 @@ const Navbar = () => {
                 </button>
               ))}
 
-              <button
-                onClick={() => handleScrollTo('contact')}
-                className="bg-accent-red text-white px-6 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition"
-              >
-                Get Quote
-              </button>
+              
             </div>
 
             {/* Mobile Menu Button */}

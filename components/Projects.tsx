@@ -201,14 +201,19 @@ tl.to(centerImage, {
           <rect x="0" y="0" width="1440" height="900" fill="#E0D4C3" />
           <path
             d="
-           M 0 420 C 127 208 113 354 259 560 C 329 661 419 342 472 446 C 621 695 602 348 742 367 C 788 371 866 591 892 613 C 992 731 1017 357 1117 308 C 1247 251 1215 714 1440 424 L 1440 900 L 0 900 Z
+          M 0 264 L 447 653 L 684 466 L 1018 682 L 1440 424 L 1440 900 L 0 900 Z
             "
             fill="#F4F1ED"
           />
         </svg>
       </div>
 
-
+          {/* <path
+            d="
+           M 0 420 C 127 208 113 354 259 560 C 329 661 419 342 472 446 C 621 695 602 348 742 367 C 788 371 866 591 892 613 C 992 731 1017 357 1117 308 C 1247 251 1215 714 1440 424 L 1440 900 L 0 900 Z
+            "
+            fill="#F4F1ED"
+          /> */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-24">
         <div className="space-y-8">
@@ -411,7 +416,7 @@ tl.to(centerImage, {
           <div className="hidden lg:flex justify-center w-full px-4 mt-8">
             <Link href="/projects">
               <div className="w-full max-w-xs">
-                <button className="bg-[#8B4F3D] hover:bg-[#a46565] text-[#ffffff] hover:text-[#ffffff] px-8 py-3 rounded-full font-semibold transition-colors w-full">
+                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-[#ffffff] px-8 py-3 rounded-full font-semibold transition-colors w-full">
                   View All Projects
                 </button>
               </div>

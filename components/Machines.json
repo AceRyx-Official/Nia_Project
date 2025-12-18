@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Transit Mixer",
+    "image": "/Fleet/01_Transit.jpg",
+    "description": "High-capacity concrete mixing trucks",
+    "specs": "Capacity: 8 units"
+  },
+  {
+    "id": 2,
+    "name": "Tipper Truck",
+    "image": "/Fleet/02_TipperTruck.png",
+    "description": "Heavy-duty material transport vehicles",
+    "specs": "Capacity: 6 units"
+  },
+  {
+    "id": 3,
+    "name": "Ready-Mix Concrete",
+    "image": "/Fleet/03_RMC.jpg",
+    "description": "Advanced concrete production facilities",
+    "specs": "Capacity: 4 plants"
+  },
+  {
+    "id": 4,
+    "name": "Backhoe Loader",
+    "image": "/Fleet/04_BackHoe.jpg",
+    "description": "Versatile excavation and loading equipment",
+    "specs": "Capacity: 3 units"
+  },
+  {
+    "id": 5,
+    "name": "Water Tanker",
+    "image": "/Fleet/05_WaterTanker.png",
+    "description": "Water supply and dust suppression",
+    "specs": "Capacity: 2 units"
+  },
+  {
+    "id": 6,
+    "name": "Road Roller",
+    "image": "/Fleet/06_RoadRoller.jpg",
+    "description": "Road surface compaction machinery",
+    "specs": "Capacity: 2 units"
+  },
+  {
+    "id": 7,
+    "name": "Ecoman VSI Crusher",
+    "image": "/Fleet/07_Ecoman-VSI.jpeg",
+    "description": "Advanced vertical shaft impact crusher",
+    "specs": "Capacity: 1 unit"
+  },
+  {
+    "id": 8,
+    "name": "Soil Compactor",
+    "image": "/Fleet/08_SoilCompactor.jpg",
+    "description": "Ground preparation and compaction",
+    "specs": "Capacity: 1 unit"
+  },
+  {
+    "id": 9,
+    "name": "Motor Grader",
+    "image": "/Fleet/09_MotorG.jpeg",
+    "description": "Precision road grading equipment",
+    "specs": "Capacity: 1 unit"
+  }
+]
