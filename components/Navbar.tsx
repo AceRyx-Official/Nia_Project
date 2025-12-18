@@ -75,7 +75,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const navItems = ['Home', 'About', 'Services', 'Projects', 'Contact'];
+  const navItems = ['Home', 'About', 'Services', 'Projects', 'Machinery','Contact'];
 
   return (
     <>

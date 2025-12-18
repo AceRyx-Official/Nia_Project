@@ -148,7 +148,7 @@ const About = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#F4F1ED]"
+      className="relative h-screen overflow-hidden bg-[#F4F1ED]"
     >
       {/* ================= SMALL ARROW ================= */}
       <div ref={arrowRef} className="absolute top-0 left-0 z-30">
