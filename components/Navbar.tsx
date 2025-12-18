@@ -120,7 +120,7 @@ const Navbar = () => {
                   key={item}
                   onClick={() => handleScrollTo(item.toLowerCase())}
                   className={cn(
-                    'text-sm font-semibold transition-colors',
+                    'text-sm font-semibold transition-colors px-4 py-2 rounded-full',
                     isAtTop
                       ? 'text-white hover:text-accent-red'
                       : 'text-black hover:text-accent-red'
@@ -135,7 +135,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden"
+              className="md:hidden p-2 rounded-full"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
@@ -154,7 +154,7 @@ const Navbar = () => {
               <button
                 key={item}
                 onClick={() => handleScrollTo(item.toLowerCase())}
-                className="block w-full text-left px-6 py-4 text-lg font-semibold text-black hover:bg-gray-100 transition"
+                className="block w-full text-left px-6 py-4 text-lg font-semibold text-black hover:bg-gray-100 transition rounded-full"
               >
                 {item}
               </button>
