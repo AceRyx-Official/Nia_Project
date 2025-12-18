@@ -16,113 +16,113 @@ export default function Services() {
   const cardsRef = useRef<HTMLDivElement>(null);
 
   /* ================= GSAP ANIMATION ================= */
-  useEffect(() => {
-    if (!sectionRef.current) return;
+ useEffect(() => {
+  if (!sectionRef.current) return;
 
-    const ctx = gsap.context(() => {
-      /* INITIAL STATES */
-      gsap.set(bigArrowRef.current, {
+  const ctx = gsap.context(() => {
+    /* ================= INITIAL STATES ================= */
+
+    gsap.set(bigArrowRef.current, {
+      x: 0,
+      opacity: 1,
+      scale: 2.4,
+      transformOrigin: 'center',
+    });
+
+    gsap.set(smallArrowRef.current, {
+      x: -200,
+      opacity: 0,
+    });
+
+    gsap.set(titleRef.current, {
+      y: 40,
+      opacity: 0,
+    });
+
+    gsap.set(imageRef.current, {
+      y: 60,
+      opacity: 0,
+    });
+
+    gsap.set(cardsRef.current?.children || [], {
+      opacity: 0, // 👈 subtle scale-in for smoothness
+    });
+
+    /* ================= TIMELINE ================= */
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 70%',
+        once: true,
+      },
+    });
+
+    // small buffer
+    tl.to({}, { duration: 0.4 });
+
+    // BIG ARROW EXIT
+    tl.to(bigArrowRef.current, {
+      x: '120vw',
+      opacity: 0,
+      duration: 1.4,
+      ease: 'power4.inOut',
+    });
+
+    // SMALL ARROW ENTER
+    tl.to(
+      smallArrowRef.current,
+      {
         x: 0,
         opacity: 1,
-        scale: 2.4,
-        transformOrigin: 'center',
-      });
+        duration: 1,
+        ease: 'power3.out',
+      },
+      '-=0.7'
+    );
 
-      gsap.set(smallArrowRef.current, {
-        x: -200,
-        opacity: 0,
-      });
+    // TITLE
+    tl.to(
+      titleRef.current,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+      },
+      '-=0.4'
+    );
 
-      gsap.set(titleRef.current, {
-        y: 40,
-        opacity: 0,
-      });
+    // IMAGE
+    tl.to(
+      imageRef.current,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+      },
+      '-=0.5'
+    );
 
-      gsap.set(imageRef.current, {
-        y: 60,
-        opacity: 0,
-      });
+    // CARDS — ROW BY ROW (2 AT A TIME, SMOOTH)
+    tl.to(
+  cardsRef.current?.children || [],
+  {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    duration: 0.8,
+    stagger: 0.2,          // 👈 one after the other
+    ease: 'power4.out',
+  },
+  '-=0.3'
+);
 
-      gsap.set(cardsRef.current?.children || [], {
-        y: 60,
-        opacity: 0,
-      });
+  }, sectionRef);
 
-      /* TIMELINE */
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 70%',
-          once: true,
-        },
-      });
-
-      tl.to({}, { duration: 0.4 });
-
-      // BIG ARROW EXIT
-      tl.to(bigArrowRef.current, {
-        x: '120vw',
-        opacity: 0,
-        duration: 1.4,
-        ease: 'power4.inOut',
-      });
-
-      // SMALL ARROW ENTER
-      tl.to(
-        smallArrowRef.current,
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
-        },
-        '-=0.7'
-      );
-
-      // TITLE
-      tl.to(
-        titleRef.current,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
-        },
-        '-=0.4'
-      );
-
-      // IMAGE
-      tl.to(
-        imageRef.current,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
-        },
-        '-=0.5'
-      );
-
-      // CARDS — ROW BY ROW (2 AT A TIME)
-      tl.to(
-        cardsRef.current?.children || [],
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.9,
-          stagger: {
-            each: 0.25,
-            grid: [3, 2], // 3 rows, 2 columns
-            from: 'start',
-          },
-          ease: 'power3.out',
-        },
-        '-=0.4'
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  return () => ctx.revert();
+}, []);
 
   return (
     <section ref={sectionRef} className="relative bg-[#E0D4C3] overflow-hidden">
