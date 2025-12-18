@@ -13,7 +13,7 @@ const BILLBOARD_IMAGE_CONFIG = {
     width: '70vw',              // Billboard width as viewport width (e.g., '70vw' = 70% of screen width)
     maxWidth: '900px',          // Maximum billboard width (px)
     height: 'auto',             // Billboard height (auto maintains aspect ratio)
-    top: '30%',                 // Vertical position (% from top, 50% = center)
+    top: '35%',                 // Vertical position (% from top, 50% = center)
     left: '50%',                // Horizontal position (% from left, 50% = center)
     tiltX: 0,                   // X-axis tilt/rotation in degrees (positive = tilt down, negative = tilt up)
     tiltY: 0,                   // Y-axis tilt/rotation in degrees (positive = rotate right, negative = rotate left)
@@ -28,7 +28,7 @@ const BILLBOARD_IMAGE_CONFIG = {
 const BILLBOARD_ANIMATION_CONFIG = {
     startScale: 1,              // Starting scale (1 = normal size)
     endScale: 3,                // Ending scale (2 = double size, zoom in effect)
-    moveDownPercent: '60%',     // How far to move down during animation (% of container height)
+    moveDownPercent: '80%',     // How far to move down during animation (% of container height)
     duration: 6,                // Animation duration in seconds (synced with car)
 };
 
@@ -37,7 +37,7 @@ const CAR_CONFIG = {
     width: 140,                 // Car image width (px)
     height: 93,                 // Car image height (px)
     startBottom: '-10%',        // Starting position (bottom of screen)
-    endBottom: '60%',          // Ending position (very top of screen)
+    endBottom: '55%',          // Ending position (very top of screen)
     startScale: 3,              // Starting scale
     endScale: 0.2,              // Ending scale (smaller at top for perspective)
     animationDuration: 4,       // Animation duration in seconds
