@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from "next/link";
-import { Trophy, Target } from 'lucide-react';
+import { Trophy, Target, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -350,8 +350,9 @@ const Projects = () => {
 
             {/* Mobile CTA */}
             <div className="lg:hidden col-span-1 w-full px-2 sm:px-4">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-colors w-full">
+              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-colors w-full inline-flex items-center justify-center gap-2">
                 View All Projects
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -360,8 +361,9 @@ const Projects = () => {
           <div className="hidden lg:flex justify-center w-full px-4 mt-2">
             <Link href="/projects">
               <div className="w-full max-w-xs">
-                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-[#ffffff] px-8 py-3 rounded-full font-semibold transition-colors w-full">
+                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-[#ffffff] px-8 py-3 rounded-full font-semibold transition-colors w-full inline-flex items-center justify-center gap-2">
                   View All Projects
+                  <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
             </Link>
