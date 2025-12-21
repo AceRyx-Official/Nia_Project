@@ -133,7 +133,7 @@ const Machinery = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative bg-[#E0D4C3] overflow-hidden">
+    <section ref={sectionRef} className="relative bg-[#F4F1ED] overflow-hidden">
 
       {/* ================= BIG CENTER ARROW ================= */}
       <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
@@ -259,7 +259,7 @@ const Machinery = () => {
       {showMachines && (
         <div
           ref={expandedRef}
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 mt-12 bg-[#E0D4C3]"
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 mt-12 bg-[#F4F1ED]"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {machines.map((machine) => (
