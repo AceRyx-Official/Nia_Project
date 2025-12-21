@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from "next/link";
-import { Trophy, Target, Milestone } from 'lucide-react';
+import { Trophy, Target, Milestone, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { Mail, Phone, MapPin, Send, Clock, CheckCircle, AlertCircle, Building2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, CheckCircle, AlertCircle, Building2, Download } from 'lucide-react';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import { motion } from 'framer-motion';
 import { initializeGSAP } from '@/lib/gsap-utils';
@@ -142,6 +142,18 @@ export default function ContactPage() {
             
             {/* Contact Information */}
             <div ref={cardsRef} className="lg:col-span-2 space-y-4">
+              {/* Download Brochure Button */}
+              <motion.a
+                href="/Contact/NIA INFRA - COMPANY PROFILE.pdf"
+                download="NIA_INFRA_Company_Profile.pdf"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center justify-center space-x-3 p-5 bg-gradient-to-r from-[#8B4F3D] to-[#1B365D] rounded-2xl shadow-lg hover:shadow-xl transition-all text-white font-semibold"
+              >
+                <Download className="w-5 h-5" />
+                <span>Download Our Brochure</span>
+              </motion.a>
+
               {/* Contact Cards */}
               <motion.div 
                 whileHover={{ scale: 1.02 }}

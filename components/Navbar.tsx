@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Home as HomeIcon, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { initializeGSAP } from '@/lib/gsap-utils';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -13,6 +14,7 @@ const Navbar = () => {
 
   const [isAtTop, setIsAtTop] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -185,15 +187,17 @@ const Navbar = () => {
                       <span>Home</span>
                     </motion.button>
                   </Link>
-                  <Link href="/contact">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-6 py-2.5 rounded-full font-medium transition-all duration-200 bg-[#1B365D] text-white hover:bg-[#1B365D]/90 shadow-md"
-                    >
-                      Contact
-                    </motion.button>
-                  </Link>
+                  {pathname !== '/contact' && (
+                    <Link href="/contact">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-6 py-2.5 rounded-full font-medium transition-all duration-200 bg-[#1B365D] text-white hover:bg-[#1B365D]/90 shadow-md"
+                      >
+                        Contact
+                      </motion.button>
+                    </Link>
+                  )}
                 </>
               )}
             </div>
@@ -274,17 +278,19 @@ const Navbar = () => {
                       <span>Home</span>
                     </motion.button>
                   </Link>
-                  <Link href="/contact">
-                    <motion.button
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.05 }}
-                      className="flex items-center gap-3 w-full text-left px-6 py-4 text-base font-medium text-[#1B365D] hover:bg-gray-100 transition-colors"
-                    >
-                      <Mail size={20} />
-                      <span>Contact</span>
-                    </motion.button>
-                  </Link>
+                  {pathname !== '/contact' && (
+                    <Link href="/contact">
+                      <motion.button
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.05 }}
+                        className="flex items-center gap-3 w-full text-left px-6 py-4 text-base font-medium text-[#1B365D] hover:bg-gray-100 transition-colors"
+                      >
+                        <Mail size={20} />
+                        <span>Contact</span>
+                      </motion.button>
+                    </Link>
+                  )}
                 </div>
               )}
             </motion.div>
