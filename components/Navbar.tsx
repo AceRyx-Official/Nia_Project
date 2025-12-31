@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Home as HomeIcon, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { initializeGSAP } from '@/lib/gsap-utils';
-import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const pathname = usePathname();
