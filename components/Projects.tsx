@@ -217,7 +217,7 @@ const Projects = () => {
               <div className="relative mb-24 w-full">
                 <div className="relative transform hover:scale-105 transition-transform duration-500">
                   <img
-                    src="/3D_Images/001b.png"
+                    src="/3DAssets/001Ab.png"
                     alt="3D Construction Projects Visualization"
                     className="w-full h-auto object-contain drop-shadow-2xl scale-100 lg:scale-150"
                   />

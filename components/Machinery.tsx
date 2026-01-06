@@ -244,7 +244,7 @@ const Machinery = () => {
               {/* IMAGE */}
               <div ref={imageRef} className="flex items-center justify-center">
                 <img
-                  src="/3D_Images/005b.png"
+                  src="/3DAssets/006Ab.png"
                   alt="Construction Machinery Fleet 3D"
                   className="w-full h-auto object-contain drop-shadow-2xl hover:scale-110 transition-transform duration-500"
                 />

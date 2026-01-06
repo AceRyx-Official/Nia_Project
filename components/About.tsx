@@ -266,7 +266,7 @@ const About = () => {
         >
           <div className="relative w-full max-w-4xl scale-90">
             <img
-              src="/3D_Images/001b.png"
+              src="/3DAssets/002Ab.png"
               alt="Infrastructure Development Visualization"
               className="w-full h-auto object-contain drop-shadow-2xl"
             />

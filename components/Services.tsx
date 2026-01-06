@@ -172,7 +172,7 @@ export default function Services() {
             <div ref={imageRef} className="w-full max-w-3xl mx-auto mt-6">
               <div className="relative transform hover:scale-105 transition-transform duration-500">
                 <Image
-                  src="/3D_Images/004b.png"
+                  src="/3DAssets/003Ab.png"
                   alt="3D Construction Services Visualization"
                   width={1200}
                   height={800}
@@ -204,7 +204,7 @@ export default function Services() {
                     Durable road networks and high-strength concrete road works.
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage:'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}} />
+                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage:'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, black 10px, black 20px)'}} />
               </div>
 
               {/* 2 */}
@@ -220,7 +220,7 @@ export default function Services() {
                     High-performance concrete with in-house batching and on-site delivery.
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage:'repeating-linear-gradient(90deg, black 0px, black 10px, white 10px, white 20px)'}} />
+                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage:'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, black 10px, black 20px)'}} />
               </div>
 
               {/* 3 */}
@@ -268,7 +268,7 @@ export default function Services() {
                     Fleet of excavators, rollers, pavers, graders and on-site mechanical support.
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage:'repeating-linear-gradient(90deg, #1B365D 0px, #1B365D 10px, white 10px, white 20px)'}} />
+                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage:'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, black 10px, black 20px)'}} />
               </div>
 
               {/* 6 */}
@@ -284,7 +284,7 @@ export default function Services() {
                     End-to-end turnkey execution with safety, quality and planned delivery.
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage:'repeating-linear-gradient(90deg, #1B365D 0px, #1B365D 10px, white 10px, white 20px)'}} />
+                <div className="absolute bottom-0 left-0 right-0 h-3" style={{backgroundImage:'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, black 10px, black 20px)'}} />
               </div>
 
             </div>
