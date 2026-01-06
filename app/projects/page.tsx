@@ -158,36 +158,26 @@ const Projects = () => {
         initial={{ opacity: 1, y: 0 }}
         animate={headerInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-        className="mb-16 relative"
+        className="mb-12 relative"
       >
-        {/* Decorative line */}
-        <motion.div
-          initial={{ scaleX: 1 }}
-          animate={ { scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-          className={`absolute -left-12 top-1/2 w-8 h-1 ${color === 'blue' ? 'bg-[#1B365D]' : 'bg-[#8B4F3D]'}`}
-          style={{ transformOrigin: 'left' }}
-        />
-      
-        <div className="flex items-center gap-6">
-          {/* Animated icon */}
+        <div className="flex items-center gap-4">
+          {/* Bold vertical accent bar */}
           <motion.div
-            initial={{ scale: 1, rotate: 0 }}
-            animate={headerInView ? { scale: 1, rotate: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
-            className={`w-16 h-16 rounded-2xl ${
-              color === 'blue' ? 'bg-gradient-to-br from-[#1B365D] to-[#1B365D]/70' : 'bg-gradient-to-br from-[#8B4F3D] to-[#8B4F3D]/70'
-            } flex items-center justify-center shadow-lg`}
-          >
-            <Route className="w-8 h-8 text-[#F4F1ED]" />
-          </motion.div>
+            initial={{ scaleY: 1 }}
+            animate={headerInView ? { scaleY: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className={`w-2 h-16 rounded-full ${
+              color === 'blue' ? 'bg-[#1B365D]' : 'bg-[#8B4F3D]'
+            }`}
+            style={{ transformOrigin: 'top' }}
+          />
 
           <div>
             <motion.h3
               initial={{ opacity: 1, x: 0 }}
               animate={headerInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className={`text-4xl font-bold ${color === 'blue' ? 'text-[#1B365D]' : 'text-[#8B4F3D]'}`}
+              className={`text-3xl md:text-4xl font-bold ${color === 'blue' ? 'text-[#1B365D]' : 'text-[#8B4F3D]'} uppercase tracking-tight`}
             >
               {title}
             </motion.h3>
@@ -195,25 +185,12 @@ const Projects = () => {
               initial={{ opacity: 1, x: 0 }}
               animate={headerInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-[#8B4F3D]/60 mt-1 text-sm"
+              className="text-[#8B4F3D]/70 mt-2 text-base font-medium"
             >
               {subtitle}
             </motion.p>
           </div>
         </div>
-
-        {/* Animated underline */}
-        <motion.div
-          initial={{ scaleX: 1 }}
-          animate={headerInView ? { scaleX: 1 } : {}}
-          transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
-          className={`h-0.5 mt-6 ${
-            color === 'blue'
-              ? 'bg-gradient-to-r from-[#1B365D] via-[#1B365D]/50 to-transparent'
-              : 'bg-gradient-to-r from-[#8B4F3D] via-[#8B4F3D]/50 to-transparent'
-          }`}
-          style={{ transformOrigin: 'left' }}
-        />
       </motion.div>
     );
   };
@@ -346,7 +323,7 @@ const Projects = () => {
         {/* Completed Projects Section */}
         <SectionHeader 
           title="Completed Projects" 
-          subtitle="Successfully delivered infrastructure projects"
+          subtitle="Successfully delivered infrastructure that stands the test of time"
           color="blue"
         />
         <div className="mb-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -365,7 +342,7 @@ const Projects = () => {
         {/* Ongoing Projects Section */}
         <SectionHeader 
           title="Ongoing Projects" 
-          subtitle="Current projects in development"
+          subtitle="Building tomorrow's infrastructure today"
           color="brown"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
