@@ -99,7 +99,7 @@ const Navbar = () => {
       <motion.nav
         ref={navRef}
         className={cn(
-          'fixed top-0 w-full z-50 transition-all duration-300',
+          'fixed top-0 w-full z-50 transition-all duration-300 border-bottom-2',
           isHomePage
             ? 'bg-transparent'
             : 'bg-transparent'
@@ -145,7 +145,7 @@ const Navbar = () => {
                               : 'text-[#8B4F3D]'
                             : isAtTop
                             ? 'text-white/80 hover:text-white'
-                            : 'text-gray-700 hover:text-[#8B4F3D]'
+                            : 'text-gray-700 hover:text-[#FEFEFE]'
                         )}
                       >
                         {item.label}
@@ -168,7 +168,7 @@ const Navbar = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-6 py-2.5 rounded-full font-medium transition-all duration-200 bg-[#8B4F3D] text-white hover:bg-[#1B365D] shadow-md"
+                      className="px-6 py-2.5 rounded-full font-medium transition-all duration-200 text-white bg-[#1B365D] shadow-md"
                     >
                       Contact
                     </motion.button>

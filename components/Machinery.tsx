@@ -35,7 +35,6 @@ const Machinery = () => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      /* INITIAL STATES */
       gsap.set(bigArrowRef.current, {
         x: 0,
         opacity: 1,
@@ -61,7 +60,6 @@ const Machinery = () => {
         opacity: 0,
       });
 
-      /* TIMELINE */
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -72,7 +70,6 @@ const Machinery = () => {
 
       tl.to({}, { duration: 0.4 });
 
-      // BIG ARROW EXIT
       tl.to(bigArrowRef.current, {
         x: '120vw',
         opacity: 0,
@@ -80,7 +77,6 @@ const Machinery = () => {
         ease: 'power4.inOut',
       });
 
-      // SMALL ARROW ENTER
       tl.to(
         smallArrowRef.current,
         {
@@ -92,7 +88,6 @@ const Machinery = () => {
         '-=0.7'
       );
 
-      // SVG DROP
       tl.to(
         svgRef.current,
         {
@@ -103,7 +98,6 @@ const Machinery = () => {
         '-=0.5'
       );
 
-      // LEFT CONTENT (heading, text, stats, button)
       tl.to(
         leftContentRef.current?.children || [],
         {
@@ -116,7 +110,6 @@ const Machinery = () => {
         '-=0.3'
       );
 
-      // IMAGE LAST
       tl.to(
         imageRef.current,
         {
@@ -133,22 +126,22 @@ const Machinery = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative bg-[#F4F1ED] overflow-hidden">
+    <section ref={sectionRef} className="relative bg-[#FEFEFE] overflow-hidden">
 
       {/* ================= BIG CENTER ARROW ================= */}
       <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
         <div
-  ref={bigArrowRef}
-  className="bg-[#5b3428] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
-  style={{
-    clipPath:
-      'polygon(0 0, calc(100% - 80px) 0, 100% 50%, calc(100% - 80px) 100%, 0 100%)',
-    transform: 'scale(2.4)',        // 👈 MATCHES PROJECTS
-    transformOrigin: 'center',      // 👈 CRITICAL
-  }}
->
-  MACHINERY
-</div>
+          ref={bigArrowRef}
+          className="bg-[#051747] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
+          style={{
+            clipPath:
+              'polygon(0 0, calc(100% - 80px) 0, 100% 50%, calc(100% - 80px) 100%, 0 100%)',
+            transform: 'scale(2.4)',
+            transformOrigin: 'center',
+          }}
+        >
+          MACHINERY
+        </div>
       </div>
 
       {/* ================= HERO ================= */}
@@ -163,7 +156,7 @@ const Machinery = () => {
             preserveAspectRatio="none"
             className="w-full h-full"
           >
-            <rect x="0" y="0" width="1440" height="900" fill="#F4F1ED" />
+            <rect x="0" y="0" width="1440" height="900" fill="#FEFEFE" />
             <path
               d="
                 M 0 900 C 104 612 236 889 337 747
@@ -174,7 +167,7 @@ const Machinery = () => {
                 C 1247 251 1215 714 1440 424
                 L 1440 0 L 0 0 Z
               "
-              fill="#E0D4C3"
+              fill="#E7E9F0"
             />
           </svg>
         </div>
@@ -182,7 +175,7 @@ const Machinery = () => {
         {/* SMALL ARROW */}
         <div ref={smallArrowRef} className="absolute top-0 left-0 z-10">
           <div
-            className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
+            className="bg-[#081F62] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
             style={{
               clipPath:
                 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
@@ -199,11 +192,11 @@ const Machinery = () => {
 
               {/* LEFT */}
               <div ref={leftContentRef} className="space-y-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-[#1B365D]">
+                <h2 className="text-4xl md:text-5xl font-bold text-[#051747]">
                   Advanced Machinery for Superior Construction
                 </h2>
 
-                <p className="text-gray-700 font-bold max-w-lg">
+                <p className="text-[#535F80] font-bold max-w-lg">
                   Our state-of-the-art machinery fleet represents a significant
                   investment in quality construction equipment. Each machine is
                   meticulously maintained and operated by trained professionals.
@@ -217,23 +210,23 @@ const Machinery = () => {
                   ].map((stat, i) => (
                     <div
                       key={i}
-                      className="rounded-2xl p-6 text-center bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)]"
+                      className="rounded-2xl p-6 text-center bg-[#E7E9F0] shadow-[0_18px_55px_rgba(8,31,98,0.15)]"
                     >
-                      <p className="text-4xl font-extrabold text-[#1B365D]">
+                      <p className="text-4xl font-extrabold text-[#051747]">
                         {stat.value}
                       </p>
-                      <p className="mt-2 text-sm font-extrabold text-[#8B4F3D] uppercase">
+                      <p className="mt-2 text-sm font-extrabold text-[#535F80] uppercase">
                         {stat.label}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                {/* BUTTON — UNCHANGED POSITION */}
+                {/* BUTTON */}
                 <div className="text-center mt-12">
                   <button
                     onClick={() => setShowMachines((prev) => !prev)}
-                    className="bg-[#8B4F3D] hover:bg-[#2d5080] text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2"
+                    className="bg-[#081F62] hover:bg-[#051747] text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 transition-colors"
                   >
                     {showMachines ? 'Hide Fleet' : 'See our Fleet'}
                     <ArrowDown className="w-4 h-4" />
@@ -255,11 +248,11 @@ const Machinery = () => {
         </div>
       </div>
 
-      {/* ================= EXPANDED CONTENT (UNCHANGED) ================= */}
+      {/* ================= EXPANDED CONTENT ================= */}
       {showMachines && (
         <div
           ref={expandedRef}
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 mt-12 bg-[#F4F1ED]"
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 mt-12 bg-[#FEFEFE]"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {machines.map((machine) => (

@@ -89,7 +89,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#FEFEFE]">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <img
@@ -97,7 +98,7 @@ const Hero = () => {
           alt="Construction Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0" />
       </div>
 
       {/* Decorative SVG Shape - Left (Behind) - Slides in from left */}
@@ -116,24 +117,10 @@ const Hero = () => {
         >
           <path
             d="M 0 0 L 1117 0 C 1129 90 1105 205 1032 269 C 977 327 888 380 900 552 C 918 753 763 857 689 903 L 0 900 Z"
-            fill="#471c1cff"
+            fill="#081F62"
           />
         </svg>
       </motion.div>
-
-      {/* Decorative SVG Shape - Right (Front)
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        style={{ zIndex: 30 }}
-        viewBox="0 0 1440 900"
-        preserveAspectRatio="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M 1466 901 L 1060 907 C 1103 822 1184 859 1200 784 C 1208 718 1283 731 1266 654 C 1273 591 1338 640 1357 537 C 1370 454 1305 486 1440 317 L 1455 899"
-          fill="#471c1cff"
-        />
-      </svg> */}
 
       <motion.div
         variants={mainContainer}
@@ -150,18 +137,19 @@ const Hero = () => {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-6xl md:text-7xl text-white leading-tight mb-3 font-bold line"
+              className="text-6xl md:text-7xl text-[#FEFEFE] leading-tight mb-3 font-bold line"
             >
               Inspired by Nature,
             </motion.h1>
-            <motion.h1
-              variants={fadeUp}
-            >
-              <span className="text-orange-400 text-6xl md:text-7xl leading-tight font-bold line">Perfected by Vision</span>
+            <motion.h1 variants={fadeUp}>
+              <span className="text-[#E7E9F0] text-6xl md:text-7xl leading-tight font-bold line">
+                Perfected by Vision
+              </span>
             </motion.h1>
+
             <motion.p
               variants={fadeUp}
-              className="text-lg text-white max-w-xl mb-10 mt-10"
+              className="text-lg text-[#E7E9F0] max-w-xl mb-10 mt-10"
             >
               NIA Construction delivers thoughtful, reliable construction solutions
               with a focus on quality execution, safety, and long-term value.
@@ -173,7 +161,7 @@ const Hero = () => {
             >
               <a
                 href="/projects"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-orange-400 text-black font-medium hover:bg-orange-500 transition"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#081F62] text-[#FEFEFE] font-medium bg-[#051747] transition"
               >
                 View Our Projects
                 <ArrowRight className="w-4 h-4" />
@@ -181,7 +169,7 @@ const Hero = () => {
 
               <a
                 href="/contact"
-                className="inline-flex bg-white items-center justify-center gap-3 px-8 py-4 rounded-full border border-slate-300 text-slate-800 font-medium hover:bg-slate-50 transition"
+                className="inline-flex bg-[#FEFEFE] items-center justify-center gap-3 px-8 py-4 rounded-full border border-[#E7E9F0] text-[#051747] font-medium hover:bg-[#E7E9F0] transition"
               >
                 <Play className="w-4 h-4" />
                 Contact Us
@@ -204,7 +192,8 @@ const Hero = () => {
                 alt="Excavator"
                 className="w-full h-auto object-contain"
                 style={{
-                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.6)) drop-shadow(0 0 30px rgba(251,146,60,0.2))',
+                  filter:
+                    'drop-shadow(0 20px 40px rgba(0,0,0,0.55)) drop-shadow(0 0 30px rgba(8,31,98,0.35))',
                 }}
               />
             </motion.div>
@@ -212,8 +201,6 @@ const Hero = () => {
 
         </div>
       </motion.div>
-
-
     </section>
   );
 };

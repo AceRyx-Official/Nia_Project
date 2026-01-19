@@ -148,7 +148,7 @@ const About = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-[#F4F1ED]"
+      className="relative h-screen overflow-hidden bg-[#E7E9F0]"
     >
       {/* ================= SMALL ARROW ================= */}
       <div ref={arrowRef} className="absolute top-0 left-0 z-30">
@@ -194,7 +194,7 @@ const About = () => {
                C 829 233 895 150 782 178 
                C 694 211 724 95 617 97 
                C 542 94 611 63 550 31 Z"
-            fill="#E0D4C3"
+            fill="#081F62 "
           />
         </g>
 
@@ -206,7 +206,7 @@ const About = () => {
                C 234 508 78 683 129 583 
                C 182 485 138 471 47 504 
                C -1 525 36 445 -3 452"
-            fill="#E0D4C3"
+            fill="#081F62 "
           />
         </g>
       </svg>
