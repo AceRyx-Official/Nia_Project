@@ -141,11 +141,11 @@ const Navbar = () => {
                           'relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200',
                           activeSection === item.id
                             ? isAtTop
-                              ? 'text-white'
-                              : 'text-[#8B4F3D]'
+                              ? 'text-[#FEFEFE]'
+                              : 'text-[#051747]'
                             : isAtTop
                             ? 'text-white/80 hover:text-white'
-                            : 'text-gray-700 hover:text-[#FEFEFE]'
+                            : 'text-gray-700 hover:text-[#535f80]'
                         )}
                       >
                         {item.label}
@@ -156,7 +156,7 @@ const Navbar = () => {
                               'absolute inset-0 rounded-lg -z-10',
                               isAtTop
                                 ? 'bg-white/10'
-                                : 'bg-[#8B4F3D]/10'
+                                : 'bg-[blue]/10'
                             )}
                             transition={{ type: 'spring', bounce: 0.1, duration: 0.4 }}
                           />

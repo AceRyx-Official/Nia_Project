@@ -47,7 +47,7 @@ const Machinery = () => {
       });
 
       gsap.set(svgRef.current, {
-        y: -700,
+        y: -800,
       });
 
       gsap.set(leftContentRef.current?.children || [], {
