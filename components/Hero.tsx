@@ -161,7 +161,7 @@ const Hero = () => {
             >
               <a
                 href="/projects"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#081F62] text-[#FEFEFE] font-medium bg-[#051747] transition"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#000e36] h text-[#FEFEFE] font-medium transition"
               >
                 View Our Projects
                 <ArrowRight className="w-4 h-4" />
