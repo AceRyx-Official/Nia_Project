@@ -155,21 +155,22 @@ return (
     </div>
 
     <div className="max-w-screen-6xl mx-auto px-16 sm:px-6 lg:px-36 py-24">
-      <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+      <div className="grid lg:grid-cols-2 gap-12 items-start">
 
         {/* LEFT */}
         <div className="flex flex-col justify-start lg:order-1 max-w-4xl">
-          <div className="mb-6">
+          <div className="mb-8">
             <h2
               ref={titleRef}
-              className="text-4xl md:text-5xl font-bold text-[#051747] leading-tight"
+              className="text-4xl md:text-5xl font-bold text-[#051747] leading-tight mt-10 mb-3"
             >
               Expert construction services for every need
             </h2>
+            <div className="w-24 h-1 bg-[#FFC107]"></div>
           </div>
 
           {/* IMAGE */}
-          <div ref={imageRef} className="w-full max-w-3xl mx-auto mt-6">
+          <div ref={imageRef} className="w-full max-w-3xl mx-auto mt-8">
             <div className="relative transform hover:scale-105 transition-transform duration-500">
               <Image
                 src="/3DAssets/003Ab.png"
@@ -183,27 +184,27 @@ return (
         </div>
 
         {/* RIGHT — CARDS */}
-        <div className="lg:flex lg:flex-col lg:justify-center lg:order-2">
+        <div className="lg:flex lg:flex-col lg:justify-start lg:order-2 lg:pt-2">
           <div
             ref={cardsRef}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-7"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
           >
 
             {/* 1 */}
-            <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-              <div className="absolute -right-36 top-1/2 -translate-y-1/2 z-0">
+            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+              <div className="absolute -right-36 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
                 <Image src="/Services/wrench.png" alt="Road Construction" width={384} height={384} className="w-90 h-90 object-contain opacity-60" />
               </div>
-              <div className="relative z-10 flex flex-col h-full justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
-                <h4 className="font-bold text-xl text-[#051747] text-center group-hover:text-left">
+              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
+                <h4 className="font-bold text-xl text-[#051747]">
                   Road Construction & Development
                 </h4>
-                <span className="text-sm font-bold text-[#535F80] max-w-[70%] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
                   Durable road networks and high-strength concrete road works.
                 </span>
               </div>
               <div
-                className="absolute bottom-0 left-0 right-0 h-3"
+                className="absolute bottom-0 left-0 right-0 h-2"
                 style={{
                   backgroundImage:
                     'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',  
@@ -212,20 +213,20 @@ return (
             </div>
 
             {/* 2 */}
-            <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-              <div className="absolute -right-40 top-1/2 -translate-y-1/2 z-0">
+            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+              <div className="absolute -right-40 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
                 <Image src="/Services/Tetra.png" alt="RMC" width={384} height={384} className="w-[28rem] h-[28rem] object-contain opacity-60" />
               </div>
-              <div className="relative z-10 flex flex-col h-full justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
-                <h4 className="font-bold text-xl text-[#051747] text-center group-hover:text-left">
+              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
+                <h4 className="font-bold text-xl text-[#051747]">
                   RMC (Ready Mix Concrete)
                 </h4>
-                <span className="text-sm font-bold text-[#535F80] max-w-[70%] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
                   High-performance concrete with in-house batching and on-site delivery.
                 </span>
               </div>
               <div
-                className="absolute bottom-0 left-0 right-0 h-3"
+                className="absolute bottom-0 left-0 right-0 h-2"
                 style={{
                   backgroundImage:
                     'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',  
@@ -234,20 +235,20 @@ return (
             </div>
 
             {/* 3 */}
-            <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-              <div className="absolute -right-16 top-1/2 -translate-y-1/2 z-0">
+            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+              <div className="absolute -right-16 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
                 <Image src="/Services/swirl.png" alt="Excavation" width={384} height={384} className="w-60 h-60 object-contain opacity-60" />
               </div>
-              <div className="relative z-10 flex flex-col h-full justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
-                <h4 className="font-bold text-xl text-[#051747] text-center group-hover:text-left">
+              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
+                <h4 className="font-bold text-xl text-[#051747]">
                   Excavation Services
                 </h4>
-                <span className="text-sm font-bold text-[#535F80] max-w-[70%] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
                   Foundation, site and utility excavation with expert handling.
                 </span>
               </div>
               <div
-                className="absolute bottom-0 left-0 right-0 h-3"
+                className="absolute bottom-0 left-0 right-0 h-2"
                 style={{
                   backgroundImage:
                    'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)', 
@@ -256,20 +257,20 @@ return (
             </div>
 
             {/* 4 */}
-            <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-              <div className="absolute -right-20 top-1/2 -translate-y-1/2 z-0">
+            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+              <div className="absolute -right-20 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
                 <Image src="/Services/Gear.png" alt="Infrastructure" width={384} height={384} className="w-80 h-80 object-contain opacity-60" />
               </div>
-              <div className="relative z-10 flex flex-col h-full justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
-                <h4 className="font-bold text-xl text-[#051747] text-center group-hover:text-left">
+              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
+                <h4 className="font-bold text-xl text-[#051747]">
                   Infrastructure & Civil Works
                 </h4>
-                <span className="text-sm font-bold text-[#535F80] max-w-[70%] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
                   Drainage, culverts, retaining walls, footpaths, medians and ducting work.
                 </span>
               </div>
               <div
-                className="absolute bottom-0 left-0 right-0 h-3"
+                className="absolute bottom-0 left-0 right-0 h-2"
                 style={{
                   backgroundImage:
                     'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',  
@@ -278,20 +279,20 @@ return (
             </div>
 
             {/* 5 */}
-            <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-              <div className="absolute -right-20 top-1/2 -translate-y-1/2 z-0">
+            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+              <div className="absolute -right-20 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
                 <Image src="/Services/hammer.png" alt="Machinery" width={384} height={384} className="w-72 h-72 object-contain opacity-60" />
               </div>
-              <div className="relative z-10 flex flex-col h-full justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
-                <h4 className="font-bold text-xl text-[#051747] text-center group-hover:text-left">
+              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
+                <h4 className="font-bold text-xl text-[#051747]">
                   Machinery & Equipment Support
                 </h4>
-                <span className="text-sm font-bold text-[#535F80] max-w-[70%] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
                   Fleet of excavators, rollers, pavers, graders and on-site mechanical support.
                 </span>
               </div>
               <div
-                className="absolute bottom-0 left-0 right-0 h-3"
+                className="absolute bottom-0 left-0 right-0 h-2"
                 style={{
                   backgroundImage:
                    'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',
@@ -300,20 +301,20 @@ return (
             </div>
 
             {/* 6 */}
-            <div className="group relative min-h-[160px] p-6 rounded-xl shadow-2xl drop-shadow-lg bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.07] transition duration-300">
-              <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-0">
+            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+              <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
                 <Image src="/Services/helmet.png" alt="Project Management" width={384} height={384} className="w-80 h-80 object-contain opacity-60" />
               </div>
-              <div className="relative z-10 flex flex-col h-full justify-center items-center group-hover:justify-between group-hover:items-start transition-all duration-300">
-                <h4 className="font-bold text-xl text-[#051747] text-center group-hover:text-left">
+              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
+                <h4 className="font-bold text-xl text-[#051747]">
                   Project Management & Turnkey
                 </h4>
-                <span className="text-sm font-bold text-[#535F80] max-w-[70%] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
                   End-to-end turnkey execution with safety, quality and planned delivery.
                 </span>
               </div>
               <div
-                className="absolute bottom-0 left-0 right-0 h-3"
+                className="absolute bottom-0 left-0 right-0 h-2"
                 style={{
                   backgroundImage:
                     'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',  
