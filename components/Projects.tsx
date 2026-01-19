@@ -27,8 +27,9 @@ const Projects = () => {
     const ongoingCards = gsap.utils.toArray('.ongoing-card');
 
     const centerImage = sectionEl.querySelector(
-      'img[alt="3D Construction Projects Visualization"]'
-    );
+  'img[alt="Projects Visualization"]'
+);
+
 
     const ctaButtons = gsap.utils.toArray('button');
 
@@ -156,7 +157,9 @@ return (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-24 items-center">
 
             {/* Completed Projects – Desktop */}
-<div className="hidden lg:block col-span-1 relative z-20">
+<div className="completed-card hidden lg:block col-span-1 relative z-10 opacity-0 -translate-x-24">
+
+
   <div className="rounded-[28px] bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(5,23,71,0.15)] overflow-hidden">
     <div className="p-10 space-y-8">
       <div className="flex items-center gap-3">
@@ -222,7 +225,9 @@ return (
             </div>
 
             {/* Ongoing Projects – Desktop */}
-<div className="hidden lg:block col-span-1 relative z-20">
+<div className="ongoing-card hidden lg:block col-span-1 relative z-10 opacity-0 translate-x-24">
+
+
   <div className="rounded-[28px] bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(5,23,71,0.15)] overflow-hidden">
     <div className="p-10 space-y-8">
       <div className="flex items-center gap-3">
