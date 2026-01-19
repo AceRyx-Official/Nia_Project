@@ -17,62 +17,27 @@ const About = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
-
-
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      /* ================= INITIAL STATE ================= */
-
-      gsap.set(bigArrowRef.current, {
-        x: 0,
-        opacity: 1,
-      });
-
-      gsap.set(arrowRef.current, {
-        x: -200,
-        opacity: 0,
-      });
-
-      gsap.set(svgTopRef.current, {
-        opacity: 0,
-        x: 140,
-        y: -140,
-      });
-
-      gsap.set(svgBottomRef.current, {
-        opacity: 0,
-        x: -140,
-        y: 140,
-      });
-
-      gsap.set(contentRef.current?.children || [], {
-        opacity: 0,
-        y: 40,
-      });
-
-      gsap.set(imageRef.current, {
-        opacity: 0,
-        y: 40,
-      });
-
-      /* ================= TIMELINE ================= */
+      gsap.set(bigArrowRef.current, { x: 0, opacity: 1 });
+      gsap.set(arrowRef.current, { x: -200, opacity: 0 });
+      gsap.set(svgTopRef.current, { opacity: 0, x: 140, y: -140 });
+      gsap.set(svgBottomRef.current, { opacity: 0, x: -140, y: 140 });
+      gsap.set(contentRef.current?.children || [], { opacity: 0, y: 40 });
+      gsap.set(imageRef.current, { opacity: 0, y: 40 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 70%',
           once: true,
-
-
         },
       });
 
-      /* ================= HOLD BIG ARROW ================= */
       tl.to({}, { duration: 0.5 });
 
-      /* ================= BIG ARROW EXIT ================= */
       tl.to(bigArrowRef.current, {
         x: '120vw',
         opacity: 0,
@@ -80,7 +45,6 @@ const About = () => {
         ease: 'power4.inOut',
       });
 
-      /* ================= SMALL ARROW ENTRY ================= */
       tl.to(
         arrowRef.current,
         {
@@ -92,7 +56,6 @@ const About = () => {
         '-=0.7'
       );
 
-      /* ================= SVG BACKGROUNDS ================= */
       tl.to(
         svgTopRef.current,
         {
@@ -117,7 +80,6 @@ const About = () => {
         '<'
       );
 
-      /* ================= CONTENT ================= */
       tl.to(
         contentRef.current?.children || [],
         {
@@ -148,12 +110,12 @@ const About = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-[#F4F1ED]"
+      className="relative h-screen overflow-hidden bg-[#FEFEFE]"
     >
-      {/* ================= SMALL ARROW ================= */}
+      {/* SMALL ARROW */}
       <div ref={arrowRef} className="absolute top-0 left-0 z-30">
         <div
-          className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
+          className="bg-[#051747] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
           style={{
             clipPath:
               'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
@@ -163,11 +125,11 @@ const About = () => {
         </div>
       </div>
 
-      {/* ================= BIG CENTER ARROW ================= */}
+      {/* BIG CENTER ARROW */}
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
         <div
           ref={bigArrowRef}
-          className="bg-[#5b3428] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
+          className="bg-[#051747] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
           style={{
             clipPath:
               'polygon(0 0, calc(100% - 80px) 0, 100% 50%, calc(100% - 80px) 100%, 0 100%)',
@@ -179,7 +141,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* ================= SVG BACKGROUND ================= */}
+      {/* SVG BACKGROUND */}
       <svg
         className="absolute inset-0 w-full h-full z-0"
         viewBox="0 0 1396 901"
@@ -194,7 +156,7 @@ const About = () => {
                C 829 233 895 150 782 178 
                C 694 211 724 95 617 97 
                C 542 94 611 63 550 31 Z"
-            fill="#E0D4C3"
+            fill="#E7E9F0"
           />
         </g>
 
@@ -206,43 +168,39 @@ const About = () => {
                C 234 508 78 683 129 583 
                C 182 485 138 471 47 504 
                C -1 525 36 445 -3 452"
-            fill="#E0D4C3"
+            fill="#E7E9F0"
           />
         </g>
       </svg>
 
-      {/* ================= CONTENT GRID ================= */}
+      {/* CONTENT GRID */}
       <div className="relative z-30 grid lg:grid-cols-2 h-screen">
         {/* LEFT */}
         <div className="px-8 sm:px-12 lg:px-16 pt-8 lg:pt-12 pb-6 lg:pb-12 flex items-center">
           <div ref={contentRef} className="max-w-xl mx-auto space-y-6">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1e3a5f] leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#081F62] leading-tight">
               Reliable Technical
               <br />
               Expertise
             </h2>
 
-            <p className="text-gray-700 font-bold leading-relaxed max-w-sm">
+            <p className="text-[#535F80] font-bold leading-relaxed max-w-sm">
               Nia Infra Projects is a public infrastructure specialist dedicated
               to the execution of urban roads, highways, and large-scale
               development.
             </p>
 
             <div className="grid grid-cols-3 gap-4 pt-8">
-              {[
-                { Icon: Settings, title: 'Structured Planning' },
-                { Icon: Truck, title: 'Phased Execution' },
-                { Icon: HardHat, title: 'On-Site Safety' },
-              ].map(({ Icon, title }, i) => (
+              {[Settings, Truck, HardHat].map((Icon, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center text-center rounded-[20px] bg-transparent backdrop-blur-sm shadow-[0_10px_45px_rgba(15,23,42,0.15)] p-4"
+                  className="flex flex-col items-center text-center rounded-[20px] bg-transparent shadow-[0_10px_45px_rgba(5,23,71,0.15)] p-4"
                 >
-                  <div className="w-16 h-16 rounded-full bg-white border-4 border-[#8B6F47] flex items-center justify-center mb-3 shadow-lg">
-                    <Icon className="w-10 h-10 text-[#1e3a5f]" />
+                  <div className="w-16 h-16 rounded-full bg-[#FEFEFE] border-4 border-[#535F80] flex items-center justify-center mb-3 shadow-lg">
+                    <Icon className="w-10 h-10 text-[#081F62]" />
                   </div>
-                  <h4 className="text-sm font-semibold text-[#1e3a5f]">
-                    {title}
+                  <h4 className="text-sm font-semibold text-[#081F62]">
+                    {['Structured Planning', 'Phased Execution', 'On-Site Safety'][i]}
                   </h4>
                 </div>
               ))}
@@ -250,7 +208,7 @@ const About = () => {
 
             <div className="pt-8">
               <Link href="/about">
-                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-white px-8 py-4 rounded-full font-semibold shadow-lg transition-colors inline-flex items-center gap-2">
+                <button className="bg-[#051747] hover:bg-[#081F62] text-white px-8 py-4 rounded-full font-semibold shadow-lg transition-colors inline-flex items-center gap-2">
                   LEARN MORE ABOUT NIA INFRA PROJECTS
                   <ArrowRight className="w-5 h-5" />
                 </button>
