@@ -151,7 +151,7 @@ export default function ContactPage() {
               download="NIA_INFRA_Company_Profile.pdf"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center space-x-3 p-5 bg-gradient-to-r from-[#051747] to-[#081F62] rounded-2xl shadow-lg hover:shadow-xl transition-all text-white font-semibold"
+              className="flex items-center justify-center space-x-3 p-5 bg-gradient-to-r from-[#051747] to-[#081F62] rounded-2xl shadow-lg hover:shadow-xl transition-all text-white font-semibold mt-5"
             >
               <Download className="w-5 h-5" />
               <span>Download Our Brochure</span>
@@ -245,7 +245,15 @@ export default function ContactPage() {
                 <p className="text-red-700 text-sm">{error}</p>
               </motion.div>
             )}
-
+            {/* Form Header */}
+<div className="mb-8">
+  <h2 className="text-2xl font-bold text-[#051747]">
+    Get in Touch
+  </h2>
+  <p className="mt-2 text-sm text-[#535F80]">
+    Please fill in the details below and our team will get back to you shortly.
+  </p>
+</div>
             {isSubmitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}

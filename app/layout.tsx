@@ -5,7 +5,7 @@ import "./gsap-transitions.css";
 import "./curtain-transitions.css";
 import Navbar from '@/components/Navbar';
 import { Providers } from "./providers";
-
+import Footer from '@/components/Footer';
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "900"],
@@ -63,6 +63,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
