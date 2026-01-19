@@ -10,7 +10,7 @@ const ModernBackground = () => (
   <div className="absolute inset-0 overflow-hidden">
     {/* Animated gradient orbs */}
     <motion.div
-      className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#1B365D]/8 rounded-full blur-3xl"
+      className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#081F62]/8 rounded-full blur-3xl"
       animate={{
         scale: [1, 1.2, 1],
         opacity: [0.3, 0.5, 0.3],
@@ -24,7 +24,7 @@ const ModernBackground = () => (
       }}
     />
     <motion.div
-      className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#8B4F3D]/8 rounded-full blur-3xl"
+      className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#051747]/8 rounded-full blur-3xl"
       animate={{
         scale: [1, 1.3, 1],
         opacity: [0.3, 0.5, 0.3],
@@ -38,7 +38,7 @@ const ModernBackground = () => (
       }}
     />
     <motion.div
-      className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-[#E0D4C3]/6 rounded-full blur-3xl"
+      className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-[#535F80]/6 rounded-full blur-3xl"
       animate={{
         scale: [1, 1.1, 1],
         opacity: [0.2, 0.4, 0.2],
@@ -56,8 +56,8 @@ const ModernBackground = () => (
       className="absolute inset-0 opacity-[0.02]"
       style={{
         backgroundImage: `
-          linear-gradient(to right, #1B365D 1px, transparent 1px),
-          linear-gradient(to bottom, #1B365D 1px, transparent 1px)
+          linear-gradient(to right, #081F62 1px, transparent 1px),
+          linear-gradient(to bottom, #081F62 1px, transparent 1px)
         `,
         backgroundSize: '60px 60px',
       }}
@@ -167,7 +167,7 @@ const Projects = () => {
             animate={headerInView ? { scaleY: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
             className={`w-2 h-16 rounded-full ${
-              color === 'blue' ? 'bg-[#1B365D]' : 'bg-[#8B4F3D]'
+              color === 'blue' ? 'bg-[#081F62]' : 'bg-[#051747]'
             }`}
             style={{ transformOrigin: 'top' }}
           />
@@ -177,7 +177,7 @@ const Projects = () => {
               initial={{ opacity: 1, x: 0 }}
               animate={headerInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className={`text-3xl md:text-4xl font-bold ${color === 'blue' ? 'text-[#1B365D]' : 'text-[#8B4F3D]'} uppercase tracking-tight`}
+              className={`text-3xl md:text-4xl font-bold ${color === 'blue' ? 'text-[#081F62]' : 'text-[#051747]'} uppercase tracking-tight`}
             >
               {title}
             </motion.h3>
@@ -185,7 +185,7 @@ const Projects = () => {
               initial={{ opacity: 1, x: 0 }}
               animate={headerInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-[#8B4F3D]/70 mt-2 text-base font-medium"
+              className="text-[#535F80] mt-2 text-base font-medium"
             >
               {subtitle}
             </motion.p>
@@ -203,12 +203,12 @@ const Projects = () => {
       transition={{ duration: 0.3, delay, ease: [0.23, 1, 0.32, 1] }}
       className="flex items-center gap-3"
     >
-      <div className={`${isOngoing ? 'bg-[#8B4F3D]/10' : 'bg-[#1B365D]/10'} p-2 rounded-lg`}>
-        <Icon className={`w-4 h-4 ${isOngoing ? 'text-[#8B4F3D]' : 'text-[#1B365D]'}`} />
+      <div className={`${isOngoing ? 'bg-[#051747]/10' : 'bg-[#081F62]/10'} p-2 rounded-lg`}>
+        <Icon className={`w-4 h-4 ${isOngoing ? 'text-[#051747]' : 'text-[#081F62]'}`} />
       </div>
       <div>
-        <p className="text-xs text-[#8B4F3D]/60">{label}</p>
-        <p className="text-sm font-semibold text-[#8B4F3D]">{value}</p>
+        <p className="text-xs text-[#535F80]">{label}</p>
+        <p className="text-sm font-semibold text-[#081F62]">{value}</p>
       </div>
     </motion.div>
   );
@@ -242,7 +242,7 @@ const Projects = () => {
 
         {/* Accent */}
         <motion.div
-          className={`absolute top-0 left-0 right-0 h-1 ${isOngoing ? 'bg-gradient-to-r from-[#8B4F3D] to-[#E0D4C3]' : 'bg-gradient-to-r from-[#1B365D] to-[#E0D4C3]'}`}
+          className={`absolute top-0 left-0 right-0 h-1 ${isOngoing ? 'bg-gradient-to-r from-[#051747] to-[#535F80]' : 'bg-gradient-to-r from-[#081F62] to-[#535F80]'}`}
           animate={{ scaleX: isHovered ? 1 : 0 }}
           transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
           style={{ transformOrigin: 'left' }}
@@ -271,7 +271,7 @@ const Projects = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 24 }}
                 transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-                className="grid grid-cols-2 gap-4 bg-[#F4F1ED]/95 backdrop-blur-xl p-6 rounded-2xl border border-[#8B4F3D]/10 shadow-xl"
+                className="grid grid-cols-2 gap-4 bg-[#FEFEFE]/95 backdrop-blur-xl p-6 rounded-2xl border border-[#535F80]/10 shadow-xl"
               >
                 <MetadataItem icon={IndianRupee} label="Project Cost" value={card.metadata.cost} delay={0.05} isOngoing={isOngoing} />
                 <MetadataItem icon={Route} label="Roads Completed" value={card.metadata.roadsCompleted} delay={0.1} isOngoing={isOngoing} />
@@ -290,7 +290,7 @@ const Projects = () => {
 
   /* ================= RENDER ================= */
   return (
-    <section id="projects" className="relative py-32 bg-[#F4F1ED] overflow-hidden">
+    <section id="projects" className="relative py-32 bg-[#E7E9F0] overflow-hidden">
       <ModernBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -304,18 +304,18 @@ const Projects = () => {
         >
 
           <h2 className="text-6xl font-bold mb-6">
-            <span className="text-[#1B365D]">Our </span>
-            <span className="text-[#8B4F3D]">Projects</span>
+            <span className="text-[#081F62]">Our </span>
+            <span className="text-[#051747]">Projects</span>
           </h2>
           
           <motion.div
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-24 h-1 bg-gradient-to-r from-[#1B365D] via-[#8B4F3D] to-[#1B365D] mx-auto mb-6"
+            className="w-24 h-1 bg-gradient-to-r from-[#081F62] via-[#051747] to-[#081F62] mx-auto mb-6"
           />
           
-          <p className="text-[#8B4F3D]/70 mt-6 max-w-2xl mx-auto text-lg">
+          <p className="text-[#535F80] mt-6 max-w-2xl mx-auto text-lg">
             Building infrastructure that connects communities and drives progress
           </p>
         </motion.div>
