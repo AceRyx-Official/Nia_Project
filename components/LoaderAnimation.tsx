@@ -126,9 +126,9 @@ const LoaderAnimation = ({ onComplete }: LoaderAnimationProps) => {
                 className="text-center px-6 max-w-[95vw] z-10"
             >
                 <p className={`text-gray-700 tracking-wide leading-tight ${exo2.className}`} style={{ fontSize: 'clamp(1.75rem, 5vw, 3.5rem)', fontWeight: '700', wordSpacing: '0.3em', textShadow: '0 2px 8px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08)' }}>
-                    <span className="fade-word" style={{ opacity: 0, marginRight: '0.5em' }}>VISION</span>
-                    <span className="fade-word" style={{ opacity: 0, marginRight: '0.5em' }}>VALUE</span>
-                    <span className="fade-word" style={{ opacity: 0 }}>VICTORY</span>
+                    <span className="fade-word" style={{ opacity: 0, marginRight: '0.5em',color:"#4053A2" }}>VISION</span>
+                    <span className="fade-word" style={{ opacity: 0, marginRight: '0.5em',color:"#4053A2" }}>VALUE</span>
+                    <span className="fade-word" style={{ opacity: 0,color:"#4053A2" }}>VICTORY</span>
                 </p>
             </div>
 

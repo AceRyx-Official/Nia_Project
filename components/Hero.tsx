@@ -161,19 +161,30 @@ const Hero = () => {
             >
               <a
                 href="/projects"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#000e36] h text-[#FEFEFE] font-medium transition"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full
+             bg-[#000e36] text-[#FEFEFE] font-medium
+             transition-shadow duration-300
+             shadow-[0_8px_24px_rgba(0,14,54,0.45)]
+             hover:shadow-[0_14px_38px_rgba(8,31,98,0.85)]"
               >
                 View Our Projects
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 opacity-80" />
               </a>
+
 
               <a
                 href="/contact"
-                className="inline-flex bg-[#FEFEFE] items-center justify-center gap-3 px-8 py-4 rounded-full border border-[#E7E9F0] text-[#051747] font-medium hover:bg-[#E7E9F0] transition"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full
+             bg-[#FEFEFE] text-[#051747] font-medium
+             border border-[#E7E9F0]
+             transition-shadow duration-300
+             shadow-[0_6px_18px_rgba(0,0,0,0.12)]
+             hover:shadow-[0_12px_30px_rgba(0,0,0,0.78)]"
               >
-                <Play className="w-4 h-4" />
+                <Play className="w-4 h-4 opacity-80" />
                 Contact Us
               </a>
+
             </motion.div>
           </motion.div>
 
