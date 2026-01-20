@@ -100,7 +100,7 @@ const LoaderAnimation = ({ onComplete }: LoaderAnimationProps) => {
     return (
         <section
             ref={containerRef}
-            className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white"
+            className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#F9E4BC]"
         >
             {/* Pure white background - no decorative elements */}
 
