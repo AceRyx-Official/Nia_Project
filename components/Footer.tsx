@@ -5,7 +5,7 @@ import { Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Linkedin, link: '#', label: 'LinkedIn' },
+    { icon: Linkedin, link: 'https://www.linkedin.com/company/nia-infra-project', label: 'LinkedIn' },
     { icon: Mail, link: '#', label: 'Email' },
   ];
 
@@ -16,7 +16,7 @@ const Footer = () => {
     { label: 'Contact', href: '/contact' },
   ];
 
-  
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -40,7 +40,7 @@ const Footer = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content */}
         <div className="pt-20 pb-12">
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -49,16 +49,24 @@ const Footer = () => {
           >
             {/* Brand Section */}
             <motion.div variants={itemVariants} className="md:col-span-2 space-y-4">
-              <div>
-                <motion.h2 
+              <div className=''>
+                <motion.h2
                   whileHover={{ scale: 1.02 }}
-                  className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white via-[#E0D4C3] to-[#8B4F3D] bg-clip-text text-transparent"
+                  className="flex items-center gap-3 text-3xl md:text-4xl font-bold mb-2
+             bg-gradient-to-r from-white via-[#E0D4C3] to-[#8B4F3D]
+             bg-clip-text text-transparent"
                 >
-                  NIA Construction
+                  <img
+                    src="/Nia Logo.svg"
+                    alt="Nia Infra logo"
+                    className="h-20 w-auto"
+                  />
+                  <span>Nia Infra Project</span>
                 </motion.h2>
+
                 <div className="h-1 w-16 bg-gradient-to-r from-[#8B4F3D] to-[#E0D4C3]" />
               </div>
-              
+
               <p className="text-[#E0D4C3] leading-relaxed max-w-sm">
                 Building excellence since 2009. We deliver innovative construction solutions with unwavering commitment to quality, safety, and customer satisfaction.
               </p>
@@ -97,24 +105,24 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-          
-           
+
+
           </motion.div>
 
-         
+
         </div>
 
         {/* Bottom Bar */}
         <div className="py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="text-[#E0D4C3] text-sm"
           >
-            &copy; {new Date().getFullYear()} NIA Construction. All rights reserved.
+            &copy; {new Date().getFullYear()} Nia Infra Project. Created By SocialVortex.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="flex gap-8"

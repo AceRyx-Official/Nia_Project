@@ -177,7 +177,7 @@ const Projects = () => {
               initial={{ opacity: 1, x: 0 }}
               animate={headerInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className={`text-3xl md:text-4xl font-bold ${color === 'blue' ? 'text-[#081F62]' : 'text-[#051747]'} uppercase tracking-tight`}
+              className={`text-3xl md:text-4xl font-bold ${color === 'blue' ? 'text-[#081F62]' : 'text-[#051747]'} tracking-tight`}
             >
               {title}
             </motion.h3>
