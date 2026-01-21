@@ -59,7 +59,7 @@ const LoaderAnimation = ({ onComplete }: LoaderAnimationProps) => {
                     ease: 'power3.out'
                 })
                 // Small delay
-                .to({}, { duration: 0.5 })
+                .to({}, { duration: 0.001})
                 // Fade in tagline container
                 .to(taglineRef.current, {
                     opacity: 1,
@@ -99,10 +99,17 @@ const LoaderAnimation = ({ onComplete }: LoaderAnimationProps) => {
 
     return (
         <section
-            ref={containerRef}
-            className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#F9E4BC]"
-        >
-            {/* Pure white background - no decorative elements */}
+    ref={containerRef}
+    className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden"
+    style={{
+        backgroundImage: "url('/Loaderbg.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+    }}
+>
+
+
 
             {/* Logo Container - MUCH BIGGER */}
             <div
@@ -110,7 +117,7 @@ const LoaderAnimation = ({ onComplete }: LoaderAnimationProps) => {
                 className="relative flex items-center justify-center mb-4 z-10"
             >
                 <Image
-                    src="/nia final logo.jpg"
+                    src="/nia_final_logo-removebg.png"
                     alt="Nia Logo"
                     width={700}
                     height={700}

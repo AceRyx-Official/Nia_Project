@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { Mail, Phone, MapPin, Send, Clock, CheckCircle, AlertCircle, Building2, Download } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, CheckCircle, AlertCircle, Building2, Download, Users } from 'lucide-react';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper';
 import { motion } from 'framer-motion';
 import { initializeGSAP } from '@/lib/gsap-utils';
@@ -156,6 +156,18 @@ export default function ContactPage() {
               <Download className="w-5 h-5" />
               <span>Download Our Brochure</span>
             </motion.a>
+            {/* Recruitment & Hiring Button */}
+            <motion.a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSckzVWtGPOxvhjhPbB-miEalVE_N1hWfkIYI1zg9H0bNYcw_A/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center justify-center space-x-3 p-5 bg-gradient-to-r from-[#081F62] to-[#051747] rounded-2xl shadow-lg hover:shadow-xl transition-all text-white font-semibold"
+            >
+              <Users className="w-5 h-5" />
+              <span>Recruitment & Hiring</span>
+            </motion.a>
 
             {/* Email */}
             <motion.div
@@ -233,7 +245,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div
             ref={formRef}
-            className="lg:col-span-3 bg-[#E7E9F0] rounded-2xl shadow-xl p-8 border border-[#535F80]/20"
+            className="lg:col-span-3 bg-[#E7E9F0] rounded-2xl shadow-xl p-10 border border-[#535F80]/20"
           >
             {error && (
               <motion.div
@@ -246,14 +258,14 @@ export default function ContactPage() {
               </motion.div>
             )}
             {/* Form Header */}
-<div className="mb-8">
-  <h2 className="text-2xl font-bold text-[#051747]">
-    Get in Touch
-  </h2>
-  <p className="mt-2 text-sm text-[#535F80]">
-    Please fill in the details below and our team will get back to you shortly.
-  </p>
-</div>
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold text-[#051747]">
+                Get in Touch
+              </h2>
+              <p className="mt-2 text-sm text-[#535F80]">
+                Please fill in the details below and our team will get back to you shortly.
+              </p>
+            </div>
             {isSubmitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -314,7 +326,7 @@ export default function ContactPage() {
 
                 <textarea
                   name="message"
-                  rows={6}
+                  rows={7}
                   required
                   placeholder="Tell us about your project..."
                   value={formData.message}
@@ -337,27 +349,27 @@ export default function ContactPage() {
         </div>
 
         {/* Map Section */}
-<motion.div 
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.8 }}
-  className="mt-12 bg-[#E7E9F0] rounded-2xl shadow-xl overflow-hidden border border-[#535F80]/20"
->
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30136.966023006615!2d72.80031082880544!3d19.233568450075825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0ce3cd117f7%3A0x515d558b955bf692!2sBorivali%20West%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1765800409994!5m2!1sen!2sin" 
-    width="100%" 
-    height="400" 
-    style={{ border: 0 }} 
-    allowFullScreen 
-    loading="lazy" 
-    referrerPolicy="no-referrer-when-downgrade"
-    className="w-full"
-  />
-</motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="mt-12 bg-[#E7E9F0] rounded-2xl shadow-xl overflow-hidden border border-[#535F80]/20"
+      >
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30136.966023006615!2d72.80031082880544!3d19.233568450075825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0ce3cd117f7%3A0x515d558b955bf692!2sBorivali%20West%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1765800409994!5m2!1sen!2sin" 
+          width="100%" 
+          height="400" 
+          style={{ border: 0 }} 
+          allowFullScreen 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          className="w-full"
+        />
+      </motion.div>
 
-      </div>
-    </div>
-  </PageTransitionWrapper>
-);
-}
+            </div>
+          </div>
+        </PageTransitionWrapper>
+      );
+      }
