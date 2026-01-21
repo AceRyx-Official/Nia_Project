@@ -80,9 +80,7 @@ export default function Home() {
         <div className="section" id="contact">
 
         </div>
-        <div className="section">
-          <Footer />
-        </div>
+        
       </main>
     </PageTransitionWrapper>
 
