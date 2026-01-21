@@ -175,7 +175,7 @@ const Machinery = () => {
         {/* SMALL ARROW */}
         <div ref={smallArrowRef} className="absolute top-0 left-0 z-10">
           <div
-            className="bg-[#081F62] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
+            className="bg-[#051747] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
             style={{
               clipPath:
                 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
