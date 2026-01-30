@@ -24,6 +24,7 @@ export default function Services() {
 
     gsap.set(bigArrowRef.current, {
       x: 0,
+      y:-150,
       opacity: 1,
       scale: 2.4,
       transformOrigin: 'center',
@@ -125,7 +126,7 @@ export default function Services() {
 }, []);
 
 return (
-  <section ref={sectionRef} className="relative bg-[#FEFEFE] overflow-hidden">
+  <section ref={sectionRef} className="relative bg-[#FEFEFE] overflow-hidden ">
 
     {/* ================= BIG CENTER ARROW ================= */}
     <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
@@ -165,8 +166,9 @@ return (
               className="text-4xl md:text-5xl font-bold text-[#051747] leading-tight mt-10 mb-3"
             >
               Expert construction services for every need
+              <div className="w-24 h-1 bg-[#FFC107] mt-4"></div>
             </h2>
-            <div className="w-24 h-1 bg-[#FFC107]"></div>
+            
           </div>
 
           {/* IMAGE */}

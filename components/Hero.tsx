@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
 
 const Hero = () => {
   /* ================= ANIMATION GATE ================= */
@@ -137,12 +137,12 @@ const Hero = () => {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-6xl md:text-7xl text-[#FEFEFE] leading-tight mb-3 font-bold line"
+              className="text-6xl md:text-6xl text-[#FEFEFE] leading-tight mb-3 font-bold line"
             >
               Inspired by Nature,
             </motion.h1>
             <motion.h1 variants={fadeUp}>
-              <span className="text-[#E7E9F0] text-6xl md:text-7xl leading-tight font-bold line">
+              <span className="text-[#E7E9F0] text-6xl md:text-6xl leading-tight font-bold line">
                 Perfected by Vision
               </span>
             </motion.h1>
@@ -162,7 +162,7 @@ const Hero = () => {
               <a
                 href="/projects"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full
-             bg-[#000e36] text-[#FEFEFE] font-medium
+             bg-[#6fb9ee] text-[#000000] font-medium border-2 border-black hover:border-black hover:bg-[#f7f9ff]
              transition-shadow duration-300
              shadow-[0_8px_24px_rgba(0,14,54,0.45)]
              hover:shadow-[0_14px_38px_rgba(8,31,98,0.85)]"
@@ -181,7 +181,7 @@ const Hero = () => {
              shadow-[0_6px_18px_rgba(0,0,0,0.12)]
              hover:shadow-[0_12px_30px_rgba(0,0,0,0.78)]"
               >
-                <Play className="w-4 h-4 opacity-80" />
+                <Phone className="w-4 h-4 opacity-80" />
                 Contact Us
               </a>
 
