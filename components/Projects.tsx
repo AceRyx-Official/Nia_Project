@@ -27,8 +27,9 @@ const Projects = () => {
     const ongoingCards = gsap.utils.toArray('.ongoing-card');
 
     const centerImage = sectionEl.querySelector(
-      'img[alt="3D Construction Projects Visualization"]'
-    );
+  'img[alt="Projects Visualization"]'
+);
+
 
     const ctaButtons = gsap.utils.toArray('button');
 
@@ -98,17 +99,16 @@ const Projects = () => {
 }, []);
 
 
-  return (
+return (
     <section
       ref={sectionRef}
-      className="py-16 h-screen relative overflow-hidden bg-[#F4F1ED]"
+      className="py-16 h-screen relative overflow-hidden bg-[#FEFEFE]"
     >
-      
       {/* ================= BIG CENTER ARROW ================= */}
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
         <div
           ref={bigArrowRef}
-          className="bg-[#5b3428] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
+          className="bg-[#051747] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
           style={{
             clipPath:
               'polygon(0 0, calc(100% - 80px) 0, 100% 50%, calc(100% - 80px) 100%, 0 100%)',
@@ -123,7 +123,7 @@ const Projects = () => {
       {/* ================= SMALL ARROW ================= */}
       <div ref={smallArrowRef} className="absolute top-0 left-0 z-10">
         <div
-          className="bg-[#5b3428] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
+          className="bg-[#051747] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
           style={{
             clipPath:
               'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
@@ -137,221 +137,156 @@ const Projects = () => {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <svg
           ref={svgRef}
-          xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 900"
           preserveAspectRatio="none"
           className="w-full h-full"
         >
-          <rect x="0" y="0" width="1440" height="900" fill="#E0D4C3" />
+          <rect width="1440" height="900" fill="#E7E9F0" />
           <path
-            d="
-          M 0 264 L 447 653 L 684 466 L 1018 682 L 1440 424 L 1440 900 L 0 900 Z
-            "
-            fill="#F4F1ED"
+            d=" M 0 420 C 127 208 113 354 259 560 C 329 661 419 342 472 446 C 621 695 602 348 742 367 C 788 371 866 591 892 613 C 992 731 1017 357 1117 308 C 1247 251 1215 714 1440 424 L 1440 900 L 0 900 Z"
+            fill="#FEFEFE"
           />
+          {/* d="
+           M 0 420 C 127 208 113 354 259 560 C 329 661 419 342 472 446 C 621 695 602 348 742 367 C 788 371 866 591 892 613 C 992 731 1017 357 1117 308 C 1247 251 1215 714 1440 424 L 1440 900 L 0 900 Z
+            " */}
         </svg>
       </div>
 
-          {/* <path
-            d="
-           M 0 420 C 127 208 113 354 259 560 C 329 661 419 342 472 446 C 621 695 602 348 742 367 C 788 371 866 591 892 613 C 992 731 1017 357 1117 308 C 1247 251 1215 714 1440 424 L 1440 900 L 0 900 Z
-            "
-            fill="#F4F1ED"
-          /> */}
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-24">
         <div className="space-y-8">
-          {/* Three Column Layout: Card - Image - Card */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-24 items-center">
 
-            {/* Left Card - Completed Projects (Desktop) */}
-           <div className="completed-card hidden lg:block col-span-1 relative z-20">
-              <div className="rounded-[28px] bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)] overflow-hidden">
-                <div className="p-10 space-y-8">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E0D4C3] text-[#8B4F3D] shadow-inner shadow-[#E0D4C3]">
-                      <Trophy className="h-11 w-11" />
-                    </div>
-                    <p className="text-xl font-semibold text-gray-900">
-                      Completed Projects
-                    </p>
-                  </div>
+            {/* Completed Projects – Desktop */}
+<div className="completed-card hidden lg:block col-span-1 relative z-10 opacity-0 -translate-x-24">
 
-                  <p className="text-5xl md:text-5xl font-extrabold text-[#8B4F3D]">
-                    162 Roads
-                  </p>
-                </div>
 
-                <div className="">
-                  <div className="grid grid-cols-2  px-10 py-8 text-gray-900">
-                    <div className="space-y-2 px-2">
-                      <div className="flex items-center gap-2 text-[#8B4F3D]">
-                        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M6 9h12M6 9l1-5h10l1 5M6 9v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9M8 20h8M9 14h6" />
-                        </svg>
-                        <span className="text-sm font-semibold">Amount</span>
-                      </div>
-                      <p className="text-2xl font-semibold">INR 500+ Crores</p>
-                    </div>
+  <div className="rounded-[28px] bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(5,23,71,0.15)] overflow-hidden">
+    <div className="p-10 space-y-8">
+      <div className="flex items-center gap-3">
+        <div className="h-12 w-12 flex items-center justify-center rounded-2xl bg-[#E7E9F0] text-[#051747]">
+          <Trophy className="h-11 w-11" />
+        </div>
+        <p className="text-xl font-semibold text-[#081F62]">
+          Completed Projects
+        </p>
+      </div>
 
-                    <div className="space-y-2 px-2">
-                      <div className="flex items-center gap-2 text-[#8B4F3D]">
-                        <Milestone className="h-5 w-5" />
-                        <span className="text-sm font-semibold">Distance</span>
-                      </div>
-                      <p className="text-2xl font-semibold">96 KM</p>
-                    </div>
-                  </div>
+      <p className="text-5xl font-extrabold text-[#051747]">
+        162 Roads
+      </p>
+    </div>
 
-                  <div className="px-10 pb-10">
-                    <div className="h-4 w-full rounded-full bg-[#E0D4C3]">
-                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-[#8B4F3D] to-[#a86b56]" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    {/* DETAILS */}
+    <div className="grid grid-cols-2 px-10 py-8 text-[#081F62]">
+      {/* Amount */}
+      <div className="space-y-2 px-2">
+        <div className="flex items-center gap-2 text-[#535F80]">
+          <svg
+            className="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M6 9h12M6 9l1-5h10l1 5M6 9v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9M8 20h8M9 14h6" />
+          </svg>
+          <span className="text-sm font-semibold">Amount</span>
+        </div>
+        <p className="text-2xl font-semibold">INR 500+ Crores</p>
+      </div>
+
+      {/* Distance */}
+      <div className="space-y-2 px-2">
+        <div className="flex items-center gap-2 text-[#535F80]">
+          <Milestone className="h-5 w-5" />
+          <span className="text-sm font-semibold">Distance</span>
+        </div>
+        <p className="text-2xl font-semibold">96 KM</p>
+      </div>
+    </div>
+
+    {/* Progress */}
+    <div className="px-10 pb-10">
+      <div className="h-4 w-full rounded-full bg-[#E7E9F0]">
+        <div className="h-full w-3/4 rounded-full bg-[#051747]" />
+      </div>
+    </div>
+  </div>
+</div>
+
 
             {/* Middle Image */}
-            <div className="relative flex flex-col items-center justify-center order-first lg:order-none col-span-1">
-              <div className="relative mb-24 w-full">
-                <div className="relative transform hover:scale-105 transition-transform duration-500">
-                  <img
-                    src="/3DAssets/001Ab.png"
-                    alt="3D Construction Projects Visualization"
-                    className="w-full h-auto object-contain drop-shadow-2xl scale-100 lg:scale-150"
-                  />
-                </div>
-              </div>
+            <div className="relative flex items-center justify-center col-span-1">
+              <img
+                src="/3DAssets/001Ab.png"
+                alt="Projects Visualization"
+                className="w-full h-auto object-contain drop-shadow-2xl scale-100 lg:scale-150"
+              />
             </div>
 
-            {/* Completed Projects (Mobile) */}
-            <div className="completed-card lg:hidden px-2 sm:px-4 col-span-1 relative z-20">
-              <div className="rounded-[20px] sm:rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
-                <div className="p-5 sm:p-10 space-y-4 sm:space-y-8">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 sm:h-12 w-10 sm:w-12 items-center justify-center rounded-2xl bg-[#E0D4C3] text-[#8B4F3D] shadow-inner shadow-[#E0D4C3]">
-                      <Trophy className="h-9 sm:h-11 w-9 sm:w-11" />
-                    </div>
-                    <p className="text-lg sm:text-3xl font-semibold text-gray-900">
-                      Completed Projects
-                    </p>
-                  </div>
+            {/* Ongoing Projects – Desktop */}
+<div className="ongoing-card hidden lg:block col-span-1 relative z-10 opacity-0 translate-x-24">
 
-                  <p className="text-2xl sm:text-5xl md:text-6xl font-extrabold text-[#8B4F3D]">
-                    162 Roads
-                  </p>
-                </div>
 
-                <div className="border-t border-gray-100">
-                  <div className="grid grid-cols-2 divide-x divide-gray-100 px-5 sm:px-10 py-4 sm:py-8 text-gray-900">
-                    <div className="space-y-2">
-                      <span className="text-xs sm:text-sm font-semibold text-[#8B4F3D]">Amount</span>
-                      <p className="text-lg sm:text-3xl font-semibold">INR 500+ Crores</p>
-                    </div>
-                    <div className="space-y-2">
-                      <span className="text-xs sm:text-sm font-semibold text-[#8B4F3D]">Distance</span>
-                      <p className="text-lg sm:text-3xl font-semibold">96 KM</p>
-                    </div>
-                  </div>
-                  <div className="px-5 sm:px-10 pb-5 sm:pb-10">
-                    <div className="h-2.5 sm:h-4 w-full rounded-full bg-[#E0D4C3]">
-                      <div className="h-full w-full rounded-full bg-gradient-to-r from-[#8B4F3D] to-[#a86b56]" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <div className="rounded-[28px] bg-transparent backdrop-blur-sm shadow-[0_18px_55px_rgba(5,23,71,0.15)] overflow-hidden">
+    <div className="p-10 space-y-8">
+      <div className="flex items-center gap-3">
+        <div className="h-12 w-12 flex items-center justify-center rounded-2xl bg-[#E7E9F0] text-[#081F62]">
+          <Target className="h-11 w-11" />
+        </div>
+        <p className="text-xl font-semibold text-[#081F62]">
+          On Going Projects
+        </p>
+      </div>
 
-            {/* On Going Projects (Mobile) */}
-            <div className="ongoing-card lg:hidden px-2 sm:px-4 col-span-1 relative z-20">
-              <div className="rounded-[20px] sm:rounded-[28px] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.15)] border border-gray-100 overflow-hidden">
-                <div className="p-5 sm:p-10 space-y-4 sm:space-y-8">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 sm:h-12 w-10 sm:w-12 items-center justify-center rounded-2xl bg-[#E0D4C3] text-[#1B365D] shadow-inner shadow-[#E0D4C3]">
-                      <Target className="h-9 sm:h-11 w-9 sm:w-11" />
-                    </div>
-                    <p className="text-lg sm:text-3xl font-semibold text-gray-900">
-                      On Going Projects
-                    </p>
-                  </div>
+      <p className="text-5xl font-extrabold text-[#081F62]">
+        62 Roads
+      </p>
+    </div>
 
-                  <p className="text-2xl sm:text-5xl md:text-6xl font-extrabold text-[#1B365D]">
-                    62 Roads
-                  </p>
-                </div>
+    {/* DETAILS */}
+    <div className="grid grid-cols-2 px-10 py-8 text-[#081F62]">
+      {/* Amount */}
+      <div className="space-y-2 px-2">
+        <div className="flex items-center gap-2 text-[#535F80]">
+          <svg
+            className="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M6 9h12M6 9l1-5h10l1 5M6 9v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9M8 20h8M9 14h6" />
+          </svg>
+          <span className="text-sm font-semibold">Amount</span>
+        </div>
+        <p className="text-2xl font-semibold">INR 403+ Crores</p>
+      </div>
 
-                <div className="border-t border-gray-100">
-                  <div className="grid grid-cols-2 divide-x divide-gray-100 px-5 sm:px-10 py-4 sm:py-8 text-gray-900">
-                    <div className="space-y-2">
-                      <span className="text-xs sm:text-sm font-semibold text-[#1B365D]">Amount</span>
-                      <p className="text-lg sm:text-3xl font-semibold">INR 403+ Crores</p>
-                    </div>
-                    <div className="space-y-2">
-                      <span className="text-xs sm:text-sm font-semibold text-[#1B365D]">Distance</span>
-                      <p className="text-lg sm:text-3xl font-semibold">41.5 KM</p>
-                    </div>
-                  </div>
-                  <div className="px-5 sm:px-10 pb-5 sm:pb-10">
-                    <div className="h-2.5 sm:h-4 w-full rounded-full bg-[#E0D4C3]">
-                      <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-[#1B365D] to-[#2d5080]" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* Distance */}
+      <div className="space-y-2 px-2">
+        <div className="flex items-center gap-2 text-[#535F80]">
+          <Milestone className="h-5 w-5" />
+          <span className="text-sm font-semibold">Distance</span>
+        </div>
+        <p className="text-2xl font-semibold">41.5 KM</p>
+      </div>
+    </div>
 
-            {/* On Going Projects (Desktop) */}
-            <div className="ongoing-card hidden lg:block col-span-1 relative z-20">
-              <div className="rounded-[28px] bg-transpraent backdrop-blur-sm shadow-[0_18px_55px_rgba(15,23,42,0.15)]  overflow-hidden">
-                <div className="p-10 space-y-8">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E0D4C3] text-[#1B365D] shadow-inner shadow-[#E0D4C3]">
-                      <Target className="h-11 w-11" />
-                    </div>
-                    <p className="text-xl font-semibold text-gray-900">
-                      On Going Projects
-                    </p>
-                  </div>
+    {/* Progress */}
+    <div className="px-10 pb-10">
+      <div className="h-4 w-full rounded-full bg-[#E7E9F0]">
+        <div className="h-full w-2/3 rounded-full bg-[#081F62]" />
+      </div>
+    </div>
+  </div>
+</div>
 
-                  <p className="text-5xl md:text-5xl font-extrabold text-[#1B365D]">
-                    62 Roads
-                  </p>
-                </div>
-
-                <div className="">
-                  <div className="grid grid-cols-2 px-10 py-8 text-gray-900">
-                    <div className="space-y-2 px-2">
-                      <div className="flex items-center gap-2 text-[#1B365D]">
-                        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M6 9h12M6 9l1-5h10l1 5M6 9v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9M8 20h8M9 14h6" />
-                        </svg>
-                        <span className="text-sm font-semibold">Amount</span>
-                      </div>
-                      <p className="text-2xl font-semibold">INR 403+ Crores</p>
-                    </div>
-
-                    <div className="space-y-2 px-2">
-                      <div className="flex items-center gap-2 text-[#1B365D]">
-                        <Milestone className="h-5 w-5" />
-                        <span className="text-sm font-semibold">Distance</span>
-                      </div>
-                      <p className="text-2xl  font-semibold">41.5 KM</p>
-                    </div>
-                  </div>
-                  <div className="px-10 pb-10">
-                    <div className="h-4 w-full rounded-full bg-[#E0D4C3]">
-                      <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-[#1B365D] to-[#2d5080]" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {/* Mobile CTA */}
-            <div className="lg:hidden col-span-1 w-full px-2 sm:px-4">
+            <div className="lg:hidden col-span-1 w-full px-2">
               <Link href="/projects">
-                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-colors w-full">
+                <button className="bg-[#051747] hover:bg-[#081F62] text-white px-6 py-3 rounded-full font-semibold w-full">
                   View All Projects
                 </button>
               </Link>
@@ -359,14 +294,12 @@ const Projects = () => {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex justify-center w-full px-4 mt-2">
+          <div className="hidden lg:flex justify-center mt-4">
             <Link href="/projects">
-              <div className="w-full max-w-xs">
-                <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-[#ffffff] px-8 py-3 rounded-full font-semibold transition-colors w-full inline-flex items-center justify-center gap-2">
-                  View All Projects
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
+              <button className="bg-[#051747] hover:bg-[#081F62] text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2">
+                View All Projects
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </Link>
           </div>
         </div>
