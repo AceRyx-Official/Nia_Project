@@ -181,7 +181,7 @@ export default function AboutPage() {
         transition={{
           layout: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
         }}
-        className="relative w-[80vw] h-[80vh] bg-white rounded-3xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.25)] grid grid-cols-[0.35fr_0.65fr]"
+        className="relative w-[80vw] h-[80vh] bg-white rounded-3xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.25)] grid grid-cols-[0.5fr_0.65fr]"
       >
         {/* LEFT – IMAGE */}
         <motion.div
@@ -288,7 +288,7 @@ export default function AboutPage() {
       People driving execution excellence
     </h2>
 
-    <div className="grid md:grid-cols-3 gap-12">
+    <div className="grid md:grid-cols-2 gap-24 max-w-4xl mx-auto">
       {leaders.map((leader) => (
         <motion.div
           key={`card-${leader.name}-${id}`}
@@ -372,6 +372,284 @@ export default function AboutPage() {
               Disciplined execution, in-house expertise, and long-term performance.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ================= CLIENTS ================= */}
+      <section className="py-32 px-6 bg-neutral-50">
+        <div ref={clientsRef} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-orange-500 text-sm font-semibold tracking-widest uppercase mb-4">
+              Our Clients
+            </span>
+            <h2 className="text-4xl font-bold mb-4">
+              Trusted by Leading Organizations
+            </h2>
+            <p className="text-lg text-black/60 max-w-2xl mx-auto">
+              We are proud to partner with government bodies and private enterprises 
+              in delivering infrastructure excellence.
+            </p>
+          </div>
+
+          {/* Central Circle Design with Grid */}
+          <div className="relative">
+            {/* Central Circle */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-[#1e3a5f] to-[#8B4F3D] flex items-center justify-center z-10 shadow-2xl">
+              <div className="text-center text-white">
+                <Building2 className="w-10 h-10 md:w-14 md:h-14 mx-auto mb-2" />
+                <span className="text-sm md:text-base font-semibold">NIA Infra</span>
+                <span className="block text-xs md:text-sm opacity-80">Project</span>
+              </div>
+            </div>
+
+            {/* Client Grid - Surrounding the center */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+              {/* Placeholder clients - Replace with actual client logos */}
+              {[
+                { name: 'Client 1', placeholder: 'Government Body' },
+                { name: 'Client 2', placeholder: 'Infrastructure Corp' },
+                { name: 'Client 3', placeholder: 'Transport Authority' },
+                { name: 'Client 4', placeholder: 'Development Agency' },
+                { name: 'Client 5', placeholder: 'Municipal Council' },
+                { name: 'Client 6', placeholder: 'Highway Authority' },
+                { name: 'Client 7', placeholder: 'Urban Development' },
+                { name: 'Client 8', placeholder: 'Public Works Dept' },
+              ].map((client, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className={`relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center justify-center min-h-[140px] md:min-h-[180px] ${
+                    (index === 1 || index === 2 || index === 5 || index === 6) ? 'md:mt-16' : ''
+                  }`}
+                >
+                  {/* Placeholder for client logo */}
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-3">
+                    <span className="text-2xl md:text-3xl font-bold text-gray-400">
+                      {client.name.split(' ')[1]}
+                    </span>
+                  </div>
+                  <span className="text-xs md:text-sm text-gray-500 text-center font-medium">
+                    {client.placeholder}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-center text-sm text-gray-500 mt-12 italic">
+            * Client logos will be displayed upon confirmation
+          </p>
+        </div>
+      </section>
+
+      {/* ================= CERTIFICATIONS ================= */}
+      <section className="py-32 px-6">
+        <div ref={certificationsRef} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-orange-500 text-sm font-semibold tracking-widest uppercase mb-4">
+              Certifications
+            </span>
+            <h2 className="text-4xl font-bold mb-4">
+              Quality & Compliance Standards
+            </h2>
+            <p className="text-lg text-black/60 max-w-2xl mx-auto">
+              Our certifications reflect our commitment to maintaining the highest standards 
+              in construction quality, safety, and environmental responsibility.
+            </p>
+          </div>
+
+          {/* Certifications Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* Placeholder certificates - Replace with actual certificate images */}
+            {[
+              { 
+                title: 'ISO 9001:2015', 
+                description: 'Quality Management System',
+                icon: Award,
+                color: 'from-blue-500 to-blue-600'
+              },
+              { 
+                title: 'ISO 14001:2015', 
+                description: 'Environmental Management',
+                icon: Leaf,
+                color: 'from-green-500 to-green-600'
+              },
+              { 
+                title: 'ISO 45001:2018', 
+                description: 'Occupational Health & Safety',
+                icon: Users,
+                color: 'from-orange-500 to-orange-600'
+              },
+            ].map((cert, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
+              >
+                {/* Certificate Image Placeholder */}
+                <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+                  <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${cert.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                    <cert.icon className="w-12 h-12 text-white" />
+                  </div>
+                  {/* Decorative elements */}
+                  <div className="absolute top-4 right-4 w-16 h-16 border-2 border-gray-200 rounded-lg opacity-30" />
+                  <div className="absolute bottom-4 left-4 w-12 h-12 border-2 border-gray-200 rounded-full opacity-30" />
+                  
+                  {/* Placeholder overlay */}
+                  <div className="absolute inset-0 bg-black/5 flex items-center justify-center">
+                    <span className="text-xs text-gray-400 bg-white/80 px-3 py-1 rounded-full">
+                      Certificate Image
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">{cert.title}</h3>
+                  <p className="text-gray-600">{cert.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-gray-500 mt-12 italic">
+            * Certificate images will be displayed upon company confirmation
+          </p>
+        </div>
+      </section>
+
+      {/* ================= CSR ================= */}
+      <section className="py-32 px-6 bg-gradient-to-b from-[#1e3a5f] to-[#0f1f3d] text-white">
+        <div ref={csrRef} className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-orange-400 text-sm font-semibold tracking-widest uppercase mb-4">
+              Corporate Social Responsibility
+            </span>
+            <h2 className="text-4xl font-bold mb-4">
+              Building Communities, Not Just Roads
+            </h2>
+            <p className="text-lg text-white/70 max-w-3xl mx-auto">
+              At NIA Infra Project, we believe that true infrastructure development goes beyond 
+              construction. We are committed to creating lasting positive impact in the 
+              communities we serve.
+            </p>
+          </div>
+
+          {/* CSR Pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            {[
+              {
+                icon: Heart,
+                title: 'Community Welfare',
+                description: 'Supporting local communities through employment opportunities, skill development programs, and educational initiatives for workers and their families.'
+              },
+              {
+                icon: Leaf,
+                title: 'Environmental Stewardship',
+                description: 'Implementing sustainable construction practices, tree plantation drives, and minimizing environmental impact through responsible resource management.'
+              },
+              {
+                icon: HandHeart,
+                title: 'Social Development',
+                description: 'Contributing to healthcare camps, sanitation facilities, and infrastructure support for underprivileged areas near our project sites.'
+              }
+            ].map((pillar, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300"
+              >
+                <div className="w-14 h-14 rounded-xl bg-orange-500 flex items-center justify-center mb-6">
+                  <pillar.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-4">{pillar.title}</h3>
+                <p className="text-white/70 leading-relaxed">{pillar.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Recent CSR Activities */}
+          <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10">
+            <h3 className="text-2xl font-bold mb-8 text-center">Recent CSR Activities</h3>
+            
+            {/* CSR Activity Cards - Placeholder for images */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: 'Tree Plantation Drive',
+                  description: 'Planted 500+ saplings along highway corridors as part of our green initiative.',
+                  date: 'December 2025'
+                },
+                {
+                  title: 'Health Camp for Workers',
+                  description: 'Organized free health check-ups and medical assistance for construction workers and their families.',
+                  date: 'November 2025'
+                },
+                {
+                  title: 'Skill Development Workshop',
+                  description: 'Conducted training sessions for local youth in construction techniques and safety practices.',
+                  date: 'October 2025'
+                }
+              ].map((activity, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-2xl overflow-hidden shadow-xl group"
+                >
+                  {/* Image Placeholder */}
+                  <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center relative overflow-hidden">
+                    <div className="text-center">
+                      <div className="w-16 h-16 rounded-full bg-white/50 flex items-center justify-center mx-auto mb-2">
+                        <Heart className="w-8 h-8 text-gray-400" />
+                      </div>
+                      <span className="text-xs text-gray-500 bg-white/80 px-3 py-1 rounded-full">
+                        Activity Image
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-6">
+                    <span className="text-xs text-orange-500 font-semibold">{activity.date}</span>
+                    <h4 className="text-lg font-bold text-[#1e3a5f] mt-1 mb-2">{activity.title}</h4>
+                    <p className="text-gray-600 text-sm">{activity.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <p className="text-center text-sm text-white/50 mt-8 italic">
+              * Activity images will be displayed upon company confirmation
+            </p>
+          </div>
+
+          {/* CSR Commitment Statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <p className="text-lg text-white/80 max-w-3xl mx-auto italic">
+              &ldquo;We measure our success not just by the kilometers of road we build, 
+              but by the lives we touch and the communities we uplift along the way.&rdquo;
+            </p>
+            <p className="text-orange-400 font-semibold mt-4">— NIA Infra Project Leadership Team</p>
+          </motion.div>
         </div>
       </section>
     </main>

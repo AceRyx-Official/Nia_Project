@@ -10,7 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const arrowRef = useRef<HTMLDivElement>(null);
   const bigArrowRef = useRef<HTMLDivElement>(null);
   const svgTopRef = useRef<SVGGElement>(null);
   const svgBottomRef = useRef<SVGGElement>(null);
@@ -22,7 +21,6 @@ const About = () => {
 
     const ctx = gsap.context(() => {
       gsap.set(bigArrowRef.current, { x: 0, opacity: 1 });
-      gsap.set(arrowRef.current, { x: -200, opacity: 0 });
       gsap.set(svgTopRef.current, { opacity: 0, x: 140, y: -140 });
       gsap.set(svgBottomRef.current, { opacity: 0, x: -140, y: 140 });
       gsap.set(contentRef.current?.children || [], { opacity: 0, y: 40 });
@@ -44,17 +42,6 @@ const About = () => {
         duration: 1.4,
         ease: 'power4.inOut',
       });
-
-      tl.to(
-        arrowRef.current,
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
-        },
-        '-=0.7'
-      );
 
       tl.to(
         svgTopRef.current,
@@ -112,19 +99,6 @@ const About = () => {
       ref={sectionRef}
       className="relative h-screen overflow-hidden bg-[#FEFEFE]"
     >
-      {/* SMALL ARROW */}
-      <div ref={arrowRef} className="absolute top-0 left-0 z-30">
-        <div
-          className="bg-[#051747] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
-          style={{
-            clipPath:
-              'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
-          }}
-        >
-          ABOUT US
-        </div>
-      </div>
-
       {/* BIG CENTER ARROW */}
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
         <div

@@ -13,7 +13,6 @@ const Machinery = () => {
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const bigArrowRef = useRef<HTMLDivElement>(null);
-  const smallArrowRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
   const leftContentRef = useRef<HTMLDivElement>(null);
@@ -39,11 +38,6 @@ const Machinery = () => {
         x: 0,
         opacity: 1,
         scale: 2.4,
-      });
-
-      gsap.set(smallArrowRef.current, {
-        x: -200,
-        opacity: 0,
       });
 
       gsap.set(svgRef.current, {
@@ -76,17 +70,6 @@ const Machinery = () => {
         duration: 1.4,
         ease: 'power4.inOut',
       });
-
-      tl.to(
-        smallArrowRef.current,
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
-        },
-        '-=0.7'
-      );
 
       tl.to(
         svgRef.current,
@@ -170,19 +153,6 @@ const Machinery = () => {
               fill="#E7E9F0"
             />
           </svg>
-        </div>
-
-        {/* SMALL ARROW */}
-        <div ref={smallArrowRef} className="absolute top-0 left-0 z-10">
-          <div
-            className="bg-[#051747] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
-            style={{
-              clipPath:
-                'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
-            }}
-          >
-            MACHINERY
-          </div>
         </div>
 
         {/* CONTENT */}

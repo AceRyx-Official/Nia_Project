@@ -10,7 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Services() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const bigArrowRef = useRef<HTMLDivElement>(null);
-  const smallArrowRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -28,11 +27,6 @@ export default function Services() {
       opacity: 1,
       scale: 2.4,
       transformOrigin: 'center',
-    });
-
-    gsap.set(smallArrowRef.current, {
-      x: -200,
-      opacity: 0,
     });
 
     gsap.set(titleRef.current, {
@@ -69,18 +63,6 @@ export default function Services() {
       duration: 1.4,
       ease: 'power4.inOut',
     });
-
-    // SMALL ARROW ENTER
-    tl.to(
-      smallArrowRef.current,
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-      },
-      '-=0.7'
-    );
 
     // TITLE
     tl.to(
@@ -142,20 +124,7 @@ return (
       </div>
     </div>
 
-    {/* ================= SMALL ARROW ================= */}
-    <div ref={smallArrowRef} className="absolute top-0 left-0 z-10">
-      <div
-        className="bg-[#051747] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
-        style={{
-          clipPath:
-            'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
-        }}
-      >
-        SERVICES
-      </div>
-    </div>
-
-    <div className="max-w-screen-6xl mx-auto px-16 sm:px-6 lg:px-36 py-24">
+    <div className="max-w-screen-6xl mx-auto px-16 sm:px-6 lg:px-36 pb-16 pt-8">
       <div className="grid lg:grid-cols-2 gap-12 items-start">
 
         {/* LEFT */}
@@ -172,13 +141,13 @@ return (
           </div>
 
           {/* IMAGE */}
-          <div ref={imageRef} className="w-full max-w-3xl mx-auto mt-8">
+          <div ref={imageRef} className="w-full max-w-3xl mx-auto ">
             <div className="relative transform hover:scale-105 transition-transform duration-500">
               <Image
-                src="/3DAssets/003Ab.png"
+                src="/3DAssets/013a.png"
                 alt="3D Construction Services Visualization"
-                width={1200}
-                height={800}
+                width={600}
+                height={400}
                 className="w-full h-auto object-contain drop-shadow-2xl"
               />
             </div>
@@ -186,7 +155,7 @@ return (
         </div>
 
         {/* RIGHT — CARDS */}
-        <div className="lg:flex lg:flex-col lg:justify-start lg:order-2 lg:pt-2">
+        <div className="lg:flex lg:flex-col lg:justify-start lg:order-2 lg:pt-2 mt-24">
           <div
             ref={cardsRef}
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"

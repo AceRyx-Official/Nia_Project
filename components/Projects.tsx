@@ -11,7 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 const Projects = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const bigArrowRef = useRef<HTMLDivElement>(null);
-  const smallArrowRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -20,7 +19,6 @@ const Projects = () => {
 
   const ctx = gsap.context(() => {
     gsap.set(bigArrowRef.current, { x: 0, opacity: 1 });
-    gsap.set(smallArrowRef.current, { x: -200, opacity: 0 });
     gsap.set(svgRef.current, { y: -600 });
 
     const completedCards = gsap.utils.toArray('.completed-card');
@@ -59,12 +57,6 @@ const Projects = () => {
       duration: 1.4,
       ease: 'power4.inOut',
     });
-
-    tl.to(
-      smallArrowRef.current,
-      { x: 0, opacity: 1, duration: 1, ease: 'power3.out' },
-      '-=0.7'
-    );
 
     tl.to(
       svgRef.current,
@@ -120,19 +112,6 @@ return (
         </div>
       </div>
 
-      {/* ================= SMALL ARROW ================= */}
-      <div ref={smallArrowRef} className="absolute top-0 left-0 z-10">
-        <div
-          className="bg-[#051747] text-white px-16 py-6 font-bold uppercase tracking-widest text-4xl"
-          style={{
-            clipPath:
-              'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
-          }}
-        >
-          PROJECTS
-        </div>
-      </div>
-
       {/* ================= SVG BACKGROUND ================= */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <svg
@@ -153,6 +132,11 @@ return (
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-24">
+        {/* Achievement Highlight */}
+        <p className="text-center text-lg md:text-xl text-[#535F80] font-medium mb-8">
+          <span className="text-[#051747] font-bold">₹ 1000+ Crores</span> worth of roads constructed with excellence
+        </p>
+        
         <div className="space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-24 items-center">
 
