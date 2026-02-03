@@ -2,7 +2,7 @@ import { gsap } from 'gsap';
 
 // Section information mapping
 const sectionMap: {[key: string]: {name: string, subtitle: string}} = {
-  'home': { name: 'Home', subtitle: 'Welcome to NIA Construction' },
+  'home': { name: 'Home', subtitle: 'Welcome to NIA Infra Project' },
   'about': { name: 'About Us', subtitle: 'Building Excellence Since 2009' },
   'services': { name: 'Services', subtitle: 'Professional Construction Solutions' },
   'projects': { name: 'Projects', subtitle: 'Our Latest Work' },
@@ -20,7 +20,7 @@ export const createCurtainOverlay = () => {
     <div class="curtain-panel curtain-right"></div>
     <div class="curtain-content">
       <div class="curtain-logo">
-        <h2>NIA Construction</h2>
+        <h2>NIA Infra Project</h2>
       </div>
       <div class="curtain-section-name">
         <h1 class="section-title"></h1>

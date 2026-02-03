@@ -13,6 +13,7 @@ const Footer = () => {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/#about' },
     { label: 'Projects', href: '/projects' },
+    { label: 'Careers', href: '/careers' },
     { label: 'Contact', href: '/contact' },
   ];
 
@@ -54,7 +55,7 @@ const Footer = () => {
                   whileHover={{ scale: 1.02 }}
                   className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white via-[#E0D4C3] to-[#8B4F3D] bg-clip-text text-transparent"
                 >
-                  NIA Construction
+                  NIA Infra Project
                 </motion.h2>
                 <div className="h-1 w-16 bg-gradient-to-r from-[#8B4F3D] to-[#E0D4C3]" />
               </div>
@@ -111,7 +112,7 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             className="text-[#E0D4C3] text-sm"
           >
-            &copy; {new Date().getFullYear()} NIA Construction. All rights reserved.
+            &copy; {new Date().getFullYear()} NIA Infra Project. All rights reserved.
           </motion.p>
           
           <motion.div 

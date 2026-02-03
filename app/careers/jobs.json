@@ -1,0 +1,142 @@
+[
+  {
+    "id": "project-manager",
+    "title": "Project Manager",
+    "department": "Operations",
+    "location": "On-site",
+    "type": "Full-time",
+    "experience": "5+ years",
+    "summary": "Lead and manage infrastructure projects from inception to completion, ensuring quality, safety, and timely delivery.",
+    "description": "We are seeking an experienced Project Manager to oversee our infrastructure projects. The ideal candidate will have a proven track record in managing large-scale construction projects, excellent leadership skills, and the ability to coordinate multiple stakeholders.",
+    "responsibilities": [
+      "Plan, execute, and finalize projects according to strict deadlines and within budget",
+      "Coordinate with clients, contractors, and internal teams to ensure project success",
+      "Develop project scopes and objectives, involving all relevant stakeholders",
+      "Ensure resource availability and allocation throughout the project lifecycle",
+      "Monitor and report on project progress to senior management",
+      "Implement and manage project changes and interventions to achieve project outputs",
+      "Ensure compliance with safety regulations and quality standards"
+    ],
+    "requirements": [
+      "Bachelor's degree in Civil Engineering, Construction Management, or related field",
+      "5+ years of experience in project management within the construction industry",
+      "PMP certification preferred",
+      "Strong understanding of infrastructure construction methodologies",
+      "Excellent communication and leadership skills",
+      "Proficiency in project management software (MS Project, Primavera)",
+      "Knowledge of safety regulations and quality control procedures"
+    ],
+    "benefits": [
+      "Competitive salary package",
+      "Health insurance coverage",
+      "Professional development opportunities",
+      "Performance-based bonuses",
+      "Company vehicle for site visits"
+    ]
+  },
+  {
+    "id": "civil-engineer",
+    "title": "Civil Engineer",
+    "department": "Engineering",
+    "location": "On-site",
+    "type": "Full-time",
+    "experience": "3+ years",
+    "summary": "Design and supervise infrastructure projects including roads, highways, and urban development works.",
+    "description": "NIA Infra Project is looking for a skilled Civil Engineer to join our engineering team. You will be responsible for designing, planning, and overseeing construction projects while ensuring all works meet technical specifications and safety standards.",
+    "responsibilities": [
+      "Prepare detailed designs and drawings for infrastructure projects",
+      "Conduct site surveys and feasibility studies",
+      "Supervise construction activities to ensure compliance with design specifications",
+      "Prepare technical reports and project documentation",
+      "Collaborate with architects, contractors, and other engineers",
+      "Perform quantity surveys and cost estimation",
+      "Ensure adherence to environmental and safety regulations"
+    ],
+    "requirements": [
+      "Bachelor's degree in Civil Engineering",
+      "3+ years of experience in infrastructure or road construction",
+      "Proficiency in AutoCAD, Civil 3D, and other design software",
+      "Strong knowledge of construction materials and methods",
+      "Understanding of relevant codes and standards",
+      "Excellent analytical and problem-solving skills",
+      "Valid professional engineering license preferred"
+    ],
+    "benefits": [
+      "Competitive salary package",
+      "Health insurance coverage",
+      "Continuous learning and training programs",
+      "Career advancement opportunities",
+      "Site allowance"
+    ]
+  },
+  {
+    "id": "site-supervisor",
+    "title": "Site Supervisor",
+    "department": "Operations",
+    "location": "On-site",
+    "type": "Full-time",
+    "experience": "4+ years",
+    "summary": "Supervise daily construction activities, manage work crews, and ensure project milestones are achieved safely and efficiently.",
+    "description": "We are hiring an experienced Site Supervisor to oversee day-to-day operations at our construction sites. The successful candidate will ensure that all work is carried out according to plans, specifications, and safety standards while maintaining productivity.",
+    "responsibilities": [
+      "Supervise and coordinate daily construction activities on site",
+      "Manage and motivate construction crews to achieve project targets",
+      "Ensure all work complies with safety regulations and quality standards",
+      "Monitor material usage and manage inventory on site",
+      "Prepare daily progress reports and documentation",
+      "Coordinate with project managers and engineers on technical matters",
+      "Conduct safety briefings and enforce PPE compliance"
+    ],
+    "requirements": [
+      "Diploma or degree in Civil Engineering or Construction Technology",
+      "4+ years of supervisory experience in road or infrastructure construction",
+      "Strong knowledge of construction equipment and techniques",
+      "Ability to read and interpret engineering drawings",
+      "Excellent leadership and communication skills",
+      "First aid and safety certification preferred",
+      "Ability to work in demanding outdoor conditions"
+    ],
+    "benefits": [
+      "Competitive salary package",
+      "Health insurance coverage",
+      "Accommodation allowance for remote sites",
+      "Performance incentives",
+      "Safety bonuses"
+    ]
+  },
+  {
+    "id": "heavy-equipment-operator",
+    "title": "Heavy Equipment Operator",
+    "department": "Operations",
+    "location": "On-site",
+    "type": "Full-time",
+    "experience": "3+ years",
+    "summary": "Operate heavy machinery including excavators, bulldozers, graders, and rollers for infrastructure construction projects.",
+    "description": "NIA Infra Project is seeking skilled Heavy Equipment Operators to join our fleet operations team. You will operate various types of heavy machinery used in road construction and infrastructure development projects.",
+    "responsibilities": [
+      "Operate heavy equipment including excavators, bulldozers, graders, and rollers",
+      "Perform daily equipment inspections and basic maintenance",
+      "Follow site plans and instructions from supervisors",
+      "Ensure safe operation of equipment at all times",
+      "Report any equipment malfunctions or safety hazards",
+      "Maintain accurate logs of equipment usage and fuel consumption",
+      "Assist with loading and unloading materials as needed"
+    ],
+    "requirements": [
+      "Valid heavy equipment operator certification/license",
+      "3+ years of experience operating construction machinery",
+      "Experience with road construction equipment preferred",
+      "Knowledge of equipment maintenance and safety procedures",
+      "Ability to work in various weather conditions",
+      "Physical fitness for demanding work environment",
+      "Clean driving record"
+    ],
+    "benefits": [
+      "Competitive daily/monthly rates",
+      "Health insurance coverage",
+      "Overtime pay",
+      "Skill development training",
+      "Safety gear provided"
+    ]
+  }
+]

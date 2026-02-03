@@ -223,7 +223,7 @@ const About = () => {
             </h2>
 
             <p className="text-gray-700 font-bold leading-relaxed max-w-sm">
-              Nia Infra Projects is a public infrastructure specialist dedicated
+              NIA Infra Project is a public infrastructure specialist dedicated
               to the execution of urban roads, highways, and large-scale
               development.
             </p>
@@ -251,7 +251,7 @@ const About = () => {
             <div className="pt-8">
               <Link href="/about">
                 <button className="bg-[#8B4F3D] hover:bg-[#2d5080] text-white px-8 py-4 rounded-full font-semibold shadow-lg transition-colors inline-flex items-center gap-2">
-                  LEARN MORE ABOUT NIA INFRA PROJECTS
+                  LEARN MORE ABOUT NIA INFRA PROJECT
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </Link>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home as HomeIcon, Mail } from 'lucide-react';
+import { Menu, X, Home as HomeIcon, Mail, Briefcase } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { initializeGSAP } from '@/lib/gsap-utils';
 
@@ -187,6 +187,18 @@ const Navbar = () => {
                       <span>Home</span>
                     </motion.button>
                   </Link>
+                  {!pathname.startsWith('/careers') && (
+                    <Link href="/careers">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-2 px-6 py-2.5 rounded-full font-medium transition-all duration-200 bg-[#2d5080] text-white hover:bg-[#1e3a5f] shadow-md"
+                      >
+                        <Briefcase size={18} />
+                        <span>Careers</span>
+                      </motion.button>
+                    </Link>
+                  )}
                   {pathname !== '/contact' && (
                     <Link href="/contact">
                       <motion.button
@@ -278,12 +290,25 @@ const Navbar = () => {
                       <span>Home</span>
                     </motion.button>
                   </Link>
+                  {!pathname.startsWith('/careers') && (
+                    <Link href="/careers">
+                      <motion.button
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.05 }}
+                        className="flex items-center gap-3 w-full text-left px-6 py-4 text-base font-medium text-[#2d5080] hover:bg-gray-100 transition-colors"
+                      >
+                        <Briefcase size={20} />
+                        <span>Careers</span>
+                      </motion.button>
+                    </Link>
+                  )}
                   {pathname !== '/contact' && (
                     <Link href="/contact">
                       <motion.button
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.05 }}
+                        transition={{ delay: 0.1 }}
                         className="flex items-center gap-3 w-full text-left px-6 py-4 text-base font-medium text-[#1B365D] hover:bg-gray-100 transition-colors"
                       >
                         <Mail size={20} />

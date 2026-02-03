@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Award, Heart, Users, Leaf, HandHeart, Building2 } from 'lucide-react';
 import { initializeGSAP } from '@/lib/gsap-utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useOutsideClick } from '@/hooks/use-outside-click';
@@ -45,6 +45,9 @@ export default function AboutPage() {
   const leadersRef = useRef<HTMLDivElement>(null);
   const missionVisionRef = useRef<HTMLDivElement>(null);
   const image3DRef = useRef<HTMLDivElement>(null);
+  const clientsRef = useRef<HTMLDivElement>(null);
+  const certificationsRef = useRef<HTMLDivElement>(null);
+  const csrRef = useRef<HTMLDivElement>(null);
 
   const [active, setActive] = useState<(typeof leaders)[number] | null>(null);
   const id = useId();
@@ -130,6 +133,9 @@ export default function AboutPage() {
       storyRef.current && fadeUp(storyRef.current);
       leadersRef.current && fadeUp(leadersRef.current);
       missionVisionRef.current && fadeUp(missionVisionRef.current);
+      clientsRef.current && fadeUp(clientsRef.current);
+      certificationsRef.current && fadeUp(certificationsRef.current);
+      csrRef.current && fadeUp(csrRef.current);
 
       gsap.utils.toArray('.leader-card-trigger').forEach((card: any) => {
         gsap.fromTo(

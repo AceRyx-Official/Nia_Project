@@ -163,7 +163,7 @@ const Hero = () => {
               variants={fadeUp}
               className="text-lg text-white max-w-xl mb-10 mt-10"
             >
-              NIA Construction delivers thoughtful, reliable construction solutions
+              NIA Infra Project delivers thoughtful, reliable construction solutions
               with a focus on quality execution, safety, and long-term value.
             </motion.p>
 

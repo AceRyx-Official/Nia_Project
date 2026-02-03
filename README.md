@@ -1,4 +1,4 @@
-# NIA Construction Website
+# NIA Infra Project Website
 
 A modern, single-page construction company website built with Next.js 15, featuring high-end animations and a royal blue color theme.
 

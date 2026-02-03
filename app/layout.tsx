@@ -20,7 +20,7 @@ const ultra = {
 };
 
 export const metadata: Metadata = {
-  title: "NIA Construction - Building Your Dreams Into Reality",
+  title: "NIA Infra Project - Building Your Dreams Into Reality",
   description:
     "Premier construction services with excellence, innovation, and dedication to quality craftsmanship",
 };
