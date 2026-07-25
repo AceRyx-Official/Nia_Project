@@ -201,29 +201,35 @@ const Projects = () => {
       initial={{ opacity: 0, x: -12 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay, ease: [0.23, 1, 0.32, 1] }}
-      className="flex items-center gap-3"
+      className="flex items-center gap-2 sm:gap-3"
     >
-      <div className={`${isOngoing ? 'bg-[#051747]/10' : 'bg-[#081F62]/10'} p-2 rounded-lg`}>
-        <Icon className={`w-4 h-4 ${isOngoing ? 'text-[#051747]' : 'text-[#081F62]'}`} />
+      <div className={`${isOngoing ? 'bg-[#051747]/10' : 'bg-[#081F62]/10'} p-1.5 sm:p-2 rounded-lg`}>
+        <Icon className={`w-3 h-3 sm:w-4 sm:h-4 ${isOngoing ? 'text-[#051747]' : 'text-[#081F62]'}`} />
       </div>
       <div>
-        <p className="text-xs text-[#535F80]">{label}</p>
-        <p className="text-sm font-semibold text-[#081F62]">{value}</p>
+        <p className="text-[10px] sm:text-xs text-[#535F80]">{label}</p>
+        <p className="text-xs sm:text-sm font-semibold text-[#081F62]">{value}</p>
       </div>
     </motion.div>
   );
 
-  /* ================= CARD ================= */
+/* ================= CARD ================= */
   const ProjectCard = ({ card, index, hovered, setHovered, isOngoing }: any) => {
     const isHovered = hovered === index;
     const dim = hovered !== null && !isHovered;
+
+    // Toggle on tap for touch devices
+    const handleClick = () => {
+      setHovered(isHovered ? null : index);
+    };
 
     return (
       <motion.div
         layout
         onMouseEnter={() => setHovered(index)}
         onMouseLeave={() => setHovered(null)}
-        className="relative bg-white rounded-3xl overflow-hidden h-[500px] cursor-pointer shadow-lg group"
+        onClick={handleClick}
+        className="relative bg-white rounded-3xl overflow-hidden h-64 sm:h-80 lg:h-[500px] cursor-pointer shadow-lg group"
         animate={{
           filter: dim ? 'blur(4px)' : 'blur(0px)',
           opacity: dim ? 0.6 : 1,
@@ -249,7 +255,7 @@ const Projects = () => {
         />
 
         {/* Content */}
-        <div className="relative h-full flex flex-col justify-between p-8">
+        <div className="relative h-full flex flex-col justify-between p-4 sm:p-6 lg:p-8">
           <div className="flex-1 flex items-end justify-center">
             <motion.h3
               animate={{
@@ -257,7 +263,7 @@ const Projects = () => {
                 color: isHovered ? '#ffffff' : '#ffffffff',
               }}
               transition={{ type: 'spring', stiffness: 140, damping: 18 }}
-              className="text-4xl text-white text-center drop-shadow-lg font-extrabold"
+              className="text-xl sm:text-2xl lg:text-4xl text-white text-center drop-shadow-lg font-extrabold"
             >
               {card.title}
             </motion.h3>
@@ -271,7 +277,7 @@ const Projects = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 24 }}
                 transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-                className="grid grid-cols-2 gap-4 bg-[#FEFEFE]/95 backdrop-blur-xl p-6 rounded-2xl border border-[#535F80]/10 shadow-xl"
+                className="grid grid-cols-2 gap-2 sm:gap-4 bg-[#FEFEFE]/95 backdrop-blur-xl p-3 sm:p-6 rounded-2xl border border-[#535F80]/10 shadow-xl"
               >
                 <MetadataItem icon={IndianRupee} label="Project Cost" value={card.metadata.cost} delay={0.05} isOngoing={isOngoing} />
                 <MetadataItem icon={Route} label="Roads Completed" value={card.metadata.roadsCompleted} delay={0.1} isOngoing={isOngoing} />
@@ -303,7 +309,7 @@ const Projects = () => {
           className="text-center mb-32"
         >
 
-          <h2 className="text-6xl font-bold mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
             <span className="text-[#081F62]">Our </span>
             <span className="text-[#051747]">Projects</span>
           </h2>
@@ -315,7 +321,7 @@ const Projects = () => {
             className="w-24 h-1 bg-gradient-to-r from-[#081F62] via-[#051747] to-[#081F62] mx-auto mb-6"
           />
           
-          <p className="text-[#535F80] mt-6 max-w-2xl mx-auto text-lg">
+          <p className="text-[#535F80] mt-4 sm:mt-6 max-w-2xl mx-auto text-base sm:text-lg">
             Building infrastructure that connects communities and drives progress
           </p>
         </motion.div>

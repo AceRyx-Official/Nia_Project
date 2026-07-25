@@ -37,7 +37,7 @@ const Machinery = () => {
       gsap.set(bigArrowRef.current, {
         x: 0,
         opacity: 1,
-        scale: 2.4,
+        scale: 1,
       });
 
       gsap.set(svgRef.current, {
@@ -115,11 +115,14 @@ const Machinery = () => {
       <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
         <div
           ref={bigArrowRef}
-          className="bg-[#051747] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
+          className="bg-[#051747] text-white font-bold uppercase tracking-widest shadow-2xl
+                     px-12 py-6 text-2xl
+                     sm:px-20 sm:py-10 sm:text-4xl
+                     lg:px-32 lg:py-14 lg:text-6xl"
           style={{
             clipPath:
-              'polygon(0 0, calc(100% - 80px) 0, 100% 50%, calc(100% - 80px) 100%, 0 100%)',
-            transform: 'scale(2.4)',
+              'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
+            transform: 'scale(1.2)',
             transformOrigin: 'center',
           }}
         >
@@ -128,7 +131,7 @@ const Machinery = () => {
       </div>
 
       {/* ================= HERO ================= */}
-      <div className="relative h-screen overflow-hidden">
+      <div className="relative min-h-screen overflow-hidden">
 
         {/* SVG BACKGROUND */}
         <div className="absolute inset-0 z-0 pointer-events-none">
@@ -156,13 +159,13 @@ const Machinery = () => {
         </div>
 
         {/* CONTENT */}
-        <div className="relative z-10 h-full flex flex-col justify-center">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center py-24 sm:py-28 lg:py-0 lg:h-screen">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
               {/* LEFT */}
-              <div ref={leftContentRef} className="space-y-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-[#051747]">
+              <div ref={leftContentRef} className="space-y-6 sm:space-y-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#051747]">
                   Advanced Machinery for Superior Construction
                 </h2>
 
@@ -172,7 +175,8 @@ const Machinery = () => {
                   meticulously maintained and operated by trained professionals.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-xl">
+                {/* Stats - single col on very small, 3 col on sm+ */}
+                <div className="grid grid-cols-1 xs:grid-cols-3 sm:grid-cols-3 gap-4 max-w-xl">
                   {[
                     { value: '30+', label: 'Machines & Equipment' },
                     { value: '₹50 Cr+', label: 'Fleet Investment' },
@@ -180,12 +184,12 @@ const Machinery = () => {
                   ].map((stat, i) => (
                     <div
                       key={i}
-                      className="rounded-2xl p-6 text-center bg-[#E7E9F0] shadow-[0_18px_55px_rgba(8,31,98,0.15)]"
+                      className="rounded-2xl p-4 sm:p-6 text-center bg-[#E7E9F0] shadow-[0_18px_55px_rgba(8,31,98,0.15)]"
                     >
-                      <p className="text-4xl font-extrabold text-[#051747]">
+                      <p className="text-3xl sm:text-4xl font-extrabold text-[#051747]">
                         {stat.value}
                       </p>
-                      <p className="mt-2 text-sm font-extrabold text-[#535F80] uppercase">
+                      <p className="mt-2 text-xs sm:text-sm font-extrabold text-[#535F80] uppercase">
                         {stat.label}
                       </p>
                     </div>
@@ -193,7 +197,7 @@ const Machinery = () => {
                 </div>
 
                 {/* BUTTON */}
-                <div className="text-center mt-12">
+                <div className="text-center lg:text-left mt-8 sm:mt-12">
                   <button
                     onClick={() => setShowMachines((prev) => !prev)}
                     className="bg-[#081F62] hover:bg-[#051747] text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 transition-colors"
@@ -209,7 +213,7 @@ const Machinery = () => {
                 <img
                   src="/3DAssets/006Ab.png"
                   alt="Construction Machinery Fleet 3D"
-                  className="w-full h-auto object-contain drop-shadow-2xl hover:scale-110 transition-transform duration-500"
+                  className="w-full max-w-sm sm:max-w-md lg:max-w-none h-auto object-contain drop-shadow-2xl hover:scale-110 transition-transform duration-500"
                 />
               </div>
 
@@ -222,13 +226,13 @@ const Machinery = () => {
       {showMachines && (
         <div
           ref={expandedRef}
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 mt-12 bg-[#FEFEFE]"
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 mt-8 sm:mt-12 bg-[#FEFEFE]"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {machines.map((machine) => (
               <div
                 key={machine.id}
-                className="relative rounded-xl overflow-hidden h-64 group hover:shadow-lg transition-all"
+                className="relative rounded-xl overflow-hidden h-48 sm:h-64 group hover:shadow-lg transition-all"
                 style={{
                   backgroundImage: `url('${machine.image}')`,
                   backgroundSize: 'cover',
@@ -237,10 +241,10 @@ const Machinery = () => {
               >
                 <div className="absolute inset-0 bg-black/70 group-hover:bg-black/20 transition-colors" />
                 <div className="relative z-10 h-full flex flex-col items-center justify-center text-center">
-                  <p className="text-6xl font-bold text-white">
+                  <p className="text-5xl sm:text-6xl font-bold text-white">
                     {(machine.specs.match(/\d+/) || ['1'])[0]}
                   </p>
-                  <h4 className="font-semibold text-white text-lg mt-4">
+                  <h4 className="font-semibold text-white text-base sm:text-lg mt-3 sm:mt-4">
                     {machine.name}
                   </h4>
                 </div>

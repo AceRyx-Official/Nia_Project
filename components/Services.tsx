@@ -15,287 +15,283 @@ export default function Services() {
   const cardsRef = useRef<HTMLDivElement>(null);
 
   /* ================= GSAP ANIMATION ================= */
- useEffect(() => {
-  if (!sectionRef.current) return;
+  useEffect(() => {
+    if (!sectionRef.current) return;
 
-  const ctx = gsap.context(() => {
-    /* ================= INITIAL STATES ================= */
-
-    gsap.set(bigArrowRef.current, {
-      x: 0,
-      y:-150,
-      opacity: 1,
-      scale: 2.4,
-      transformOrigin: 'center',
-    });
-
-    gsap.set(titleRef.current, {
-      y: 40,
-      opacity: 0,
-    });
-
-    gsap.set(imageRef.current, {
-      y: 60,
-      opacity: 0,
-    });
-
-    gsap.set(cardsRef.current?.children || [], {
-      opacity: 0, // 👈 subtle scale-in for smoothness
-    });
-
-    /* ================= TIMELINE ================= */
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 70%',
-        once: true,
-      },
-    });
-
-    // small buffer
-    tl.to({}, { duration: 0.4 });
-
-    // BIG ARROW EXIT
-    tl.to(bigArrowRef.current, {
-      x: '120vw',
-      opacity: 0,
-      duration: 1.4,
-      ease: 'power4.inOut',
-    });
-
-    // TITLE
-    tl.to(
-      titleRef.current,
-      {
-        y: 0,
+    const ctx = gsap.context(() => {
+      /* ================= INITIAL STATES ================= */
+      gsap.set(bigArrowRef.current, {
+        x: 0,
+        y: -150,
         opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-      },
-      '-=0.4'
-    );
+        scale: 1,
+        transformOrigin: 'center',
+      });
 
-    // IMAGE
-    tl.to(
-      imageRef.current,
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-      },
-      '-=0.5'
-    );
+      gsap.set(titleRef.current, {
+        y: 40,
+        opacity: 0,
+      });
 
-    // CARDS — ROW BY ROW (2 AT A TIME, SMOOTH)
-    tl.to(
-  cardsRef.current?.children || [],
-  {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    duration: 0.8,
-    stagger: 0.2,          // 👈 one after the other
-    ease: 'power4.out',
-  },
-  '-=0.3'
-);
+      gsap.set(imageRef.current, {
+        y: 60,
+        opacity: 0,
+      });
 
-  }, sectionRef);
+      gsap.set(cardsRef.current?.children || [], {
+        opacity: 0,
+      });
 
-  return () => ctx.revert();
-}, []);
+      /* ================= TIMELINE ================= */
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 70%',
+          once: true,
+        },
+      });
 
-return (
-  <section ref={sectionRef} className="relative bg-[#FEFEFE] overflow-hidden ">
+      tl.to({}, { duration: 0.4 });
 
-    {/* ================= BIG CENTER ARROW ================= */}
-    <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-      <div
-        ref={bigArrowRef}
-        className="bg-[#051747] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
-        style={{
-          clipPath:
-            'polygon(0 0, calc(100% - 80px) 0, 100% 50%, calc(100% - 80px) 100%, 0 100%)',
-        }}
-      >
-        SERVICES
+      tl.to(bigArrowRef.current, {
+        x: '120vw',
+        opacity: 0,
+        duration: 1.4,
+        ease: 'power4.inOut',
+      });
+
+      tl.to(
+        titleRef.current,
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+        },
+        '-=0.4'
+      );
+
+      tl.to(
+        imageRef.current,
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+        },
+        '-=0.5'
+      );
+
+      tl.to(
+        cardsRef.current?.children || [],
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power4.out',
+        },
+        '-=0.3'
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="relative bg-[#FEFEFE] overflow-hidden">
+
+      {/* ================= BIG CENTER ARROW ================= */}
+      <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+        <div
+          ref={bigArrowRef}
+          className="bg-[#051747] text-white font-bold uppercase tracking-widest shadow-2xl
+                     px-12 py-6 text-2xl
+                     sm:px-20 sm:py-10 sm:text-4xl
+                     lg:px-32 lg:py-14 lg:text-6xl"
+          style={{
+            clipPath:
+              'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
+          }}
+        >
+          SERVICES
+        </div>
       </div>
-    </div>
 
-    <div className="max-w-screen-6xl mx-auto px-16 sm:px-6 lg:px-36 pb-16 pt-8">
-      <div className="grid lg:grid-cols-2 gap-12 items-start">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-36 pb-16 pt-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-        {/* LEFT */}
-        <div className="flex flex-col justify-start lg:order-1 max-w-4xl">
-          <div className="mb-8">
-            <h2
-              ref={titleRef}
-              className="text-4xl md:text-5xl font-bold text-[#051747] leading-tight mt-10 mb-3"
+          {/* LEFT */}
+          <div className="flex flex-col justify-start lg:order-1 max-w-4xl">
+            <div className="mb-6 lg:mb-8">
+              <h2
+                ref={titleRef}
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#051747] leading-tight mt-16 sm:mt-10 mb-3"
+              >
+                Expert construction services for every need
+                <div className="w-24 h-1 bg-[#FFC107] mt-4"></div>
+              </h2>
+            </div>
+
+            {/* IMAGE */}
+            <div ref={imageRef} className="w-full max-w-3xl mx-auto">
+              <div className="relative transform hover:scale-105 transition-transform duration-500">
+                <Image
+                  src="/3DAssets/013a.png"
+                  alt="3D Construction Services Visualization"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT — CARDS */}
+          <div className="lg:flex lg:flex-col lg:justify-start lg:order-2 lg:pt-2 mt-6 lg:mt-24">
+            <div
+              ref={cardsRef}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
             >
-              Expert construction services for every need
-              <div className="w-24 h-1 bg-[#FFC107] mt-4"></div>
-            </h2>
-            
-          </div>
 
-          {/* IMAGE */}
-          <div ref={imageRef} className="w-full max-w-3xl mx-auto ">
-            <div className="relative transform hover:scale-105 transition-transform duration-500">
-              <Image
-                src="/3DAssets/013a.png"
-                alt="3D Construction Services Visualization"
-                width={600}
-                height={400}
-                className="w-full h-auto object-contain drop-shadow-2xl"
-              />
+              {/* 1 */}
+              <div className="group relative min-h-[160px] sm:min-h-[180px] p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+                <div className="absolute -right-36 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
+                  <Image src="/Services/wrench.png" alt="Road Construction" width={384} height={384} className="w-90 h-90 object-contain opacity-60" />
+                </div>
+                <div className="relative z-10 flex flex-col h-full justify-start gap-2 sm:gap-3">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#051747]">
+                    Road Construction & Development
+                  </h4>
+                  {/* Always visible on mobile, hover-reveal on desktop */}
+                  <span className="text-sm font-medium text-[#535F80] sm:max-h-0 sm:overflow-hidden sm:group-hover:max-h-20 transition-all duration-300 ease-out">
+                    Durable road networks and high-strength concrete road works.
+                  </span>
+                </div>
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-2"
+                  style={{
+                    backgroundImage:
+                      'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',
+                  }}
+                />
+              </div>
+
+              {/* 2 */}
+              <div className="group relative min-h-[160px] sm:min-h-[180px] p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+                <div className="absolute -right-40 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
+                  <Image src="/Services/Tetra.png" alt="RMC" width={384} height={384} className="w-[28rem] h-[28rem] object-contain opacity-60" />
+                </div>
+                <div className="relative z-10 flex flex-col h-full justify-start gap-2 sm:gap-3">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#051747]">
+                    RMC (Ready Mix Concrete)
+                  </h4>
+                  <span className="text-sm font-medium text-[#535F80] sm:max-h-0 sm:overflow-hidden sm:group-hover:max-h-20 transition-all duration-300 ease-out">
+                    High-performance concrete with in-house batching and on-site delivery.
+                  </span>
+                </div>
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-2"
+                  style={{
+                    backgroundImage:
+                      'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',
+                  }}
+                />
+              </div>
+
+              {/* 3 */}
+              <div className="group relative min-h-[160px] sm:min-h-[180px] p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+                <div className="absolute -right-16 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
+                  <Image src="/Services/swirl.png" alt="Excavation" width={384} height={384} className="w-60 h-60 object-contain opacity-60" />
+                </div>
+                <div className="relative z-10 flex flex-col h-full justify-start gap-2 sm:gap-3">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#051747]">
+                    Excavation Services
+                  </h4>
+                  <span className="text-sm font-medium text-[#535F80] sm:max-h-0 sm:overflow-hidden sm:group-hover:max-h-20 transition-all duration-300 ease-out">
+                    Foundation, site and utility excavation with expert handling.
+                  </span>
+                </div>
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-2"
+                  style={{
+                    backgroundImage:
+                      'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',
+                  }}
+                />
+              </div>
+
+              {/* 4 */}
+              <div className="group relative min-h-[160px] sm:min-h-[180px] p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+                <div className="absolute -right-20 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
+                  <Image src="/Services/Gear.png" alt="Infrastructure" width={384} height={384} className="w-80 h-80 object-contain opacity-60" />
+                </div>
+                <div className="relative z-10 flex flex-col h-full justify-start gap-2 sm:gap-3">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#051747]">
+                    Infrastructure & Civil Works
+                  </h4>
+                  <span className="text-sm font-medium text-[#535F80] sm:max-h-0 sm:overflow-hidden sm:group-hover:max-h-20 transition-all duration-300 ease-out">
+                    Drainage, culverts, retaining walls, footpaths, medians and ducting work.
+                  </span>
+                </div>
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-2"
+                  style={{
+                    backgroundImage:
+                      'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',
+                  }}
+                />
+              </div>
+
+              {/* 5 */}
+              <div className="group relative min-h-[160px] sm:min-h-[180px] p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+                <div className="absolute -right-20 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
+                  <Image src="/Services/hammer.png" alt="Machinery" width={384} height={384} className="w-72 h-72 object-contain opacity-60" />
+                </div>
+                <div className="relative z-10 flex flex-col h-full justify-start gap-2 sm:gap-3">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#051747]">
+                    Machinery & Equipment Support
+                  </h4>
+                  <span className="text-sm font-medium text-[#535F80] sm:max-h-0 sm:overflow-hidden sm:group-hover:max-h-20 transition-all duration-300 ease-out">
+                    Fleet of excavators, rollers, pavers, graders and on-site mechanical support.
+                  </span>
+                </div>
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-2"
+                  style={{
+                    backgroundImage:
+                      'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',
+                  }}
+                />
+              </div>
+
+              {/* 6 */}
+              <div className="group relative min-h-[160px] sm:min-h-[180px] p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
+                <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
+                  <Image src="/Services/helmet.png" alt="Project Management" width={384} height={384} className="w-80 h-80 object-contain opacity-60" />
+                </div>
+                <div className="relative z-10 flex flex-col h-full justify-start gap-2 sm:gap-3">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#051747]">
+                    Project Management & Turnkey
+                  </h4>
+                  <span className="text-sm font-medium text-[#535F80] sm:max-h-0 sm:overflow-hidden sm:group-hover:max-h-20 transition-all duration-300 ease-out">
+                    End-to-end turnkey execution with safety, quality and planned delivery.
+                  </span>
+                </div>
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-2"
+                  style={{
+                    backgroundImage:
+                      'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',
+                  }}
+                />
+              </div>
+
             </div>
-          </div>
-        </div>
-
-        {/* RIGHT — CARDS */}
-        <div className="lg:flex lg:flex-col lg:justify-start lg:order-2 lg:pt-2 mt-24">
-          <div
-            ref={cardsRef}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-          >
-
-            {/* 1 */}
-            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
-              <div className="absolute -right-36 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
-                <Image src="/Services/wrench.png" alt="Road Construction" width={384} height={384} className="w-90 h-90 object-contain opacity-60" />
-              </div>
-              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
-                <h4 className="font-bold text-xl text-[#051747]">
-                  Road Construction & Development
-                </h4>
-                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
-                  Durable road networks and high-strength concrete road works.
-                </span>
-              </div>
-              <div
-                className="absolute bottom-0 left-0 right-0 h-2"
-                style={{
-                  backgroundImage:
-                    'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',  
-                }}
-              />
-            </div>
-
-            {/* 2 */}
-            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
-              <div className="absolute -right-40 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
-                <Image src="/Services/Tetra.png" alt="RMC" width={384} height={384} className="w-[28rem] h-[28rem] object-contain opacity-60" />
-              </div>
-              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
-                <h4 className="font-bold text-xl text-[#051747]">
-                  RMC (Ready Mix Concrete)
-                </h4>
-                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
-                  High-performance concrete with in-house batching and on-site delivery.
-                </span>
-              </div>
-              <div
-                className="absolute bottom-0 left-0 right-0 h-2"
-                style={{
-                  backgroundImage:
-                    'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',  
-                }}
-              />
-            </div>
-
-            {/* 3 */}
-            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
-              <div className="absolute -right-16 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
-                <Image src="/Services/swirl.png" alt="Excavation" width={384} height={384} className="w-60 h-60 object-contain opacity-60" />
-              </div>
-              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
-                <h4 className="font-bold text-xl text-[#051747]">
-                  Excavation Services
-                </h4>
-                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
-                  Foundation, site and utility excavation with expert handling.
-                </span>
-              </div>
-              <div
-                className="absolute bottom-0 left-0 right-0 h-2"
-                style={{
-                  backgroundImage:
-                   'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)', 
-                }}
-              />
-            </div>
-
-            {/* 4 */}
-            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
-              <div className="absolute -right-20 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
-                <Image src="/Services/Gear.png" alt="Infrastructure" width={384} height={384} className="w-80 h-80 object-contain opacity-60" />
-              </div>
-              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
-                <h4 className="font-bold text-xl text-[#051747]">
-                  Infrastructure & Civil Works
-                </h4>
-                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
-                  Drainage, culverts, retaining walls, footpaths, medians and ducting work.
-                </span>
-              </div>
-              <div
-                className="absolute bottom-0 left-0 right-0 h-2"
-                style={{
-                  backgroundImage:
-                    'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',  
-                }}
-              />
-            </div>
-
-            {/* 5 */}
-            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
-              <div className="absolute -right-20 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
-                <Image src="/Services/hammer.png" alt="Machinery" width={384} height={384} className="w-72 h-72 object-contain opacity-60" />
-              </div>
-              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
-                <h4 className="font-bold text-xl text-[#051747]">
-                  Machinery & Equipment Support
-                </h4>
-                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
-                  Fleet of excavators, rollers, pavers, graders and on-site mechanical support.
-                </span>
-              </div>
-              <div
-                className="absolute bottom-0 left-0 right-0 h-2"
-                style={{
-                  backgroundImage:
-                   'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',
-                }}
-              />
-            </div>
-
-            {/* 6 */}
-            <div className="group relative min-h-[180px] p-6 rounded-xl shadow-lg hover:shadow-2xl bg-[#E7E9F0] overflow-hidden transform hover:scale-[1.03] transition-all duration-300">
-              <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-0 transition-opacity duration-300 group-hover:opacity-40">
-                <Image src="/Services/helmet.png" alt="Project Management" width={384} height={384} className="w-80 h-80 object-contain opacity-60" />
-              </div>
-              <div className="relative z-10 flex flex-col h-full justify-start gap-3">
-                <h4 className="font-bold text-xl text-[#051747]">
-                  Project Management & Turnkey
-                </h4>
-                <span className="text-sm font-medium text-[#535F80] max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 ease-out">
-                  End-to-end turnkey execution with safety, quality and planned delivery.
-                </span>
-              </div>
-              <div
-                className="absolute bottom-0 left-0 right-0 h-2"
-                style={{
-                  backgroundImage:
-                    'repeating-linear-gradient(90deg, #FFC107 0px, #FFC107 10px, #000000 10px, #000000 20px)',  
-                }}
-              />
-            </div>
-
           </div>
         </div>
       </div>
-    </div>
-  </section>
-)};
+    </section>
+  );
+}

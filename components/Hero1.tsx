@@ -7,8 +7,15 @@ import { ArrowRight, Play } from 'lucide-react';
 
 const Hero1 = () => {
   /* ================= ANIMATION GATE ================= */
-
   const [canAnimate, setCanAnimate] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   useEffect(() => {
     if (sessionStorage.getItem('navShown') === 'true') {
@@ -64,7 +71,7 @@ const Hero1 = () => {
     },
     visible: {
       opacity: 1,
-      x: -100,
+      x: isMobile ? 0 : -100,
       scale: 1,
       transition: {
         duration: 3,
@@ -93,31 +100,31 @@ const Hero1 = () => {
         variants={mainContainer}
         initial="hidden"
         animate={canAnimate ? 'visible' : 'hidden'}
-        className="relative z-10 w-full max-w-8xl mx-auto px-6 md:px-12 lg:px-32"
+        className="relative z-10 w-full max-w-8xl mx-auto px-6 md:px-12 lg:px-32 pt-24 pb-12"
       >
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
 
           {/* LEFT - Text Content */}
           <motion.div
             variants={textContainer}
-            className="w-full lg:w-1/2"
+            className="w-full lg:w-1/2 text-center lg:text-left"
           >
             <motion.h1
               variants={fadeUp}
-              className="text-6xl md:text-7xl text-white leading-tight mb-3 font-bold"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-3 font-bold"
             >
               Inspired by Nature,
             </motion.h1>
 
             <motion.h1 variants={fadeUp}>
-              <span className="text-orange-400 text-6xl md:text-7xl leading-tight font-bold">
+              <span className="text-orange-400 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight font-bold">
                 Perfected by Vision
               </span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="text-lg text-white max-w-xl mb-10 mt-10"
+              className="text-base sm:text-lg text-white max-w-xl mb-8 mt-8 mx-auto lg:mx-0"
             >
               NIA Infra Project delivers thoughtful, reliable construction solutions
               with a focus on quality execution, safety, and long-term value.
@@ -125,11 +132,11 @@ const Hero1 = () => {
 
             <motion.div
               variants={fadeUp}
-              className="flex flex-col sm:flex-row gap-5"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a
                 href="/projects"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-orange-400 text-black font-medium hover:bg-orange-500 transition"
+                className="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-full bg-orange-400 text-black font-medium hover:bg-orange-500 transition"
               >
                 View Our Projects
                 <ArrowRight className="w-4 h-4" />
@@ -137,7 +144,7 @@ const Hero1 = () => {
 
               <a
                 href="/contact"
-                className="inline-flex bg-white items-center justify-center gap-3 px-8 py-4 rounded-full border border-slate-300 text-slate-800 font-medium hover:bg-slate-50 transition"
+                className="inline-flex bg-white items-center justify-center gap-3 px-6 py-4 rounded-full border border-slate-300 text-slate-800 font-medium hover:bg-slate-50 transition"
               >
                 <Play className="w-4 h-4" />
                 Contact Us
@@ -153,7 +160,7 @@ const Hero1 = () => {
             <motion.div
               whileHover={{ scale: 1.01 }}
               transition={{ type: 'spring', stiffness: 180, damping: 18 }}
-              className="relative w-full"
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-none"
             >
               <img
                 src="/excavator.png"

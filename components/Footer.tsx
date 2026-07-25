@@ -114,11 +114,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="py-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[#E0D4C3] text-sm"
+            className="text-[#E0D4C3] text-sm text-center md:text-left"
           >
             &copy; {new Date().getFullYear()} Nia Infra Project. Created By SocialVortex.
           </motion.p>
@@ -126,7 +126,7 @@ const Footer = () => {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="flex gap-8"
+            className="flex flex-wrap justify-center gap-4 sm:gap-8"
           >
             {[
               { label: 'Privacy Policy', href: '#' },

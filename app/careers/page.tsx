@@ -118,7 +118,7 @@ export default function CareersPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold text-white mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             >
               Build Your Career with
               <span className="block text-[#E0D4C3]">NIA Infra Project</span>
@@ -128,7 +128,7 @@ export default function CareersPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg text-gray-300 max-w-2xl mx-auto"
+              className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto"
             >
               Join a team of dedicated professionals who are passionate about building 
               infrastructure that transforms communities. We offer exciting opportunities 
@@ -141,10 +141,10 @@ export default function CareersPage() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">
                 Why Work With Us
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
                 At NIA Infra Project, we believe our people are our greatest asset. 
                 We foster an environment where talent thrives and careers flourish.
               </p>
@@ -171,10 +171,10 @@ export default function CareersPage() {
         <section className="py-20 bg-gradient-to-b from-white to-[#F4F1ED]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">
                 Current Openings
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
                 Explore our open positions and find the perfect opportunity to advance your career 
                 in infrastructure development.
               </p>
@@ -250,10 +250,10 @@ export default function CareersPage() {
         {/* CTA Section */}
         <section className="py-20 bg-[#1e3a5f]">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
               Don&apos;t See the Right Position?
             </h2>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-300 mb-8 max-w-2xl mx-auto">
               We&apos;re always looking for talented individuals to join our team. 
               Send us your resume and we&apos;ll keep you in mind for future opportunities.
             </p>

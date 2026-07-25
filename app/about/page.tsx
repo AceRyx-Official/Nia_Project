@@ -181,43 +181,43 @@ export default function AboutPage() {
         transition={{
           layout: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
         }}
-        className="relative w-[80vw] h-[80vh] bg-white rounded-3xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.25)] grid grid-cols-[0.5fr_0.65fr]"
+        className="relative w-[95vw] sm:w-[85vw] md:w-[80vw] max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.25)] flex flex-col md:grid md:grid-cols-[0.5fr_0.65fr] md:h-[80vh]"
       >
-        {/* LEFT – IMAGE */}
+        {/* TOP/LEFT – IMAGE */}
         <motion.div
           layoutId={`image-${active.name}-${id}`}
           transition={{ layout: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }}
-          className="relative h-full overflow-hidden"
+          className="relative h-52 sm:h-64 md:h-full overflow-hidden flex-shrink-0"
         >
           <img
             src={active.image}
             alt={active.name}
             className="w-full h-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/40 to-transparent" />
         </motion.div>
 
-        {/* RIGHT – CONTENT */}
+        {/* BOTTOM/RIGHT – CONTENT */}
         <motion.div
           layout
           transition={{ layout: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }}
-          className="relative flex flex-col p-12 overflow-y-auto"
+          className="relative flex flex-col p-6 sm:p-8 md:p-12 overflow-y-auto"
         >
           <motion.h3
             layoutId={`title-${active.name}-${id}`}
-            className="text-4xl font-bold text-black"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black"
           >
             {active.name}
           </motion.h3>
 
           <motion.p
             layoutId={`role-${active.role}-${id}`}
-            className="text-orange-500 font-semibold text-lg mt-2"
+            className="text-orange-500 font-semibold text-base sm:text-lg mt-2"
           >
             {active.role}
           </motion.p>
 
-          <div className="mt-8 space-y-6 text-ms text-black/80 leading-relaxed">
+          <div className="mt-4 md:mt-8 space-y-4 md:space-y-6 text-sm md:text-base text-black/80 leading-relaxed">
             {active.content.map((text, i) => (
               <p key={i}>{text}</p>
             ))}
@@ -226,7 +226,7 @@ export default function AboutPage() {
           <motion.button
             layoutId={`button-${active.name}-${id}`}
             onClick={closeCard}
-            className="mt-auto self-start bg-orange-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-orange-600 "
+            className="mt-6 md:mt-auto self-start bg-orange-500 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold shadow-lg hover:bg-orange-600"
           >
             Close Profile
           </motion.button>
@@ -239,22 +239,22 @@ export default function AboutPage() {
 
 
       {/* ================= STORY ================= */}
-      <section className="relative py-32 px-6">
+      <section className="relative py-16 sm:py-20 lg:py-32 px-4 sm:px-6">
         <div ref={storyRef} className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <span className="inline-block text-orange-500 text-sm font-semibold tracking-widest uppercase mb-4">
                 Story
               </span>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
                 Infrastructure built with intent and integrity
               </h1>
               <div className="h-px w-24 bg-orange-500 mb-8" />
-              <p className="text-lg leading-relaxed text-black/80">
+              <p className="text-base sm:text-lg leading-relaxed text-black/80">
                 Nia Infra Projects was founded with a clear purpose — to deliver dependable
                 road and infrastructure solutions that strengthen connectivity and mobility.
               </p>
-              <p className="mt-6 text-lg leading-relaxed text-black/80">
+              <p className="mt-6 text-base sm:text-lg leading-relaxed text-black/80">
                 From road development to complex execution challenges, every project reflects
                 precision, safety, and long-term performance.
               </p>
@@ -279,16 +279,16 @@ export default function AboutPage() {
       </section>
 
     {/* ================= LEADERS ================= */}
-<section className="py-32 px-6 bg-neutral-50">
+<section className="py-16 sm:py-20 lg:py-32 px-4 sm:px-6 bg-neutral-50">
   <div ref={leadersRef} className="max-w-6xl mx-auto">
     <span className="inline-block text-orange-500 text-sm font-semibold tracking-widest uppercase mb-4">
       Leadership
     </span>
-    <h2 className="text-4xl font-bold mb-14">
+    <h2 className="text-3xl sm:text-4xl font-bold mb-10 sm:mb-14">
       People driving execution excellence
     </h2>
 
-    <div className="grid md:grid-cols-2 gap-24 max-w-4xl mx-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16 lg:gap-24 max-w-4xl mx-auto">
       {leaders.map((leader) => (
         <motion.div
           key={`card-${leader.name}-${id}`}
@@ -302,7 +302,7 @@ export default function AboutPage() {
           <motion.div
             layoutId={`image-${leader.name}-${id}`}
             transition={{ layout: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }}
-            className="relative h-[420px] overflow-hidden"
+            className="relative h-64 sm:h-[360px] lg:h-[420px] overflow-hidden"
           >
             <img
               src={leader.image}
@@ -314,10 +314,10 @@ export default function AboutPage() {
           </motion.div>
 
           {/* TEXT */}
-          <div className="absolute bottom-0 w-full p-6 text-white">
+          <div className="absolute bottom-0 w-full p-4 sm:p-6 text-white">
             <motion.h3
               layoutId={`title-${leader.name}-${id}`}
-              className="text-2xl font-bold leading-tight"
+              className="text-xl sm:text-2xl font-bold leading-tight"
             >
               {leader.name}
             </motion.h3>
@@ -331,7 +331,7 @@ export default function AboutPage() {
 
             <motion.button
               layoutId={`button-${leader.name}-${id}`}
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold bg-white/10 backdrop-blur-md px-5 py-2 rounded-full hover:bg-white/20 transition"
+              className="mt-3 sm:mt-4 inline-flex items-center gap-2 text-sm font-semibold bg-white/10 backdrop-blur-md px-4 sm:px-5 py-2 rounded-full hover:bg-white/20 transition"
             >
               View Profile <ChevronDown size={16} />
             </motion.button>
@@ -345,19 +345,19 @@ export default function AboutPage() {
 
 
       {/* ================= MISSION & VISION ================= */}
-      <section className="py-32 px-6">
+      <section className="py-16 sm:py-20 lg:py-32 px-4 sm:px-6">
         <div
           ref={missionVisionRef}
-          className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20"
+          className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-12 lg:gap-20"
         >
           <div>
             <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">
               Vision
             </span>
-            <h2 className="text-3xl font-bold mt-3 mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold mt-3 mb-6">
               Advancing reliable infrastructure networks
             </h2>
-            <p className="text-lg text-black/80">
+            <p className="text-base sm:text-lg text-black/80">
               Delivering durable, safe, and future-ready road networks.
             </p>
           </div>
@@ -365,10 +365,10 @@ export default function AboutPage() {
             <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">
               Mission
             </span>
-            <h2 className="text-3xl font-bold mt-3 mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold mt-3 mb-6">
               Executing roads with precision and trust
             </h2>
-            <p className="text-lg text-black/80">
+            <p className="text-base sm:text-lg text-black/80">
               Disciplined execution, in-house expertise, and long-term performance.
             </p>
           </div>
@@ -376,16 +376,16 @@ export default function AboutPage() {
       </section>
 
       {/* ================= CLIENTS ================= */}
-      <section className="py-32 px-6 bg-neutral-50">
+      <section className="py-16 sm:py-20 lg:py-32 px-4 sm:px-6 bg-neutral-50">
         <div ref={clientsRef} className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block text-orange-500 text-sm font-semibold tracking-widest uppercase mb-4">
               Our Clients
             </span>
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Trusted by Leading Organizations
             </h2>
-            <p className="text-lg text-black/60 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-black/60 max-w-2xl mx-auto">
               We are proud to partner with government bodies and private enterprises 
               in delivering infrastructure excellence.
             </p>
@@ -447,16 +447,16 @@ export default function AboutPage() {
       </section>
 
       {/* ================= CERTIFICATIONS ================= */}
-      <section className="py-32 px-6">
+      <section className="py-16 sm:py-20 lg:py-32 px-4 sm:px-6">
         <div ref={certificationsRef} className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block text-orange-500 text-sm font-semibold tracking-widest uppercase mb-4">
               Certifications
             </span>
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Quality & Compliance Standards
             </h2>
-            <p className="text-lg text-black/60 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-black/60 max-w-2xl mx-auto">
               Our certifications reflect our commitment to maintaining the highest standards 
               in construction quality, safety, and environmental responsibility.
             </p>
@@ -526,16 +526,16 @@ export default function AboutPage() {
       </section>
 
       {/* ================= CSR ================= */}
-      <section className="py-32 px-6 bg-gradient-to-b from-[#1e3a5f] to-[#0f1f3d] text-white">
+      <section className="py-16 sm:py-20 lg:py-32 px-4 sm:px-6 bg-gradient-to-b from-[#1e3a5f] to-[#0f1f3d] text-white">
         <div ref={csrRef} className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block text-orange-400 text-sm font-semibold tracking-widest uppercase mb-4">
               Corporate Social Responsibility
             </span>
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Building Communities, Not Just Roads
             </h2>
-            <p className="text-lg text-white/70 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-white/70 max-w-3xl mx-auto">
               At NIA Infra Project, we believe that true infrastructure development goes beyond 
               construction. We are committed to creating lasting positive impact in the 
               communities we serve.

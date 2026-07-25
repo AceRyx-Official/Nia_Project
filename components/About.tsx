@@ -97,17 +97,20 @@ const About = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-[#FEFEFE]"
+      className="relative min-h-screen overflow-hidden bg-[#FEFEFE]"
     >
       {/* BIG CENTER ARROW */}
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
         <div
           ref={bigArrowRef}
-          className="bg-[#051747] text-white px-32 py-14 font-bold uppercase tracking-widest text-6xl shadow-2xl"
+          className="bg-[#051747] text-white font-bold uppercase tracking-widest shadow-2xl
+                     px-12 py-6 text-2xl
+                     sm:px-20 sm:py-10 sm:text-4xl
+                     lg:px-32 lg:py-14 lg:text-6xl"
           style={{
             clipPath:
-              'polygon(0 0, calc(100% - 80px) 0, 100% 50%, calc(100% - 80px) 100%, 0 100%)',
-            transform: 'scale(2.4)',
+              'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)',
+            transform: 'scale(1.2)',
             transformOrigin: 'center',
           }}
         >
@@ -148,11 +151,11 @@ const About = () => {
       </svg>
 
       {/* CONTENT GRID */}
-      <div className="relative z-30 grid lg:grid-cols-2 h-screen">
+      <div className="relative z-30 grid lg:grid-cols-2 min-h-screen">
         {/* LEFT */}
-        <div className="px-8 sm:px-12 lg:px-16 pt-8 lg:pt-12 pb-6 lg:pb-12 flex items-center">
+        <div className="px-6 sm:px-10 lg:px-16 pt-24 sm:pt-28 lg:pt-12 pb-8 lg:pb-12 flex items-center">
           <div ref={contentRef} className="max-w-xl mx-auto space-y-6">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#081F62] leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#081F62] leading-tight">
               Reliable Technical
               <br />
               Expertise
@@ -164,27 +167,27 @@ const About = () => {
               development.
             </p>
 
-            <div className="grid grid-cols-3 gap-4 pt-8">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-4 sm:pt-8">
               {[Settings, Truck, HardHat].map((Icon, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center text-center rounded-[20px] bg-transparent shadow-[0_10px_45px_rgba(5,23,71,0.15)] p-4"
+                  className="flex flex-col items-center text-center rounded-[20px] bg-transparent shadow-[0_10px_45px_rgba(5,23,71,0.15)] p-3 sm:p-4"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#FEFEFE] border-4 border-[#535F80] flex items-center justify-center mb-3 shadow-lg">
-                    <Icon className="w-10 h-10 text-[#081F62]" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#FEFEFE] border-4 border-[#535F80] flex items-center justify-center mb-2 sm:mb-3 shadow-lg">
+                    <Icon className="w-7 h-7 sm:w-10 sm:h-10 text-[#081F62]" />
                   </div>
-                  <h4 className="text-sm font-semibold text-[#081F62]">
+                  <h4 className="text-xs sm:text-sm font-semibold text-[#081F62]">
                     {['Structured Planning', 'Phased Execution', 'On-Site Safety'][i]}
                   </h4>
                 </div>
               ))}
             </div>
 
-            <div className="pt-8">
+            <div className="pt-4 sm:pt-8">
               <Link href="/about">
-                <button className="bg-[#051747] hover:bg-[#081F62] text-white px-8 py-4 rounded-full font-semibold shadow-lg transition-colors inline-flex items-center gap-2">
+                <button className="bg-[#051747] hover:bg-[#081F62] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-lg transition-colors inline-flex items-center gap-2 text-sm sm:text-base">
                   LEARN MORE ABOUT NIA INFRA PROJECTS
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                 </button>
               </Link>
             </div>
@@ -194,9 +197,9 @@ const About = () => {
         {/* RIGHT */}
         <div
           ref={imageRef}
-          className="flex items-center justify-center px-8 pt-8 lg:pt-12 pb-6 lg:pb-12"
+          className="flex items-center justify-center px-6 sm:px-8 pt-4 lg:pt-12 pb-8 lg:pb-12"
         >
-          <div className="relative w-full max-w-4xl scale-90">
+          <div className="relative w-full max-w-md lg:max-w-4xl lg:scale-90">
             <img
               src="/3DAssets/002Ab.png"
               alt="Infrastructure Development Visualization"

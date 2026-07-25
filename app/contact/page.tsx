@@ -128,10 +128,10 @@ export default function ContactPage() {
               <p className="text-[#535F80] text-sm font-semibold uppercase tracking-wider mb-4">
                 GET IN TOUCH
               </p>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#051747]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#051747]">
                 Let's Build Together
               </h1>
-              <p className="text-xl text-[#535F80] max-w-2xl mx-auto">
+              <p className="text-base sm:text-xl text-[#535F80] max-w-2xl mx-auto">
                 Ready to start your next construction project? Our team is here to help bring your vision to life.
               </p>
             </motion.div>
@@ -139,8 +139,8 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 pb-16 relative z-10">
-        <div className="grid lg:grid-cols-5 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-12 pb-16 relative z-10">
+        <div className="grid lg:grid-cols-5 gap-6 sm:gap-8">
 
           {/* Contact Information */}
           <div ref={cardsRef} className="lg:col-span-2 space-y-4">
@@ -245,7 +245,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div
             ref={formRef}
-            className="lg:col-span-3 bg-[#E7E9F0] rounded-2xl shadow-xl p-10 border border-[#535F80]/20"
+            className="lg:col-span-3 bg-[#E7E9F0] rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 border border-[#535F80]/20"
           >
             {error && (
               <motion.div
@@ -258,8 +258,8 @@ export default function ContactPage() {
               </motion.div>
             )}
             {/* Form Header */}
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold text-[#051747]">
+            <div className="mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#051747]">
                 Get in Touch
               </h2>
               <p className="mt-2 text-sm text-[#535F80]">

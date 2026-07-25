@@ -7,8 +7,15 @@ import { ArrowRight, Phone } from 'lucide-react';
 
 const Hero = () => {
   /* ================= ANIMATION GATE ================= */
-
   const [canAnimate, setCanAnimate] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   useEffect(() => {
     if (sessionStorage.getItem('navShown') === 'true') {
@@ -64,7 +71,7 @@ const Hero = () => {
     },
     visible: {
       opacity: 1,
-      x: -100,
+      x: isMobile ? 0 : -100,
       scale: 1,
       transition: {
         duration: 3,
@@ -89,7 +96,6 @@ const Hero = () => {
   };
 
   return (
-
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#FEFEFE]">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
@@ -126,30 +132,30 @@ const Hero = () => {
         variants={mainContainer}
         initial="hidden"
         animate={canAnimate ? 'visible' : 'hidden'}
-        className="relative z-10 w-full max-w-8xl mx-auto px-6 md:px-12 lg:px-32"
+        className="relative z-10 w-full max-w-8xl mx-auto px-6 md:px-12 lg:px-32 pt-24 pb-12"
       >
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
 
           {/* LEFT - Text Content */}
           <motion.div
             variants={textContainer}
-            className="w-full lg:w-1/2"
+            className="w-full lg:w-1/2 text-center lg:text-left"
           >
             <motion.h1
               variants={fadeUp}
-              className="text-6xl md:text-6xl text-[#FEFEFE] leading-tight mb-3 font-bold line"
+              className="text-4xl sm:text-5xl md:text-6xl text-[#FEFEFE] leading-tight mb-3 font-bold"
             >
               Inspired by Nature,
             </motion.h1>
             <motion.h1 variants={fadeUp}>
-              <span className="text-[#E7E9F0] text-6xl md:text-6xl leading-tight font-bold line">
+              <span className="text-[#E7E9F0] text-4xl sm:text-5xl md:text-6xl leading-tight font-bold">
                 Perfected by Vision
               </span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="text-lg text-[#E7E9F0] max-w-xl mb-10 mt-10"
+              className="text-base sm:text-lg text-[#E7E9F0] max-w-xl mb-8 mt-8 mx-auto lg:mx-0"
             >
               NIA Infra Project delivers thoughtful, reliable construction solutions
               with a focus on quality execution, safety, and long-term value.
@@ -157,11 +163,11 @@ const Hero = () => {
 
             <motion.div
               variants={fadeUp}
-              className="flex flex-col sm:flex-row gap-5"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a
                 href="/projects"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full
+                className="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-full
              bg-[#6fb9ee] text-[#000000] font-medium border-2 border-black hover:border-black hover:bg-[#f7f9ff]
              transition-shadow duration-300
              shadow-[0_8px_24px_rgba(0,14,54,0.45)]
@@ -171,10 +177,9 @@ const Hero = () => {
                 <ArrowRight className="w-4 h-4 opacity-80" />
               </a>
 
-
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full
+                className="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-full
              bg-[#FEFEFE] text-[#051747] font-medium
              border border-[#E7E9F0]
              transition-shadow duration-300
@@ -184,7 +189,6 @@ const Hero = () => {
                 <Phone className="w-4 h-4 opacity-80" />
                 Contact Us
               </a>
-
             </motion.div>
           </motion.div>
 
@@ -196,7 +200,7 @@ const Hero = () => {
             <motion.div
               whileHover={{ scale: 1.01 }}
               transition={{ type: 'spring', stiffness: 180, damping: 18 }}
-              className="relative w-full"
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-none"
             >
               <img
                 src="/excavator.png"
@@ -217,6 +221,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-//M 0 0 L 1117 0 C 1129 90 1145 234 1003 244 C 862 238 731 348 775 532 C 843 730 763 857 581 900 L 0 900 Z M 1440 900 L 937 899 C 1103 822 1247 866 1269 820 C 1357 759 1271 731 1297 714 C 1272 672 1354 665 1361 587 C 1358 450 1397 480 1440 387 L 1440 898
